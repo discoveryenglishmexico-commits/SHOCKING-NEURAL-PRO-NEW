@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOCKING PRONOUNS — El choque en el cerebro hispano</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5/index.css">
+<style>
+:root{
+  --bg:#04050e;
+  --bg2:#080b1c;
+  --panel:#0b0f24;
+  --panel2:#0e1330;
+  --cyan:#00e5ff;
+  --magenta:#ff2fd6;
+  --gold:#ffc94d;
+  --green:#2bffa7;
+  --red:#ff4d6a;
+  --txt:#e8ecff;
+  --muted:#9aa3c7;
+  --line:rgba(0,229,255,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+  line-height:1.65;
+}
+::selection{background:var(--magenta);color:#fff}
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%,transparent 40%,rgba(2,3,10,.75) 100%)}
+.wrap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ============ NAV ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  backdrop-filter:blur(16px);
+  background:rgba(4,5,14,.72);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.14em;
+  background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.logo .zap{color:var(--gold);-webkit-text-fill-color:var(--gold);animation:zapflick 3s infinite}
+@keyframes zapflick{0%,90%,100%{opacity:1}92%{opacity:.2}94%{opacity:1}96%{opacity:.3}}
+.nav-links{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap;align-items:center}
+.nav-links a{
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:8px;
+  border:1px solid transparent;transition:.3s;position:relative;
+}
+.nav-links a:hover{color:var(--cyan);border-color:rgba(0,229,255,.35);
+  box-shadow:0 0 14px rgba(0,229,255,.25),inset 0 0 10px rgba(0,229,255,.08);text-shadow:0 0 8px var(--cyan)}
+.nav-links a.active{color:#fff;border-color:var(--magenta);
+  box-shadow:0 0 16px rgba(255,47,214,.4),inset 0 0 10px rgba(255,47,214,.12);text-shadow:0 0 8px var(--magenta)}
+.nav-links a.home{color:var(--gold);border-color:rgba(255,201,77,.45);background:rgba(255,201,77,.07);
+  text-shadow:0 0 8px rgba(255,201,77,.5);margin-right:6px}
+.nav-links a.home:hover{color:#fff;border-color:var(--gold);background:rgba(255,201,77,.18);
+  box-shadow:0 0 18px rgba(255,201,77,.45)}
+
+/* ============ LED STRIP ============ */
+.leds{display:flex;gap:14px;justify-content:center;align-items:center;padding:6px 0}
+.led{width:7px;height:7px;border-radius:50%;background:#1a2040;position:relative;animation:ledblink 2.4s infinite}
+.led.c{--lc:var(--cyan)} .led.m{--lc:var(--magenta)} .led.g{--lc:var(--gold)} .led.v{--lc:var(--green)}
+@keyframes ledblink{
+  0%,100%{background:#1a2040;box-shadow:none}
+  12%{background:var(--lc);box-shadow:0 0 10px var(--lc),0 0 22px var(--lc)}
+  30%{background:#1a2040;box-shadow:none}
+}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:130px 24px 60px}
+.brain-box{position:relative;width:300px;height:300px;margin-bottom:8px}
+.brain-box svg{width:100%;height:100%;filter:drop-shadow(0 0 26px rgba(0,229,255,.35))}
+.ring{fill:none;stroke-width:1.2;stroke-dasharray:6 10;transform-origin:150px 150px}
+.ring1{stroke:rgba(0,229,255,.5);animation:spin 26s linear infinite}
+.ring2{stroke:rgba(255,47,214,.4);animation:spin 34s linear infinite reverse}
+.ring3{stroke:rgba(255,201,77,.35);animation:spin 44s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.node{animation:nodepulse 2s infinite}
+@keyframes nodepulse{0%,100%{opacity:.35;r:3}50%{opacity:1;r:4.5}}
+.bolt{stroke:var(--gold);stroke-width:2;fill:none;stroke-linecap:round;
+  filter:drop-shadow(0 0 6px var(--gold));opacity:0;animation:boltflash 4s infinite}
+.bolt2{animation-delay:2s;stroke:var(--magenta);filter:drop-shadow(0 0 6px var(--magenta))}
+@keyframes boltflash{0%,88%,100%{opacity:0}90%{opacity:1}92%{opacity:.2}94%{opacity:1}97%{opacity:0}}
+.core{animation:corepulse 3s ease-in-out infinite}
+@keyframes corepulse{0%,100%{opacity:.85}50%{opacity:1;filter:drop-shadow(0 0 18px var(--cyan))}}
+
+.kicker{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.5em;text-transform:uppercase;
+  color:var(--cyan);text-shadow:0 0 14px var(--cyan);margin-bottom:14px}
+h1.glitch{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(2.6rem,8vw,5.6rem);letter-spacing:.04em;line-height:1.02;position:relative;
+  background:linear-gradient(92deg,#fff 10%,var(--cyan) 45%,var(--magenta) 75%,var(--gold) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+h1.glitch::before,h1.glitch::after{
+  content:attr(data-text);position:absolute;inset:0;
+  background:inherit;-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.7;
+}
+h1.glitch::before{animation:gl1 5s infinite;clip-path:inset(20% 0 55% 0)}
+h1.glitch::after{animation:gl2 5s infinite;clip-path:inset(60% 0 12% 0)}
+@keyframes gl1{0%,93%,100%{transform:none}94%{transform:translate(-6px,2px)}96%{transform:translate(5px,-2px)}98%{transform:translate(-3px,1px)}}
+@keyframes gl2{0%,93%,100%{transform:none}95%{transform:translate(6px,-2px)}97%{transform:translate(-5px,2px)}}
+.hero p.sub{max-width:720px;margin:22px auto 0;color:var(--muted);font-size:clamp(1rem,2vw,1.18rem)}
+.hero p.sub strong{color:var(--gold);text-shadow:0 0 10px rgba(255,201,77,.5)}
+.cta-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.btn-neon{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem;
+  padding:16px 34px;border-radius:12px;cursor:pointer;text-decoration:none;position:relative;overflow:hidden;
+  transition:.35s;border:1px solid var(--cyan);color:var(--cyan);background:rgba(0,229,255,.05);
+}
+.btn-neon::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transition:.6s}
+.btn-neon:hover::after{left:130%}
+.btn-neon:hover{color:#fff;background:rgba(0,229,255,.16);
+  box-shadow:0 0 24px rgba(0,229,255,.55),0 0 60px rgba(0,229,255,.25),inset 0 0 16px rgba(0,229,255,.2);
+  text-shadow:0 0 10px var(--cyan);transform:translateY(-3px)}
+.btn-neon.mg{border-color:var(--magenta);color:var(--magenta);background:rgba(255,47,214,.05)}
+.btn-neon.mg:hover{background:rgba(255,47,214,.16);
+  box-shadow:0 0 24px rgba(255,47,214,.55),0 0 60px rgba(255,47,214,.25),inset 0 0 16px rgba(255,47,214,.2);
+  color:#fff;text-shadow:0 0 10px var(--magenta)}
+.btn-neon.gold{border-color:var(--gold);color:var(--gold);background:rgba(255,201,77,.05)}
+.btn-neon.gold:hover{background:rgba(255,201,77,.16);
+  box-shadow:0 0 24px rgba(255,201,77,.55),0 0 60px rgba(255,201,77,.25),inset 0 0 16px rgba(255,201,77,.2);
+  color:#fff;text-shadow:0 0 10px var(--gold)}
+.scroll-hint{margin-top:56px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.3em;animation:bob 2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ============ SECTIONS ============ */
+section{padding:96px 0;position:relative}
+.sec-head{margin-bottom:46px}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.4em;color:var(--magenta);
+  text-shadow:0 0 12px var(--magenta);display:block;margin-bottom:10px}
+h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.7rem,4.4vw,2.7rem);line-height:1.15;letter-spacing:.02em}
+h2 .grad{background:linear-gradient(90deg,var(--cyan),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2 .grad-gold{background:linear-gradient(90deg,var(--gold),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-head p{color:var(--muted);max-width:760px;margin-top:14px}
+h3{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;margin:44px 0 18px;color:#fff}
+h3 .tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.25em;padding:4px 10px;border-radius:6px;
+  vertical-align:middle;margin-left:10px;border:1px solid var(--line);color:var(--cyan);text-transform:uppercase}
+
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ============ CARDS / PANELS ============ */
+.panel{
+  background:linear-gradient(160deg,var(--panel),var(--bg2));
+  border:1px solid var(--line);border-radius:18px;padding:28px;position:relative;overflow:hidden;
+  transition:.4s;
+}
+.panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--magenta),transparent);opacity:.55;transition:.4s}
+.panel:hover{border-color:rgba(0,229,255,.45);transform:translateY(-4px);
+  box-shadow:0 14px 44px rgba(0,229,255,.12),0 0 0 1px rgba(0,229,255,.12)}
+.panel:hover::before{opacity:1;box-shadow:0 0 16px var(--cyan)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+
+.num-badge{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:16px;
+  background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.4);color:var(--cyan);
+  text-shadow:0 0 10px var(--cyan);box-shadow:inset 0 0 14px rgba(0,229,255,.12);transition:.4s}
+.panel:hover .num-badge{box-shadow:0 0 20px rgba(0,229,255,.5),inset 0 0 14px rgba(0,229,255,.25);animation:nodepulse2 1.2s infinite}
+@keyframes nodepulse2{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+
+/* ============ TABLES ============ */
+.table-scroll{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:linear-gradient(160deg,var(--panel),var(--bg2))}
+table{width:100%;border-collapse:collapse;min-width:620px}
+th{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cyan);text-align:left;padding:16px 18px;background:rgba(0,229,255,.06);
+  border-bottom:1px solid var(--line);text-shadow:0 0 8px rgba(0,229,255,.5);white-space:nowrap}
+td{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--txt);font-size:.92rem;vertical-align:top}
+tbody tr{transition:.25s}
+tbody tr:hover{background:rgba(0,229,255,.05);box-shadow:inset 3px 0 0 var(--magenta)}
+tbody tr:last-child td{border-bottom:none}
+td .en{font-family:'JetBrains Mono',monospace;color:var(--gold);font-weight:700;text-shadow:0 0 8px rgba(255,201,77,.4)}
+td .es{font-family:'JetBrains Mono',monospace;color:var(--cyan)}
+td.note{color:var(--muted);font-size:.85rem}
+
+/* ============ CALLOUTS ============ */
+.callout{border-radius:16px;padding:24px 26px;margin:26px 0;position:relative;border:1px solid;overflow:hidden}
+.callout .ico{font-size:1.3rem;margin-right:10px}
+.callout.shock{border-color:rgba(255,47,214,.5);background:linear-gradient(140deg,rgba(255,47,214,.09),rgba(11,15,36,.6));
+  box-shadow:0 0 30px rgba(255,47,214,.12),inset 0 0 30px rgba(255,47,214,.05);animation:shockglow 3.4s infinite}
+@keyframes shockglow{0%,100%{box-shadow:0 0 22px rgba(255,47,214,.1),inset 0 0 30px rgba(255,47,214,.04)}
+  50%{box-shadow:0 0 44px rgba(255,47,214,.28),inset 0 0 34px rgba(255,47,214,.09)}}
+.callout.gold{border-color:rgba(255,201,77,.45);background:linear-gradient(140deg,rgba(255,201,77,.08),rgba(11,15,36,.6))}
+.callout.cy{border-color:rgba(0,229,255,.4);background:linear-gradient(140deg,rgba(0,229,255,.07),rgba(11,15,36,.6))}
+.callout.green{border-color:rgba(43,255,167,.4);background:linear-gradient(140deg,rgba(43,255,167,.07),rgba(11,15,36,.6))}
+.callout h4{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;margin-bottom:8px;color:#fff}
+.callout p{color:var(--muted);font-size:.94rem}
+.callout strong{color:var(--txt)}
+
+/* ============ PAIR CARDS (SHOCK) ============ */
+.pair-card{background:linear-gradient(160deg,var(--panel2),var(--bg2));border:1px solid var(--line);
+  border-radius:16px;padding:22px;transition:.35s;position:relative;overflow:hidden;cursor:default}
+.pair-card::after{content:'';position:absolute;inset:0;border-radius:16px;opacity:0;transition:.35s;pointer-events:none;
+  background:radial-gradient(circle at 50% 0%,rgba(255,201,77,.14),transparent 65%)}
+.pair-card:hover{transform:translateY(-6px) scale(1.015);border-color:rgba(255,201,77,.5);
+  box-shadow:0 16px 44px rgba(255,201,77,.14),0 0 24px rgba(255,47,214,.12)}
+.pair-card:hover::after{opacity:1}
+.pair-vs{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.pair-word{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;padding:8px 14px;border-radius:10px;
+  border:1px solid rgba(0,229,255,.4);color:var(--cyan);background:rgba(0,229,255,.06);text-shadow:0 0 10px rgba(0,229,255,.5);transition:.3s}
+.pair-word.mg{border-color:rgba(255,47,214,.45);color:var(--magenta);background:rgba(255,47,214,.06);text-shadow:0 0 10px rgba(255,47,214,.5)}
+.pair-card:hover .pair-word{box-shadow:0 0 18px rgba(0,229,255,.4)}
+.pair-card:hover .pair-word.mg{box-shadow:0 0 18px rgba(255,47,214,.4)}
+.solo-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);border:1px dashed rgba(255,201,77,.55);padding:7px 11px;border-radius:9px;
+  background:rgba(255,201,77,.06);text-shadow:0 0 8px rgba(255,201,77,.45);transition:.3s}
+.pair-card:hover .solo-tag{box-shadow:0 0 14px rgba(255,201,77,.35);background:rgba(255,201,77,.12)}
+.vs{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--gold);font-size:.8rem;letter-spacing:.2em;
+  text-shadow:0 0 12px var(--gold);animation:vspulse 2s infinite}
+@keyframes vspulse{0%,100%{opacity:.55}50%{opacity:1}}
+.pair-card .mean{font-size:.84rem;color:var(--muted);margin:4px 0}
+.pair-card .mean b{color:var(--txt)}
+.pair-card .ex{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--gold);margin-top:10px;opacity:.9}
+
+/* ============ ERROR PAIRS ============ */
+.err-card{background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:16px;
+  padding:22px;transition:.35s}
+.err-card:hover{transform:translateY(-5px);border-color:rgba(255,77,106,.5);box-shadow:0 14px 40px rgba(255,77,106,.14)}
+.err-line,.ok-line{font-family:'JetBrains Mono',monospace;font-size:.92rem;padding:9px 14px;border-radius:9px;margin:7px 0;display:block}
+.err-line{background:rgba(255,77,106,.09);border:1px solid rgba(255,77,106,.4);color:#ffb3c0}
+.ok-line{background:rgba(43,255,167,.08);border:1px solid rgba(43,255,167,.4);color:#a9ffd9}
+.err-card .why{font-size:.83rem;color:var(--muted);margin-top:10px}
+
+/* ============ RULE LISTS ============ */
+.rule-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:20px}
+.rule-box{border-radius:16px;padding:24px;border:1px solid}
+.rule-box.contra{border-color:rgba(255,201,77,.4);background:linear-gradient(160deg,rgba(255,201,77,.06),rgba(11,15,36,.7))}
+.rule-box.poses{border-color:rgba(0,229,255,.4);background:linear-gradient(160deg,rgba(0,229,255,.06),rgba(11,15,36,.7))}
+.rule-box h4{font-family:'Space Grotesk',sans-serif;margin-bottom:14px;font-size:1rem}
+.rule-box.contra h4{color:var(--gold);text-shadow:0 0 10px rgba(255,201,77,.5)}
+.rule-box.poses h4{color:var(--cyan);text-shadow:0 0 10px rgba(0,229,255,.5)}
+.rule-box ul{list-style:none}
+.rule-box li{font-family:'JetBrains Mono',monospace;font-size:.84rem;padding:7px 12px;margin:5px 0;border-radius:8px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:.25s;cursor:default}
+.rule-box li:hover{transform:translateX(6px);background:rgba(255,255,255,.07);box-shadow:0 0 12px rgba(255,255,255,.08)}
+.rule-box li .ap{color:var(--gold);font-weight:700}
+.rule-box li small{color:var(--muted);font-family:'Inter',sans-serif}
+
+/* ============ DECODER ============ */
+.decoder{background:linear-gradient(160deg,#0d1230,#070a1a);border:1px solid rgba(255,47,214,.35);
+  border-radius:22px;padding:34px;position:relative;overflow:hidden;box-shadow:0 0 50px rgba(255,47,214,.08)}
+.decoder::before{content:'';position:absolute;top:-60%;left:-20%;width:140%;height:120%;pointer-events:none;
+  background:radial-gradient(ellipse,rgba(0,229,255,.06),transparent 60%)}
+.decoder h3{margin-top:0}
+.dec-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.audio-toggle{
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;padding:9px 16px;border-radius:10px;
+  border:1px solid rgba(43,255,167,.5);color:var(--green);background:rgba(43,255,167,.07);cursor:pointer;
+  transition:.3s;margin-left:auto;white-space:nowrap;text-shadow:0 0 8px rgba(43,255,167,.5)}
+.audio-toggle:hover{box-shadow:0 0 16px rgba(43,255,167,.45);transform:translateY(-2px)}
+.audio-toggle.off{border-color:rgba(255,77,106,.5);color:var(--red);background:rgba(255,77,106,.07);text-shadow:0 0 8px rgba(255,77,106,.5)}
+.audio-hint{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--green);opacity:.85;
+  border:1px dashed rgba(43,255,167,.35);border-radius:8px;padding:6px 10px;display:inline-block;margin-bottom:10px}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;padding:10px 18px;border-radius:10px;
+  border:1px solid rgba(0,229,255,.35);background:rgba(0,229,255,.05);color:var(--cyan);cursor:pointer;transition:.3s;position:relative}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);display:inline-block;margin-right:8px;opacity:.4;animation:ledblink 1.8s infinite;--lc:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+.chip:hover{border-color:var(--cyan);box-shadow:0 0 16px rgba(0,229,255,.4);transform:translateY(-2px)}
+.chip.sel{background:rgba(255,47,214,.14);border-color:var(--magenta);color:#fff;
+  box-shadow:0 0 22px rgba(255,47,214,.55),inset 0 0 12px rgba(255,47,214,.2);text-shadow:0 0 8px var(--magenta)}
+.chip.sel .dot{background:var(--magenta);--lc:var(--magenta);box-shadow:0 0 6px var(--magenta);opacity:1}
+.pattern-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;min-height:44px}
+.pat{font-family:'JetBrains Mono',monospace;font-size:.8rem;padding:9px 16px;border-radius:9px;cursor:pointer;transition:.3s;
+  border:1px solid rgba(255,201,77,.35);background:rgba(255,201,77,.05);color:var(--gold)}
+.pat:hover{box-shadow:0 0 14px rgba(255,201,77,.4);transform:translateY(-2px)}
+.pat.sel{background:rgba(255,201,77,.2);box-shadow:0 0 20px rgba(255,201,77,.6);color:#fff;text-shadow:0 0 8px var(--gold)}
+.result-panel{border-radius:14px;border:1px solid rgba(43,255,167,.4);background:rgba(43,255,167,.06);
+  padding:22px 24px;min-height:96px;transition:.3s;position:relative;overflow:hidden}
+.result-panel.zap{animation:zapin .5s}
+@keyframes zapin{0%{box-shadow:0 0 0 rgba(43,255,167,0)}30%{box-shadow:0 0 44px rgba(43,255,167,.6),inset 0 0 30px rgba(43,255,167,.2)}100%{box-shadow:0 0 12px rgba(43,255,167,.15)}}
+.result-panel .r-form{font-family:'JetBrains Mono',monospace;font-size:1.2rem;font-weight:700;color:var(--green);text-shadow:0 0 12px rgba(43,255,167,.6)}
+.result-panel .r-mean{font-size:.95rem;color:var(--txt);margin-top:6px}
+.result-panel .r-ex{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);margin-top:8px}
+.result-panel.idle{border-color:var(--line);background:rgba(255,255,255,.02)}
+.result-panel.idle .r-mean{color:var(--muted)}
+.replay-btn{
+  display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;
+  padding:9px 16px;border-radius:9px;border:1px solid rgba(43,255,167,.45);background:rgba(43,255,167,.08);
+  color:var(--green);cursor:pointer;transition:.3s;text-shadow:0 0 8px rgba(43,255,167,.5)}
+.replay-btn:hover{box-shadow:0 0 16px rgba(43,255,167,.5);transform:translateY(-2px);background:rgba(43,255,167,.16)}
+.result-panel.idle .replay-btn{display:none}
+
+/* ============ HACKS / FOOTER ============ */
+.hack-card{background:linear-gradient(160deg,var(--panel2),var(--bg2));border:1px solid var(--line);border-radius:18px;
+  padding:28px;transition:.4s;position:relative;overflow:hidden}
+.hack-card:hover{transform:translateY(-6px);border-color:rgba(255,201,77,.55);box-shadow:0 16px 50px rgba(255,201,77,.15)}
+.hack-card .big{font-size:2rem;margin-bottom:12px;display:block;filter:drop-shadow(0 0 12px rgba(255,201,77,.6))}
+.hack-card h4{font-family:'Space Grotesk',sans-serif;font-size:1.08rem;margin-bottom:10px;color:var(--gold)}
+.hack-card p{color:var(--muted);font-size:.92rem}
+
+footer{border-top:1px solid var(--line);padding:52px 24px 40px;text-align:center;position:relative;z-index:2;
+  background:linear-gradient(180deg,transparent,rgba(8,11,28,.9))}
+footer .f-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.2em;font-size:1rem;
+  background:linear-gradient(90deg,var(--cyan),var(--magenta),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+footer p{color:var(--muted);font-size:.8rem;margin-top:12px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+footer a.back{display:inline-block;margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;text-decoration:none;padding:13px 26px;border-radius:11px;color:var(--gold);
+  border:1px solid rgba(255,201,77,.5);background:rgba(255,201,77,.07);transition:.3s;text-shadow:0 0 8px rgba(255,201,77,.5)}
+footer a.back:hover{color:#fff;background:rgba(255,201,77,.18);box-shadow:0 0 24px rgba(255,201,77,.5);transform:translateY(-3px)}
+
+.divider{display:flex;align-items:center;gap:16px;margin:0 auto;max-width:900px;padding:10px 0}
+.divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+@media(max-width:720px){
+  .nav-links a:not(.home){display:none}
+  .nav-links{margin-left:auto}
+  section{padding:64px 0}
+  .decoder{padding:22px}
+  .brain-box{width:220px;height:220px}
+  .audio-toggle{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+<div class="vignette"></div>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span class="zap">⚡</span> SHOCKING PRONOUNS</div>
+    <div class="nav-links">
+      <a class="home" href="index.html">← INICIO</a>
+      <a href="#objeto">Objeto</a>
+      <a href="#critico">Pensamiento crítico</a>
+      <a href="#posesivos-es">Posesivos ES</a>
+      <a href="#posesivos-en">Posesivos EN</a>
+      <a href="#shock">El Shock</a>
+      <a href="#neuro">Neuro-decodificador</a>
+      <a href="#hacks">Hacks</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="inicio">
+  <div class="brain-box">
+    <svg viewBox="0 0 300 300">
+      <defs>
+        <radialGradient id="coreg" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#00e5ff" stop-opacity=".9"/>
+          <stop offset="55%" stop-color="#ff2fd6" stop-opacity=".35"/>
+          <stop offset="100%" stop-color="#04050e" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle class="core" cx="150" cy="150" r="88" fill="url(#coreg)"/>
+      <circle class="ring ring1" cx="150" cy="150" r="118"/>
+      <circle class="ring ring2" cx="150" cy="150" r="132"/>
+      <circle class="ring ring3" cx="150" cy="150" r="145"/>
+      <g fill="none" stroke="#00e5ff" stroke-width="1.6" opacity=".85" stroke-linecap="round">
+        <path d="M150 70 C118 70 100 92 104 116 C88 122 84 144 98 154 C92 174 106 192 126 188 C132 206 158 210 168 194 C188 198 202 182 196 162 C212 152 208 128 192 122 C198 98 180 70 150 70 Z"
+          stroke-dasharray="420" stroke-dashoffset="420" style="animation:dash 6s ease forwards infinite alternate"/>
+        <path d="M150 70 L150 210" opacity=".5" stroke="#ff2fd6"/>
+        <path d="M104 116 L196 162 M98 154 L192 122 M126 188 L168 194" opacity=".35" stroke="#ffc94d"/>
+      </g>
+      <circle class="node" cx="150" cy="70" r="4" fill="#ffc94d" style="animation-delay:0s"/>
+      <circle class="node" cx="104" cy="116" r="4" fill="#00e5ff" style="animation-delay:.4s"/>
+      <circle class="node" cx="98" cy="154" r="4" fill="#ff2fd6" style="animation-delay:.8s"/>
+      <circle class="node" cx="126" cy="188" r="4" fill="#00e5ff" style="animation-delay:1.2s"/>
+      <circle class="node" cx="168" cy="194" r="4" fill="#ffc94d" style="animation-delay:1.6s"/>
+      <circle class="node" cx="196" cy="162" r="4" fill="#ff2fd6" style="animation-delay:2s"/>
+      <circle class="node" cx="192" cy="122" r="4" fill="#00e5ff" style="animation-delay:2.4s"/>
+      <path class="bolt" d="M60 40 L84 76 L66 80 L98 122"/>
+      <path class="bolt bolt2" d="M240 44 L216 82 L234 86 L204 126"/>
+      <path class="bolt" style="animation-delay:1s" d="M40 210 L78 196 L72 214 L112 206"/>
+      <path class="bolt bolt2" style="animation-delay:3s" d="M262 208 L224 196 L230 214 L190 208"/>
+      <style>@keyframes dash{from{stroke-dashoffset:420}to{stroke-dashoffset:0}}</style>
+    </svg>
+  </div>
+
+  <div class="kicker">Investigación · Neurolingüística aplicada</div>
+  <h1 class="glitch" data-text="SHOCKING PRONOUNS">SHOCKING PRONOUNS</h1>
+  <p class="sub">El <strong>choque eléctrico</strong> que los pronombres del inglés generan en el cerebro hispano. Cuando el oído no basta, el patrón revela la verdad.</p>
+
+  <div class="leds" style="margin-top:30px">
+    <span class="led c"></span><span class="led m" style="animation-delay:.2s"></span>
+    <span class="led g" style="animation-delay:.4s"></span><span class="led v" style="animation-delay:.6s"></span>
+    <span class="led c" style="animation-delay:.8s"></span><span class="led m" style="animation-delay:1s"></span>
+    <span class="led g" style="animation-delay:1.2s"></span><span class="led v" style="animation-delay:1.4s"></span>
+    <span class="led c" style="animation-delay:1.6s"></span>
+  </div>
+
+  <div class="cta-row">
+    <a href="#objeto" class="btn-neon">Iniciar el recorrido</a>
+    <a href="#shock" class="btn-neon mg">⚡ Ir directo al shock</a>
+    <a href="index.html" class="btn-neon gold">← Volver a Discovery Max</a>
+  </div>
+  <div class="scroll-hint">▼ SCROLL ▼</div>
+</header>
+
+<main class="wrap">
+
+<!-- ================= 01 PRONOMBRES DE OBJETO ================= -->
+<section id="objeto" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// SECCIÓN 01</span>
+    <h2>Pronombres de <span class="grad">objeto</span>: 8 contra 12</h2>
+    <p>El inglés tiene <strong style="color:var(--gold)">8 pronombres de objeto</strong>. El español distribuye esas funciones entre <strong style="color:var(--cyan)">pronombres átonos</strong> (me, te, lo, la, le, nos, os, los, las, les) y <strong style="color:var(--magenta)">pronombres tónicos</strong> (a mí, a ti, a él…), y varían según género, número, persona o cosa, y según la tradición: leísmo, laísmo y loísmo.</p>
+  </div>
+
+  <h3>Equivalencias tradicionales <span class="tag">Inglés → Español</span></h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Inglés</th><th>Equivalente(s) en español</th><th>Observaciones</th></tr></thead>
+      <tbody>
+        <tr><td><span class="en">me</span></td><td><span class="es">me, a mí</span></td><td class="note">Objeto directo e indirecto.</td></tr>
+        <tr><td><span class="en">you</span> (sing.)</td><td><span class="es">te, a ti; lo, la, le (usted); a usted</span></td><td class="note">Depende de si es <em>tú</em> o <em>usted</em>.</td></tr>
+        <tr><td><span class="en">him</span></td><td><span class="es">lo, le, a él</span></td><td class="note"><em>Lo</em> es el objeto directo tradicional. <em>Le</em> aparece con el leísmo (aceptado en muchos casos para personas masculinas).</td></tr>
+        <tr><td><span class="en">her</span></td><td><span class="es">la, le, a ella</span></td><td class="note"><em>La</em> es el objeto directo tradicional. <em>Le</em> puede aparecer como objeto indirecto y en algunos dialectos como leísmo.</td></tr>
+        <tr><td><span class="en">it</span></td><td><span class="es">lo, la, le; ello; eso; esta, etc.</span></td><td class="note">Depende del género del referente en español. No existe un equivalente único.</td></tr>
+        <tr><td><span class="en">us</span></td><td><span class="es">nos, a nosotros/as</span></td><td class="note">Objeto directo e indirecto.</td></tr>
+        <tr><td><span class="en">you</span> (plural)</td><td><span class="es">os, a vosotros/as; los, las, les, a ustedes</span></td><td class="note">Depende de si se usa <em>vosotros</em> (España) o <em>ustedes</em> (América).</td></tr>
+        <tr><td><span class="en">them</span></td><td><span class="es">los, las, les; a ellos, a ellas</span></td><td class="note">Depende del género y de si funciona como objeto directo o indirecto.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Desglose completo por función <span class="tag">OD · OI · Tónico</span></h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Inglés</th><th>Objeto directo</th><th>Objeto indirecto</th><th>Pronombre tónico</th></tr></thead>
+      <tbody>
+        <tr><td><span class="en">me</span></td><td><span class="es">me</span></td><td><span class="es">me</span></td><td><span class="es">a mí</span></td></tr>
+        <tr><td><span class="en">you</span> (tú)</td><td><span class="es">te</span></td><td><span class="es">te</span></td><td><span class="es">a ti</span></td></tr>
+        <tr><td><span class="en">you</span> (usted)</td><td><span class="es">lo / la</span></td><td><span class="es">le</span></td><td><span class="es">a usted</span></td></tr>
+        <tr><td><span class="en">him</span></td><td><span class="es">lo</span> (leísmo: <span class="es">le</span>)</td><td><span class="es">le</span></td><td><span class="es">a él</span></td></tr>
+        <tr><td><span class="en">her</span></td><td><span class="es">la</span></td><td><span class="es">le</span></td><td><span class="es">a ella</span></td></tr>
+        <tr><td><span class="en">it</span></td><td><span class="es">lo / la</span></td><td><span class="es">le</span></td><td><span class="es">a ello / a eso / a esta…</span></td></tr>
+        <tr><td><span class="en">us</span></td><td><span class="es">nos</span></td><td><span class="es">nos</span></td><td><span class="es">a nosotros/as</span></td></tr>
+        <tr><td><span class="en">you</span> (vosotros)</td><td><span class="es">os</span></td><td><span class="es">os</span></td><td><span class="es">a vosotros/as</span></td></tr>
+        <tr><td><span class="en">you</span> (ustedes)</td><td><span class="es">los / las</span></td><td><span class="es">les</span></td><td><span class="es">a ustedes</span></td></tr>
+        <tr><td><span class="en">them</span> (masc.)</td><td><span class="es">los</span></td><td><span class="es">les</span></td><td><span class="es">a ellos</span></td></tr>
+        <tr><td><span class="en">them</span> (fem.)</td><td><span class="es">las</span></td><td><span class="es">les</span></td><td><span class="es">a ellas</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led m"></span><div class="line"></div><span class="led c" style="animation-delay:.5s"></span><div class="line"></div><span class="led g" style="animation-delay:1s"></span></div>
+
+<!-- ================= 02 PENSAMIENTO CRÍTICO ================= -->
+<section id="critico" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// SECCIÓN 02</span>
+    <h2>Pensamiento <span class="grad-gold">crítico</span></h2>
+    <p>Este cuadro muestra precisamente por qué <strong style="color:var(--magenta)">no existe una correspondencia uno a uno</strong> entre los pronombres de objeto del inglés y los del español. Mientras el inglés distingue principalmente por persona y, en tercera persona, por género (<em>him, her, it</em>), el español distingue además:</p>
+  </div>
+
+  <div class="grid3">
+    <div class="panel"><div class="num-badge">1</div><h4 style="font-family:'Space Grotesk';margin-bottom:8px">Objeto directo vs. indirecto</h4><p style="color:var(--muted);font-size:.9rem">La misma palabra inglesa puede ser OD u OI; el español las separa: <span style="font-family:'JetBrains Mono';color:var(--cyan)">lo</span> vs. <span style="font-family:'JetBrains Mono';color:var(--cyan)">le</span>.</p></div>
+    <div class="panel"><div class="num-badge">2</div><h4 style="font-family:'Space Grotesk';margin-bottom:8px">Género gramatical</h4><p style="color:var(--muted);font-size:.9rem"><em>Them</em> → <span style="font-family:'JetBrains Mono';color:var(--cyan)">los / las / les</span>. El inglés no marca género en plural; el español sí.</p></div>
+    <div class="panel"><div class="num-badge">3</div><h4 style="font-family:'Space Grotesk';margin-bottom:8px">Número</h4><p style="color:var(--muted);font-size:.9rem">Singular y plural redistribuyen las formas según la función sintáctica.</p></div>
+    <div class="panel"><div class="num-badge">4</div><h4 style="font-family:'Space Grotesk';margin-bottom:8px">Tratamiento</h4><p style="color:var(--muted);font-size:.9rem"><em>Tú, usted, vosotros, ustedes</em>: el inglés solo tiene <em>you</em>; el español abre cuatro caminos distintos.</p></div>
+    <div class="panel"><div class="num-badge">5</div><h4 style="font-family:'Space Grotesk';margin-bottom:8px">Variantes dialectales</h4><p style="color:var(--muted);font-size:.9rem"><strong style="color:var(--gold)">Leísmo, laísmo y loísmo</strong>: la tradición regional cambia la forma del pronombre.</p></div>
+    <div class="panel" style="border-color:rgba(255,47,214,.4)"><div class="num-badge" style="border-color:var(--magenta);color:var(--magenta);background:rgba(255,47,214,.08);text-shadow:0 0 10px var(--magenta)">⚡</div><h4 style="font-family:'Space Grotesk';margin-bottom:8px">El resultado</h4><p style="color:var(--muted);font-size:.9rem">Una fuente permanente de confusión al intentar equivalencias directas entre ambos idiomas.</p></div>
+  </div>
+
+  <div class="callout shock" style="margin-top:32px">
+    <h4><span class="ico">⚡</span>El ejemplo del cortocircuito</h4>
+    <p>Una frase inglesa como <strong style="font-family:'JetBrains Mono';color:var(--gold)">"I saw him talking to her"</strong> no puede traducirse simplemente sustituyendo <em>him = lo</em>: el pronombre español depende de la <strong>estructura sintáctica propia del español</strong>, no solo del significado del pronombre inglés. De hecho, esta es una de las principales fuentes de confusión cuando se intentan equivalencias directas entre ambos idiomas.</p>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led c"></span><div class="line"></div><span class="led g" style="animation-delay:.5s"></span><div class="line"></div><span class="led m" style="animation-delay:1s"></span></div>
+
+<!-- ================= 03 POSESIVOS ESPAÑOL ================= -->
+<section id="posesivos-es" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// SECCIÓN 03</span>
+    <h2>Posesivos en <span class="grad">español</span>: adjetivos vs. pronombres</h2>
+    <p>En español, los posesivos se dividen en dos grandes grupos. La diferencia fundamental no está en la forma, sino en la <strong style="color:var(--cyan)">función</strong>.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="num-badge" style="color:var(--cyan)">A</div>
+      <h4 style="font-family:'Space Grotesk';font-size:1.1rem;margin-bottom:10px">Adjetivo posesivo → acompaña al nombre</h4>
+      <p style="font-family:'JetBrains Mono';color:var(--gold);font-size:.9rem">▸ mi libro<br>▸ nuestra casa</p>
+    </div>
+    <div class="panel" style="border-color:rgba(255,47,214,.35)">
+      <div class="num-badge" style="border-color:var(--magenta);color:var(--magenta);background:rgba(255,47,214,.08);text-shadow:0 0 10px var(--magenta)">P</div>
+      <h4 style="font-family:'Space Grotesk';font-size:1.1rem;margin-bottom:10px">Pronombre posesivo → reemplaza al nombre</h4>
+      <p style="font-family:'JetBrains Mono';color:var(--gold);font-size:.9rem">▸ Ese libro es mío.<br>▸ La casa es nuestra.</p>
+    </div>
+  </div>
+
+  <h3>1 · Formas apocopadas <span class="tag">Antes del sustantivo · las más frecuentes</span></h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Persona</th><th>Singular</th><th>Plural</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><span class="es">mi</span></td><td><span class="es">mis</span></td></tr>
+        <tr><td>tú</td><td><span class="es">tu</span></td><td><span class="es">tus</span></td></tr>
+        <tr><td>él / ella / usted</td><td><span class="es">su</span></td><td><span class="es">sus</span></td></tr>
+        <tr><td>nosotros</td><td><span class="es">nuestro / nuestra</span></td><td><span class="es">nuestros / nuestras</span></td></tr>
+        <tr><td>vosotros</td><td><span class="es">vuestro / vuestra</span></td><td><span class="es">vuestros / vuestras</span></td></tr>
+        <tr><td>ustedes / ellos / ellas</td><td><span class="es">su</span></td><td><span class="es">sus</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="color:var(--muted);margin-top:14px;font-size:.9rem">Ejemplos: <span style="font-family:'JetBrains Mono';color:var(--gold)">mi coche · mis amigos · tu casa · sus hijos · nuestra escuela · vuestros libros</span></p>
+
+  <h3>2 · Formas plenas <span class="tag">Después del sustantivo</span></h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Persona</th><th>Masc. sing.</th><th>Fem. sing.</th><th>Masc. plural</th><th>Fem. plural</th></tr></thead>
+      <tbody>
+        <tr><td>yo</td><td><span class="es">mío</span></td><td><span class="es">mía</span></td><td><span class="es">míos</span></td><td><span class="es">mías</span></td></tr>
+        <tr><td>tú</td><td><span class="es">tuyo</span></td><td><span class="es">tuya</span></td><td><span class="es">tuyos</span></td><td><span class="es">tuyas</span></td></tr>
+        <tr><td>él / ella / usted</td><td><span class="es">suyo</span></td><td><span class="es">suya</span></td><td><span class="es">suyos</span></td><td><span class="es">suyas</span></td></tr>
+        <tr><td>nosotros</td><td><span class="es">nuestro</span></td><td><span class="es">nuestra</span></td><td><span class="es">nuestros</span></td><td><span class="es">nuestras</span></td></tr>
+        <tr><td>vosotros</td><td><span class="es">vuestro</span></td><td><span class="es">vuestra</span></td><td><span class="es">vuestros</span></td><td><span class="es">vuestras</span></td></tr>
+        <tr><td>ustedes / ellos / ellas</td><td><span class="es">suyo</span></td><td><span class="es">suya</span></td><td><span class="es">suyos</span></td><td><span class="es">suyas</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="color:var(--muted);margin-top:14px;font-size:.9rem">Ejemplos: <span style="font-family:'JetBrains Mono';color:var(--gold)">un amigo mío · una hermana tuya · unos libros nuestros · una casa vuestra</span></p>
+
+  <h3>3 · Pronombres posesivos <span class="tag">Sustituyen al sustantivo</span></h3>
+  <div class="callout cy">
+    <h4><span class="ico">💡</span>Mismas formas plenas, distinta función</h4>
+    <p>Son exactamente las mismas formas plenas de la tabla anterior, pero <strong>ya no acompañan al sustantivo</strong>: <span style="font-family:'JetBrains Mono';color:var(--gold)">Ese coche es mío · La mochila es tuya · Los libros son nuestros · Las llaves son suyas</span>.</p>
+  </div>
+
+  <h3>Comparación directa</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Adjetivo posesivo</th><th>Pronombre posesivo</th></tr></thead>
+      <tbody>
+        <tr><td><span class="es">mi libro</span></td><td><span class="es">el mío</span></td></tr>
+        <tr><td><span class="es">tu casa</span></td><td><span class="es">la tuya</span></td></tr>
+        <tr><td><span class="es">nuestro coche</span></td><td><span class="es">el nuestro</span></td></tr>
+        <tr><td><span class="es">vuestra escuela</span></td><td><span class="es">la vuestra</span></td></tr>
+        <tr><td><span class="es">sus hijos</span></td><td><span class="es">los suyos</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout gold" style="margin-top:32px">
+    <h4><span class="ico">🎯</span>El caso especial de SU / SUYO — el más ambiguo del español</h4>
+    <p><strong style="font-family:'JetBrains Mono';color:var(--gold)">Su coche</strong> puede significar: el coche <em>de él</em>, <em>de ella</em>, <em>de usted</em>, <em>de ellos</em>, <em>de ellas</em> o <em>de ustedes</em>. Por esa razón, muchas veces se aclara con una construcción como: <em>el coche de él · el coche de ella · el coche de usted · el coche de ellos · el coche de ustedes</em>.</p>
+  </div>
+
+  <div class="callout green">
+    <h4><span class="ico">📌</span>Observación importante</h4>
+    <p>Las formas <strong>mío, tuyo, suyo, nuestro</strong> y <strong>vuestro</strong> pueden funcionar tanto como <strong>adjetivos posesivos</strong> (después del sustantivo: <em>un amigo mío</em>) como <strong>pronombres posesivos</strong> (sustituyendo al sustantivo: <em>Ese amigo es mío</em>). La diferencia no está en la forma, sino en la función que desempeñan dentro de la oración.</p>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led g"></span><div class="line"></div><span class="led m" style="animation-delay:.5s"></span><div class="line"></div><span class="led c" style="animation-delay:1s"></span></div>
+
+<!-- ================= 04 POSESIVOS INGLÉS ================= -->
+<section id="posesivos-en" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// SECCIÓN 04</span>
+    <h2>Posesivos en <span class="grad-gold">inglés</span>: la clasificación correcta</h2>
+    <p>Es una confusión muy común porque muchos materiales didácticos los etiquetan incorrectamente. En inglés, la clasificación correcta es:</p>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Adjetivos posesivos (determiners)</th><th>Pronombres posesivos</th></tr></thead>
+      <tbody>
+        <tr><td><span class="en">my</span></td><td><span class="es">mine</span></td></tr>
+        <tr><td><span class="en">your</span></td><td><span class="es">yours</span></td></tr>
+        <tr><td><span class="en">his</span></td><td><span class="es">his</span> ⚠️ misma forma</td></tr>
+        <tr><td><span class="en">her</span></td><td><span class="es">hers</span></td></tr>
+        <tr><td><span class="en">its</span></td><td class="note">(no existe como pronombre de uso normal)</td></tr>
+        <tr><td><span class="en">our</span></td><td><span class="es">ours</span></td></tr>
+        <tr><td><span class="en">your</span></td><td><span class="es">yours</span></td></tr>
+        <tr><td><span class="en">their</span></td><td><span class="es">theirs</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2" style="margin-top:28px">
+    <div class="panel">
+      <div class="num-badge">1</div>
+      <h4 style="font-family:'Space Grotesk';margin-bottom:10px">Adjetivos posesivos: siempre acompañan al sustantivo</h4>
+      <p style="font-family:'JetBrains Mono';font-size:.85rem;color:var(--gold);margin-bottom:8px">✔ my book → mi libro<br>✔ your house → tu casa<br>✔ our car → nuestro coche</p>
+      <p style="font-family:'JetBrains Mono';font-size:.85rem;color:#ffb3c0">✘ This is my.<br>✔ This is my book.</p>
+    </div>
+    <div class="panel" style="border-color:rgba(255,47,214,.35)">
+      <div class="num-badge" style="border-color:var(--magenta);color:var(--magenta);background:rgba(255,47,214,.08);text-shadow:0 0 10px var(--magenta)">2</div>
+      <h4 style="font-family:'Space Grotesk';margin-bottom:10px">Pronombres posesivos: sustituyen al sustantivo</h4>
+      <p style="font-family:'JetBrains Mono';font-size:.85rem;color:var(--gold)">✔ This book is mine.<br>✔ That house is yours.<br>✔ The car is ours.</p>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:8px">Ya no hace falta repetir el sustantivo.</p>
+    </div>
+  </div>
+
+  <div class="callout cy" style="margin-top:28px">
+    <h4><span class="ico">🔀</span>Una diferencia importante con el español</h4>
+    <p>En español, algunas formas son idénticas: <strong>nuestro</strong> puede ser adjetivo (<em>nuestro coche</em>) y también pronombre (<em>el nuestro</em>). En inglés eso <strong>casi nunca ocurre</strong>: <span style="font-family:'JetBrains Mono';color:var(--gold)">my/mine · your/yours · our/ours · their/theirs</span>. La única excepción importante es <strong style="color:var(--cyan)">his</strong>: <em>his car</em> (adjetivo) / <em>The car is his</em> (pronombre).</p>
+  </div>
+
+  <div class="callout shock">
+    <h4><span class="ico">⚠️</span>¿Y "its"? — La rareza del inglés</h4>
+    <p><strong style="font-family:'JetBrains Mono';color:var(--gold)">Its</strong> solo funciona como adjetivo posesivo: <em>The dog wagged its tail.</em> Pero <strong>no existe un pronombre posesivo "its" de uso normal</strong>. No se dice <span style="color:#ffb3c0">✘ The tail is its.</span> En la práctica, los hablantes reformulan la oración si necesitan expresar esa idea.</p>
+  </div>
+
+  <h3>Resumen funcional</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Función</th><th>Español</th><th>Inglés</th></tr></thead>
+      <tbody>
+        <tr><td>Acompaña al sustantivo</td><td>Adjetivo posesivo</td><td>Adjetivo posesivo (<span class="en">my, your, his…</span>)</td></tr>
+        <tr><td>Sustituye al sustantivo</td><td>Pronombre posesivo</td><td>Pronombre posesivo (<span class="en">mine, yours, his…</span>)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="color:var(--muted);margin-top:16px;font-size:.92rem">La clasificación en inglés es <strong style="color:var(--cyan)">la misma en cuanto a la función gramatical</strong> que en español: la diferencia está en las <strong style="color:var(--gold)">formas</strong>. En inglés, la mayoría tienen formas distintas (my/mine, your/yours, our/ours); en español algunas coinciden (nuestro, nuestra…) según cómo se usen en la oración.</p>
+</section>
+
+<div class="divider reveal"><span class="led m"></span><div class="line"></div><span class="led c" style="animation-delay:.5s"></span><div class="line"></div><span class="led g" style="animation-delay:1s"></span></div>
+
+<!-- ================= 05 EL SHOCK ================= -->
+<section id="shock" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// SECCIÓN 05 · ZONA DE ALTO VOLTAJE</span>
+    <h2 style="font-size:clamp(1.9rem,5vw,3.1rem)">⚡ El <span class="grad-gold">SHOCK</span> del cerebro hispano</h2>
+    <p>Las <strong style="color:var(--gold)">formas cortas o contractas</strong> son las que más confunden a los hispanohablantes, porque muchas <strong style="color:var(--magenta)">se pronuncian igual o casi igual</strong>, pero cumplen funciones gramaticales completamente distintas.</p>
+  </div>
+
+  <div class="grid3" id="pairsGrid"></div>
+
+  <h3>Las parejas que más errores producen <span class="tag">❌ vs ✅</span></h3>
+  <div class="grid2" id="errorsGrid"></div>
+
+  <div class="callout gold" style="margin-top:36px">
+    <h4><span class="ico">🔑</span>La regla de oro: una regla muy útil</h4>
+    <p>En inglés, <strong>si hay apóstrofo ( ' ) en estas formas cortas, casi siempre indica una contracción u omisión</strong>, no un posesivo: <span style="font-family:'JetBrains Mono';color:var(--gold)">he's = he is / he has · she's · it's · you're · they're · who's · we're · I'll · I've · I'd</span>. En cambio, <strong>los posesivos normalmente no llevan apóstrofo</strong>. La gran excepción es <strong style="font-family:'JetBrains Mono';color:var(--cyan)">one's</strong> (<em>One should do one's best</em>), donde el apóstrofo forma parte del posesivo del pronombre indefinido <em>one</em>.</p>
+  </div>
+
+  <div class="rule-cols">
+    <div class="rule-box contra">
+      <h4>⚡ Con apóstrofo → CONTRACCIÓN</h4>
+      <ul>
+        <li><span class="ap">he's</span> <small>= he is / he has</small></li>
+        <li><span class="ap">she's</span> <small>= she is / she has</small></li>
+        <li><span class="ap">it's</span> <small>= it is / it has</small></li>
+        <li><span class="ap">you're</span> <small>= you are</small></li>
+        <li><span class="ap">they're</span> <small>= they are</small></li>
+        <li><span class="ap">who's</span> <small>= who is / who has</small></li>
+        <li><span class="ap">we're</span> <small>= we are</small></li>
+        <li><span class="ap">I'll</span> <small>= I will</small></li>
+        <li><span class="ap">I've</span> <small>= I have</small></li>
+        <li><span class="ap">I'd</span> <small>= I had / I would</small></li>
+      </ul>
+    </div>
+    <div class="rule-box poses">
+      <h4>🛡 Sin apóstrofo → POSESIVO</h4>
+      <ul>
+        <li>my</li><li>your</li><li>his</li><li>her</li><li>its</li>
+        <li>our</li><li>their</li><li>mine</li><li>yours</li><li>hers</li>
+        <li>ours</li><li>theirs</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led c"></span><div class="line"></div><span class="led v" style="animation-delay:.5s"></span><div class="line"></div><span class="led m" style="animation-delay:1s"></span></div>
+
+<!-- ================= 06 NEURO-DECODIFICADOR ================= -->
+<section id="neuro" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// SECCIÓN 06 · ENFOQUE NEUROCOGNITIVO</span>
+    <h2>El oído no distingue: <span class="grad">el patrón sí</span></h2>
+    <p>En el inglés hablado, el problema no es distinguir <em>palabras</em>, sino <strong style="color:var(--magenta)">estructuras</strong>. En la mayoría de los casos, el oído <strong>no puede</strong> distinguir entre <em>it's</em> e <em>its</em>, <em>you're</em> e <em>your</em>, <em>he's</em> e <em>his</em>, porque se pronuncian igual. Lo que realmente permite interpretarlas es el <strong style="color:var(--gold)">patrón sintáctico</strong>: la ambigüedad se resuelve por el patrón que sigue a la contracción, no por la contracción misma.</p>
+  </div>
+
+  <div class="decoder">
+    <div class="dec-head">
+      <h3 style="color:#fff">🧠 Neuro-decodificador interactivo <span class="tag" style="border-color:rgba(255,47,214,.5);color:var(--magenta)">Pruébalo</span></h3>
+      <button id="audioToggle" class="audio-toggle" title="Activar o silenciar el audio">🔊 AUDIO ON</button>
+    </div>
+    <span class="audio-hint">🎧 Experiencia inmersiva: cada forma y cada ejemplo se pronuncian en inglés con la voz del navegador.</span>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:6px">1️⃣ Elige la forma que "oíste" &nbsp;→&nbsp; 2️⃣ Elige qué tipo de palabra viene después &nbsp;→&nbsp; 3️⃣ Descubre la interpretación y <strong style="color:var(--green)">escúchala</strong>.</p>
+
+    <div class="chip-row" id="formChips"></div>
+    <div class="pattern-row" id="patternChips"><span style="color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.8rem;align-self:center">← selecciona primero una forma…</span></div>
+    <div class="result-panel idle" id="resultPanel">
+      <div class="r-form" id="rForm">Esperando señal…</div>
+      <div class="r-mean" id="rMean">Selecciona una forma y un patrón para que el cerebro reciba la interpretación correcta.</div>
+      <div class="r-ex" id="rEx"></div>
+      <button id="replayBtn" class="replay-btn">🔊 Escuchar de nuevo</button>
+    </div>
+  </div>
+
+  <h3>Tabla de patrones: lo que se oye vs. lo que significa</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Lo que se oye</th><th>Patrón que sigue</th><th>Interpretación</th></tr></thead>
+      <tbody>
+        <tr><td><span class="en">its</span></td><td>+ sustantivo</td><td class="note">Adjetivo posesivo → <span class="es">its tail</span></td></tr>
+        <tr><td><span class="en">it's</span></td><td>+ adjetivo</td><td class="note"><em>it is</em> → <span class="es">It's cold.</span></td></tr>
+        <tr><td><span class="en">it's</span></td><td>+ participio</td><td class="note"><em>it is</em> (pasiva/adjetivo) o <em>it has</em> (present perfect) → <span class="es">It's broken. / It's finished.</span></td></tr>
+        <tr><td><span class="en">his</span></td><td>+ sustantivo</td><td class="note">Adjetivo posesivo → <span class="es">his car</span></td></tr>
+        <tr><td><span class="en">his</span></td><td>después de <em>be</em></td><td class="note">Pronombre posesivo → <span class="es">The car is his.</span></td></tr>
+        <tr><td><span class="en">he's</span></td><td>+ adjetivo</td><td class="note"><em>he is</em> → <span class="es">He's happy.</span></td></tr>
+        <tr><td><span class="en">he's</span></td><td>+ verbo en -ing</td><td class="note"><em>he is</em> → <span class="es">He's working.</span></td></tr>
+        <tr><td><span class="en">he's</span></td><td>+ participio</td><td class="note"><em>he is</em> (pasiva/adj.) o <em>he has</em> → <span class="es">He's injured. / He's arrived.</span></td></tr>
+        <tr><td><span class="en">your</span></td><td>+ sustantivo</td><td class="note">Adjetivo posesivo → <span class="es">your book</span></td></tr>
+        <tr><td><span class="en">you're</span></td><td>+ adjetivo / -ing / participio</td><td class="note"><em>you are</em> → <span class="es">You're late. / You're studying. / You're invited.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout cy" style="margin-top:28px">
+    <h4><span class="ico">🧩</span>La ventaja neurocognitiva</h4>
+    <p>El estudiante <strong>no necesita "adivinar" la palabra</strong>, sino reconocer la <strong style="color:var(--cyan)">posición y la función de la siguiente palabra</strong>. <em>It's beautiful</em> → it's + adjetivo ⇒ <em>it is</em>. <em>It's been repaired</em> → it's + been + participio ⇒ necesariamente <em>it has</em>. <em>Its color is red</em> → its + sustantivo ⇒ posesivo. Y un ejemplo clave: <em>You're driving</em> (you are + -ing) vs. <em>Your driving is improving</em> (your + sustantivo: "tu manera de conducir"). <strong>El orden es más fiable que la forma sonora.</strong></p>
+  </div>
+
+  <h3>El caso de I'd: el ejemplo perfecto <span class="tag">'d + forma</span></h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Lo que se oye</th><th>Palabra siguiente</th><th>Interpretación</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td><span class="en">I'd</span></td><td>verbo en forma base</td><td><span class="es">I would</span></td><td class="note">I'd like some coffee. / I'd go if I could. / I'd buy it.</td></tr>
+        <tr><td><span class="en">I'd</span></td><td>participio irregular</td><td><span class="es">I had</span></td><td class="note">I'd gone home.</td></tr>
+        <tr><td><span class="en">I'd</span></td><td>participio regular (-ed)</td><td><span class="es">I had</span></td><td class="note">I'd finished my work.</td></tr>
+        <tr><td><span class="en">I'd</span></td><td>been</td><td><span class="es">I had</span></td><td class="note">I'd been waiting.</td></tr>
+        <tr><td><span class="en">I'd</span></td><td>done, seen, written, eaten, taken…</td><td><span class="es">I had</span></td><td class="note">I'd seen that movie.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rule-cols">
+    <div class="rule-box contra">
+      <h4>⚡ 'd + FORMA BASE → would (modal)</h4>
+      <ul>
+        <li>I'd <b>like</b> <small>→ forma base → would</small></li>
+        <li>I'd <b>prefer</b> <small>→ forma base → would</small></li>
+      </ul>
+    </div>
+    <div class="rule-box poses">
+      <h4>🛡 'd + PARTICIPIO → had (past perfect)</h4>
+      <ul>
+        <li>I'd <b>finished</b> <small>→ participio → had</small></li>
+        <li>I'd <b>gone</b> <small>→ participio → had</small></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout green" style="margin-top:28px">
+    <h4><span class="ico">✅</span>Precisión importante: be + participio no siempre es pasiva</h4>
+    <p><em>The door is closed</em> puede interpretarse como un <strong>estado</strong> ("La puerta está cerrada") o como una <strong>pasiva</strong> ("La puerta fue cerrada"). <em>He is tired</em> contiene un participio de origen verbal, pero funciona como <strong>adjetivo</strong>. Por eso, enseñar <em>be + participio</em> como una estructura que puede expresar <strong>un estado, un adjetivo o una voz pasiva</strong> es más preciso que identificarla automáticamente como pasiva. Conviene hablar de <strong>forma base</strong>: el criterio no depende de si el verbo es regular o irregular, sino de la <strong>forma gramatical que ocupa</strong> dentro del patrón.</p>
+  </div>
+
+  <div class="callout shock">
+    <h4><span class="ico">🧠</span>De la traducción a la predicción estructural</h4>
+    <p>Este enfoque desplaza la atención desde la <strong>traducción</strong> hacia la <strong style="color:var(--gold)">predicción estructural</strong>. En lugar de preguntar "¿qué significa <em>I'd</em>?", el estudiante pregunta: <strong>"¿qué tipo de palabra viene después?"</strong>. Esa pregunta suele bastar para resolver la ambigüedad. Los hablantes nativos tampoco "oyen el apóstrofo": interpretan la secuencia porque reconocen patrones como <em>posesivo + sustantivo</em>, <em>be + adjetivo</em>, <em>be + -ing</em>, <em>have + participio</em>. Es un enfoque más cercano a cómo el cerebro procesa el lenguaje en tiempo real: <strong>primero reconoce la estructura, y a partir de ella interpreta</strong>.</p>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led g"></span><div class="line"></div><span class="led c" style="animation-delay:.5s"></span><div class="line"></div><span class="led v" style="animation-delay:1s"></span></div>
+
+<!-- ================= 07 HACKS ================= -->
+<section id="hacks" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// SECCIÓN 07</span>
+    <h2>English <span class="grad-gold">Hacks</span> & Warnings</h2>
+    <p>Las reglas más útiles destiladas de toda la investigación, listas para activar en el cerebro hispano.</p>
+  </div>
+  <div class="grid3">
+    <div class="hack-card">
+      <span class="big">⚡</span>
+      <h4>HACK #1 — La regla del apóstrofo</h4>
+      <p>El patrón "<strong>apóstrofo = contracción; sin apóstrofo = posesivo</strong>" es una de las reglas más útiles para evitar errores en inglés escrito. Excepción: <em>one's</em>.</p>
+    </div>
+    <div class="hack-card">
+      <span class="big">👂</span>
+      <h4>WARNING — El oído no basta</h4>
+      <p>En el inglés hablado no puedes distinguir <em>it's / its</em>, <em>you're / your</em>, <em>he's / his</em> por sonido. Lo que permite interpretarlas es el <strong>patrón sintáctico</strong> que sigue.</p>
+    </div>
+    <div class="hack-card">
+      <span class="big">🔮</span>
+      <h4>HACK #2 — Predice, no traduzcas</h4>
+      <p>No preguntes "¿qué significa esta palabra?". Pregunta "<strong>¿qué tipo de palabra viene después?</strong>". La predicción estructural resuelve la ambigüedad en tiempo real.</p>
+    </div>
+    <div class="hack-card">
+      <span class="big">🚫</span>
+      <h4>WARNING — No hay correspondencia 1 a 1</h4>
+      <p>8 pronombres de objeto en inglés contra átonos + tónicos en español. Traducir palabra por palabra produce <strong>cortocircuitos</strong> gramaticales.</p>
+    </div>
+    <div class="hack-card">
+      <span class="big">🎭</span>
+      <h4>HACK #3 — su / suyo: aclara siempre</h4>
+      <p>El posesivo más ambiguo del español puede significar 6 cosas distintas. Cuando haya riesgo de confusión: <em>el coche de él / de ella / de usted…</em></p>
+    </div>
+    <div class="hack-card">
+      <span class="big">🧬</span>
+      <h4>HACK #4 — Forma, no sonido</h4>
+      <p><em>'d + forma base → would</em> · <em>'d + participio → had</em>. El criterio no depende de si el verbo es regular o irregular, sino de la <strong>forma gramatical</strong> que ocupa.</p>
+    </div>
+  </div>
+
+  <div class="cta-row" style="margin-top:48px">
+    <a href="index.html" class="btn-neon gold">← Volver a Discovery Max</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="leds" style="margin-bottom:24px">
+    <span class="led c"></span><span class="led m" style="animation-delay:.3s"></span>
+    <span class="led g" style="animation-delay:.6s"></span><span class="led v" style="animation-delay:.9s"></span>
+    <span class="led c" style="animation-delay:1.2s"></span>
+  </div>
+  <div class="f-logo">⚡ SHOCKING PRONOUNS</div>
+  <p>Producto de las investigaciones del programa · Enfoque neurocognitivo para el cerebro hispano</p>
+  <p style="margin-top:6px;opacity:.5">La ambigüedad se resuelve por el patrón, no por la palabra.</p>
+  <a class="back" href="index.html">← Volver al inicio · Discovery Max</a>
+</footer>
+
+<script>
+/* ================= PARTICLES ================= */
+(function(){
+  const cv=document.getElementById('particles'),ctx=cv.getContext('2d');
+  let W,H,parts=[];
+  const COLORS=['rgba(0,229,255,','rgba(255,47,214,','rgba(255,201,77,','rgba(43,255,167,'];
+  function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+  resize();addEventListener('resize',resize);
+  for(let i=0;i<70;i++){
+    parts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+.5,
+      vy:-(Math.random()*.35+.08),vx:(Math.random()-.5)*.2,
+      c:COLORS[Math.floor(Math.random()*COLORS.length)],a:Math.random(),da:(Math.random()*.02+.005)});
+  }
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    parts.forEach(p=>{
+      p.y+=p.vy;p.x+=p.vx;p.a+=p.da;
+      if(p.a>1||p.a<0)p.da*=-1;
+      if(p.y<-10){p.y=H+10;p.x=Math.random()*W}
+      if(p.x<-10)p.x=W+10; if(p.x>W+10)p.x=-10;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.c+(Math.abs(p.a)*.7)+')';
+      ctx.shadowBlur=10;ctx.shadowColor=p.c+'.6)';
+      ctx.fill();ctx.shadowBlur=0;
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ================= REVEAL ON SCROLL ================= */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ================= SCROLLSPY ================= */
+const secs=[...document.querySelectorAll('section[id]')];
+const navLinks=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-160)cur=s.id});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+/* ================= AUDIO ENGINE ================= */
+let audioOn=true;
+const synth=('speechSynthesis' in window)?window.speechSynthesis:null;
+let enVoice=null;
+function pickVoice(){
+  if(!synth)return;
+  const vs=synth.getVoices();
+  enVoice=vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>v.lang.startsWith('en'))||null;
+}
+if(synth){pickVoice();synth.onvoiceschanged=pickVoice;}
+function speak(text){
+  if(!audioOn||!synth||!text)return;
+  synth.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='en-US';
+  if(enVoice)u.voice=enVoice;
+  u.rate=.92;u.pitch=1;
+  synth.speak(u);
+}
+let actx=null;
+function ac(){
+  if(!actx){try{actx=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+  if(actx&&actx.state==='suspended')actx.resume();
+  return actx;
+}
+function zapSfx(){
+  if(!audioOn)return;const c=ac();if(!c)return;
+  const o=c.createOscillator(),g=c.createGain();
+  o.type='sawtooth';
+  o.frequency.setValueAtTime(900,c.currentTime);
+  o.frequency.exponentialRampToValueAtTime(140,c.currentTime+.18);
+  g.gain.setValueAtTime(.06,c.currentTime);
+  g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+.2);
+  o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.22);
+}
+function chimeSfx(){
+  if(!audioOn)return;const c=ac();if(!c)return;
+  [523.25,783.99,1046.5].forEach((f,i)=>{
+    const o=c.createOscillator(),g=c.createGain();
+    o.type='sine';o.frequency.value=f;
+    const t=c.currentTime+i*.07;
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(.05,t+.02);
+    g.gain.exponentialRampToValueAtTime(.0001,t+.35);
+    o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.4);
+  });
+}
+const audioToggle=document.getElementById('audioToggle');
+audioToggle.addEventListener('click',()=>{
+  audioOn=!audioOn;
+  audioToggle.classList.toggle('off',!audioOn);
+  audioToggle.textContent=audioOn?'🔊 AUDIO ON':'🔇 AUDIO OFF';
+  if(!audioOn&&synth)synth.cancel();
+  if(audioOn)zapSfx();
+});
+
+/* ================= PAIR CARDS ================= */
+const pairs=[
+  {a:"he's",b:"his",ma:"he is / he has",mb:"su, suyo (posesivo)",ex:"He's tired. / His car."},
+  {a:"she's",b:"her",ma:"she is / she has",mb:"ella, la, le (objeto) / su (posesivo)",ex:"She's happy. / I saw her. / Her book."},
+  {a:"hers",b:"her",ma:"la suya (pron. posesivo)",mb:"ella / la / su",ex:"The book is hers. / Her book."},
+  {a:"it's",b:"its",ma:"it is / it has",mb:"su (de ello) — posesivo",ex:"It's cold. / Its color is blue."},
+  {a:"I'm · I'll · I'd · I've",single:true,tag:"contracciones de 1ª persona",ma:"I am / I will / I had·would / I have",ex:"I'm ready. / I'll call you. / I'd like coffee. / I've seen it."},
+  {a:"you're",b:"your · yours",ma:"you are",mb:"tu, tus / el tuyo",ex:"You're late. / Your phone. / The phone is yours."},
+  {a:"we're",b:"our · ours",ma:"we are",mb:"nuestro / el nuestro",ex:"We're ready. / Our house. / The house is ours."},
+  {a:"they're",b:"their · theirs",ma:"they are",mb:"su, sus / el suyo",ex:"They're here. / Their children. / The children are theirs."},
+  {a:"who's",b:"whose",ma:"who is / who has",mb:"de quién, cuyo (posesivo)",ex:"Who's coming? / Whose book is this?"},
+  {a:"there's",b:"were",ma:"there is / there has",mb:"eran, estaban (pasado de be)",ex:"There's a problem. / They were tired."},
+  {a:"where's",single:true,tag:"contracción",ma:"where is / where has",ex:"Where's my phone?"},
+  {a:"let's",b:"lets",ma:"let us",mb:"permite (verbo let)",ex:"Let's go. / She lets me drive."},
+  {a:"can't",b:"cant",ma:"cannot",mb:"inclinación (sust., muy poco frecuente)",ex:"I can't swim. / The road has a cant."},
+  {a:"won't",single:true,tag:"contracción irregular",ma:"will not",ex:"He won't come."},
+  {a:"we'll",b:"well",ma:"we will",mb:"bien; pozo",ex:"We'll see. / She sings well."}
+];
+const pg=document.getElementById('pairsGrid');
+pairs.forEach((p,i)=>{
+  const d=document.createElement('div');
+  d.className='pair-card reveal';
+  d.style.transitionDelay=(i%3)*0.08+'s';
+  let head,means;
+  if(p.single){
+    head=`<div class="pair-vs"><span class="pair-word">${p.a}</span><span class="solo-tag">⚡ ${p.tag}</span></div>`;
+    means=`<div class="mean"><b>${p.a}</b> → ${p.ma}</div>`;
+  }else{
+    head=`<div class="pair-vs"><span class="pair-word">${p.a}</span><span class="vs">VS</span><span class="pair-word mg">${p.b}</span></div>`;
+    means=`<div class="mean"><b>${p.a}</b> → ${p.ma}</div><div class="mean"><b>${p.b}</b> → ${p.mb}</div>`;
+  }
+  d.innerHTML=head+means+`<div class="ex">${p.ex}</div>`;
+  pg.appendChild(d);
+  io.observe(d);
+});
+
+/* ================= ERROR PAIRS ================= */
+const errs=[
+  ["Your welcome.","You're welcome.","You're = you are."],
+  ["Its raining.","It's raining.","It's = it is."],
+  ["The dog wagged it's tail.","The dog wagged its tail.","Its es posesivo; it's significa it is o it has."],
+  ["Their going home.","They're going home.","They're = they are."],
+  ["I like they're house.","I like their house.","Their es posesivo."],
+  ["Who's book is this?","Whose book is this?","Whose es posesivo; who's = who is / who has."]
+];
+const eg=document.getElementById('errorsGrid');
+errs.forEach((e,i)=>{
+  const d=document.createElement('div');
+  d.className='err-card reveal';
+  d.style.transitionDelay=(i%2)*0.1+'s';
+  d.innerHTML=`
+    <span class="err-line">❌ ${e[0]}</span>
+    <span class="ok-line">✅ ${e[1]}</span>
+    <div class="why">💡 ${e[2]}</div>`;
+  eg.appendChild(d);
+  io.observe(d);
+});
+
+/* ================= NEURO-DECODIFICADOR ================= */
+const decoder={
+ "it's":[["+ adjetivo","it is","It's cold."],["+ participio","it is (estado/adj.) o it has (present perfect)","It's broken. / It's finished."],["+ been + participio","it has (necesariamente)","It's been repaired."]],
+ "its":[["+ sustantivo","adjetivo posesivo","Its color is red. / Its engine."]],
+ "he's":[["+ adjetivo","he is","He's happy."],["+ verbo en -ing","he is","He's working."],["+ participio","he is (pasiva/adj.) o he has (present perfect)","He's injured. / He's arrived."],["+ been + participio","he has","He's been promoted."]],
+ "his":[["+ sustantivo","adjetivo posesivo","His car."],["después de be","pronombre posesivo","The car is his."]],
+ "you're":[["+ adjetivo","you are","You're late."],["+ verbo en -ing","you are","You're studying."],["+ participio","you are (pasiva/adjetivo)","You're invited."]],
+ "your":[["+ sustantivo","adjetivo posesivo","Your book. / Your driving is improving."]],
+ "I'd":[["+ forma base","I would (modal)","I'd like some coffee. / I'd prefer tea."],["+ participio (-ed o irregular)","I had (past perfect)","I'd finished my work. / I'd gone home."],["+ been","I had","I'd been waiting."]],
+ "they're":[["+ adjetivo / -ing / participio","they are","They're here."]],
+ "their":[["+ sustantivo","adjetivo posesivo","Their children."]],
+ "who's":[["+ verbo / -ing / participio","who is / who has","Who's coming?"]],
+ "whose":[["+ sustantivo","posesivo (de quién / cuyo)","Whose book is this?"]],
+ "there's":[["+ sustantivo / complemento","there is / there has","There's a problem."]],
+ "we'll":[["+ forma base","we will","We'll see."]]
+};
+const formChips=document.getElementById('formChips');
+const patternChips=document.getElementById('patternChips');
+const rForm=document.getElementById('rForm'),rMean=document.getElementById('rMean'),rEx=document.getElementById('rEx');
+const rPanel=document.getElementById('resultPanel');
+const replayBtn=document.getElementById('replayBtn');
+let curForm=null,curPat=null,lastSpeech='';
+
+Object.keys(decoder).forEach(f=>{
+  const b=document.createElement('button');
+  b.className='chip';b.innerHTML=`<span class="dot"></span>${f}`;
+  b.onclick=()=>{
+    curForm=f;curPat=null;
+    document.querySelectorAll('#formChips .chip').forEach(c=>c.classList.remove('sel'));
+    b.classList.add('sel');
+    renderPatterns();
+    rPanel.classList.add('idle');rPanel.classList.remove('zap');
+    rForm.textContent=`${f} + …`;rForm.style.color='var(--gold)';
+    rMean.textContent='Ahora elige qué tipo de palabra viene después. El patrón revelará la interpretación.';
+    rEx.textContent='';
+    zapSfx();
+    speak(f);
+  };
+  formChips.appendChild(b);
+});
+
+function renderPatterns(){
+  patternChips.innerHTML='';
+  decoder[curForm].forEach((pt,idx)=>{
+    const c=document.createElement('button');
+    c.className='pat';c.textContent=pt[0];
+    c.onclick=()=>{
+      curPat=idx;
+      document.querySelectorAll('.pat').forEach(x=>x.classList.remove('sel'));
+      c.classList.add('sel');
+      const res=decoder[curForm][idx];
+      rPanel.classList.remove('idle');
+      rPanel.classList.remove('zap');void rPanel.offsetWidth;rPanel.classList.add('zap');
+      rForm.style.color='var(--green)';
+      rForm.textContent=`${curForm} ${res[0]} ⇒ ${res[1]}`;
+      rMean.innerHTML=`⚡ Interpretación: <strong>${res[1]}</strong>`;
+      rEx.textContent='Ejemplo: '+res[2];
+      lastSpeech=res[2].replace(/\//g,' ');
+      chimeSfx();
+      speak(lastSpeech);
+    };
+    patternChips.appendChild(c);
+  });
+}
+
+replayBtn.addEventListener('click',()=>{
+  if(!lastSpeech)return;
+  zapSfx();
+  speak((curForm?curForm+'. ':'')+lastSpeech);
+});
+</script>
+</body>
+</html>
