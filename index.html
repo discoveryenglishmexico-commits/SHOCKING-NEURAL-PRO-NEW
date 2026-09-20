@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Max Neuroeducation — The NFB Methodology: Linguistic PRO</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/jetbrains-mono@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/jetbrains-mono@latest/latin-500-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/jetbrains-mono@latest/latin-700-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-800-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@latest/latin-700-italic.css">
+<style>
+:root{
+  --bg:#0a0d12; --panel:#11161f; --card:#151b26; --line:rgba(255,255,255,.07);
+  --txt:#e8eef4; --mut:#93a0ad; --dim:#5c6873;
+  --orange:#ff5c1c; --orange2:#ff8a4d; --teal:#2fe6a9; --green:#34d399;
+  --blue:#4f8ff7; --red:#f4586a; --magenta:#ff2fd6; --cyan:#00e5ff;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;
+  --sans:'Inter',system-ui,sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(1100px 560px at 85% -10%, rgba(255,92,28,.09), transparent 60%),
+    radial-gradient(900px 520px at 8% 18%, rgba(47,230,169,.055), transparent 60%),
+    var(--bg);
+  color:var(--txt); font-family:var(--sans);
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(80% 70% at 50% 30%, #000 30%, transparent 100%);
+}
+main,header.top,footer.foot{position:relative;z-index:1}
+::selection{background:rgba(255,92,28,.35)}
+
+/* ============ HEADER ============ */
+header.top{position:sticky;top:0;z-index:50;background:rgba(10,13,18,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1200px;margin:auto;display:flex;align-items:center;gap:16px;padding:13px 24px}
+.logo{width:40px;height:40px;flex:none;border-radius:11px;background:linear-gradient(135deg,var(--orange),#c93a04);display:grid;place-items:center;font:700 20px var(--mono);color:#fff;box-shadow:0 8px 22px rgba(255,92,28,.35)}
+.brand-eyebrow{font:700 9px/1 var(--mono);letter-spacing:.2em;color:var(--orange);margin-bottom:5px}
+.brand-title{font:800 15px/1.1 var(--sans);color:var(--txt)}
+.brand-title em{color:var(--orange2);font-style:normal}
+.nav{display:flex;gap:2px;margin-left:26px}
+.nav a{font:700 10px var(--mono);letter-spacing:.14em;color:var(--dim);text-decoration:none;padding:9px 11px;border-radius:8px;transition:.25s}
+.nav a:hover{color:var(--txt);background:rgba(255,255,255,.05)}
+.nav a.ext{color:var(--magenta);border:1px solid rgba(255,47,214,.35);background:rgba(255,47,214,.07)}
+.nav a.ext:hover{color:#fff;background:rgba(255,47,214,.2);box-shadow:0 0 18px rgba(255,47,214,.35)}
+.top-right{margin-left:auto;display:flex;align-items:center;gap:16px}
+.ep-meta{text-align:right}
+.ep-meta .e1{font:500 9px/1.5 var(--mono);letter-spacing:.16em;color:var(--dim)}
+.ep-meta .e2{font:600 11.5px/1.4 var(--sans);color:var(--txt)}
+.live{display:flex;gap:8px;align-items:center;font:700 9.5px/1 var(--mono);letter-spacing:.18em;color:var(--green);border:1px solid rgba(52,211,153,.35);background:rgba(52,211,153,.08);padding:9px 13px;border-radius:999px;white-space:nowrap}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.2s infinite}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(52,211,153,.5)}50%{opacity:.35;box-shadow:0 0 0 5px rgba(52,211,153,0)}}
+
+/* ============ HERO ============ */
+.hero{max-width:1200px;margin:auto;padding:66px 24px 0;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:start}
+.eyebrow{display:flex;align-items:center;gap:9px;font:700 10px var(--mono);letter-spacing:.2em;color:var(--mut)}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px rgba(255,92,28,.8)}
+h1.big{font:italic 700 clamp(42px,6vw,68px)/1.08 var(--serif);margin:20px 0 22px;letter-spacing:.01em}
+h1.big span{display:block;color:var(--orange);text-shadow:0 0 40px rgba(255,92,28,.35)}
+.hero p.lead{font:400 14.5px/1.85 var(--sans);color:var(--mut);max-width:520px}
+.hero p.lead strong{color:var(--txt);font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn,a.btn{font:700 11px var(--mono);letter-spacing:.16em;padding:15px 22px;border-radius:12px;cursor:pointer;transition:.25s;border:1px solid transparent;display:inline-flex;align-items:center;gap:8px;text-decoration:none;line-height:1}
+.btn-primary{background:linear-gradient(135deg,var(--orange),#d64405);color:#fff;box-shadow:0 12px 32px rgba(255,92,28,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,92,28,.5)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--mut)}
+.btn-ghost:hover{border-color:rgba(255,92,28,.5);color:var(--txt)}
+.btn-mag{background:linear-gradient(135deg,rgba(255,47,214,.22),rgba(0,229,255,.12));border:1px solid rgba(255,47,214,.6);color:#ffd7f6;box-shadow:0 12px 32px rgba(255,47,214,.25)}
+.btn-mag:hover{transform:translateY(-2px);color:#fff;background:linear-gradient(135deg,rgba(255,47,214,.4),rgba(0,229,255,.2));box-shadow:0 16px 44px rgba(255,47,214,.45)}
+.os-stack{display:grid;gap:16px}
+.os-card{background:linear-gradient(180deg,var(--card),#121822);border:1px solid var(--line);border-radius:16px;padding:24px;transition:.3s;position:relative;overflow:hidden}
+.os-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.14)}
+.os-card::after{content:"";position:absolute;right:-40px;top:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%)}
+.os-eyebrow{font:700 9.5px/1 var(--mono);letter-spacing:.18em}
+.os-es{color:var(--blue)} .os-en{color:var(--orange)}
+.os-title{font:800 23px/1.2 var(--sans);margin:11px 0 9px}
+.os-text{font:400 13px/1.75 var(--sans);color:var(--mut)}
+.os-text code{font:600 12px var(--mono);color:var(--orange2);background:rgba(255,92,28,.1);padding:2px 6px;border-radius:5px}
+
+.hero-meta{max-width:1200px;margin:26px auto 0;padding:0 24px;display:grid;grid-template-columns:1.15fr .8fr 1fr;gap:16px}
+.hm-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.hm-eyebrow{font:700 9px/1 var(--mono);letter-spacing:.18em;color:var(--dim);margin-bottom:16px}
+.person{display:flex;gap:12px;align-items:center}
+.person + .person{margin-top:14px}
+.pav{width:40px;height:40px;flex:none;border-radius:50%;background:#1b2431;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;font:700 11px var(--mono);color:var(--mut)}
+.pname{font:600 13px/1.3 var(--sans);color:var(--txt)}
+.prole{font:500 9.5px/1.4 var(--mono);letter-spacing:.12em;color:var(--dim)}
+.dur-row{display:flex;align-items:center;gap:16px}
+.eq{display:flex;gap:3px;align-items:flex-end;height:30px}
+.eq i{width:4px;border-radius:2px;background:linear-gradient(180deg,var(--orange2),var(--orange));animation:eqz 1s ease-in-out infinite alternate;animation-play-state:paused;transform-origin:bottom}
+body.playing .eq i{animation-play-state:running}
+@keyframes eqz{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
+.dur-label{font:700 9px/1 var(--mono);letter-spacing:.16em;color:var(--dim);margin-bottom:8px}
+.dur-time{font:700 19px/1 var(--mono);color:var(--txt)}
+.dur-time span{color:var(--dim);font-weight:500}
+.hm-focus{background:linear-gradient(135deg,#ff5c1c,#c93a04);border:none;color:#fff;box-shadow:0 14px 40px rgba(255,92,28,.3)}
+.hm-focus .hm-eyebrow{color:rgba(255,255,255,.75)}
+.hm-focus .fname{font:800 italic 22px/1.2 var(--sans);margin-bottom:8px}
+.hm-focus .frole{font:700 9px/1.6 var(--mono);letter-spacing:.16em;color:rgba(255,255,255,.85)}
+
+/* ============ STUDIO / PLAYER ============ */
+.studio{max-width:1200px;margin:64px auto 0;padding:0 24px;display:grid;grid-template-columns:1.62fr 1fr;gap:20px;align-items:start}
+.st-main{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px}
+.onair{display:flex;gap:9px;align-items:center;font:700 9.5px var(--mono);letter-spacing:.2em;color:var(--red)}
+.onair i{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1.4s infinite}
+.av-row{display:flex;gap:22px;margin:22px 0 4px}
+.sav-wrap{text-align:center}
+.sav{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font:700 14px var(--mono);color:#fff;margin:auto;border:2px solid rgba(255,255,255,.25)}
+.sav1{background:linear-gradient(135deg,#0d9488,#10b981);box-shadow:0 0 26px rgba(16,185,129,.35)}
+.sav2{background:linear-gradient(135deg,#3b82f6,#6366f1);box-shadow:0 0 26px rgba(59,130,246,.35)}
+.sav-label{font:700 8.5px/1 var(--mono);letter-spacing:.16em;color:var(--dim);margin-top:9px}
+.quote{text-align:center;margin:8px 0 20px}
+.q-text{font:italic 700 clamp(19px,2.4vw,26px)/1.45 var(--serif);color:var(--txt)}
+.q-by{font:500 10.5px var(--mono);letter-spacing:.14em;color:var(--dim);margin-top:10px}
+.wave{height:112px;display:flex;align-items:center;justify-content:center;gap:3px;margin:6px 0 22px;cursor:pointer}
+.wbar{width:4px;border-radius:2px;background:linear-gradient(180deg,#4bf0bd,#0ea5a0);animation:wv var(--d,1s) ease-in-out var(--dl,0s) infinite alternate;animation-play-state:paused;opacity:.9;transition:opacity .3s}
+body.playing .wbar{animation-play-state:running;opacity:1}
+@keyframes wv{from{transform:scaleY(.28)}to{transform:scaleY(1)}}
+.tr{border-left:3px solid var(--teal);background:rgba(47,230,169,.05);border-radius:0 12px 12px 0;padding:16px 18px}
+.tr + .tr{margin-top:14px}
+.tr.t2{border-left-color:var(--blue);background:rgba(79,143,247,.06)}
+.tr .who{font:700 11px var(--mono);color:var(--teal)}
+.tr.t2 .who{color:var(--blue)}
+.tr p{font:400 13.5px/1.8 var(--sans);color:#cfd9e2;margin-top:7px}
+.st-side{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
+.side-title{font:700 10.5px/1 var(--mono);letter-spacing:.2em;color:var(--mut);margin-bottom:16px}
+.el-row{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;transition:.25s;margin-bottom:8px;font-family:var(--sans)}
+.el-row:hover{border-color:rgba(255,255,255,.18);transform:translateX(3px)}
+.el-row.on{border-color:rgba(255,92,28,.55);background:rgba(255,92,28,.08)}
+.el-num{font:700 11px var(--mono);color:var(--dim)}
+.el-name{font:600 12.5px/1.3 var(--sans);color:var(--txt);flex:1}
+.bdg{font:700 8.5px var(--mono);letter-spacing:.14em;padding:5px 8px;border-radius:6px;white-space:nowrap}
+.bdg.active{background:var(--green);color:#06281c}
+.bdg.static{background:rgba(255,255,255,.07);color:var(--mut)}
+.bdg.link{background:rgba(79,143,247,.2);color:#bcd3ff}
+.insight{margin-top:14px;background:linear-gradient(135deg,rgba(255,92,28,.18),rgba(255,92,28,.06));border:1px solid rgba(255,92,28,.4);border-radius:12px;padding:16px 18px}
+.insight h4{font:700 9.5px/1 var(--mono);letter-spacing:.18em;color:var(--orange2);margin-bottom:9px}
+.insight p{font:400 12.5px/1.75 var(--sans);color:#f0dccd}
+.insight strong{color:var(--orange2)}
+
+/* ============ LEGO ============ */
+.lego{max-width:1200px;margin:66px auto 0;padding:0 24px}
+.lego-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px}
+.l-top{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:flex-start}
+h2.sec{font:800 clamp(24px,3vw,32px)/1.2 var(--sans)}
+.l-sub{font:400 13px/1.6 var(--sans);color:var(--mut);margin-top:8px}
+.tags{display:flex;gap:10px;flex-wrap:wrap}
+.tag{font:700 9px var(--mono);letter-spacing:.16em;padding:11px 15px;border-radius:8px}
+.tag.grey{background:#1a212c;color:var(--mut);border:1px solid var(--line)}
+.tag.or{background:var(--orange);color:#fff;box-shadow:0 8px 24px rgba(255,92,28,.35)}
+.l-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.l-col{border-left:2px solid var(--orange);padding-left:18px}
+.l-eyebrow{font:700 9.5px/1 var(--mono);letter-spacing:.18em;color:var(--dim)}
+.l-big{font:700 21px/1.35 var(--mono);color:var(--orange);letter-spacing:.04em;margin:12px 0 10px}
+.l-big.serif{font:italic 700 27px/1.2 var(--serif);color:var(--txt);letter-spacing:0}
+.l-text{font:400 12.5px/1.75 var(--sans);color:var(--mut)}
+.err-head{font:700 10px/1 var(--mono);letter-spacing:.2em;color:var(--mut);margin:34px 0 14px}
+.err-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.err{border-radius:14px;padding:20px;border:1px solid}
+.err.red{background:rgba(244,88,106,.08);border-color:rgba(244,88,106,.4)}
+.err.blue{background:rgba(79,143,247,.08);border-color:rgba(79,143,247,.4)}
+.err h4{font:700 9.5px/1 var(--mono);letter-spacing:.18em;margin-bottom:10px}
+.err.red h4{color:var(--red)} .err.blue h4{color:var(--blue)}
+.err p{font:italic 400 13px/1.75 var(--sans);color:#dfe6ec}
+
+/* ============ MECANISMO ============ */
+.mech{max-width:1200px;margin:66px auto 0;padding:0 24px;display:grid;grid-template-columns:1fr 1.15fr;gap:20px;align-items:start}
+.mech-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.chip{font:700 10px var(--mono);letter-spacing:.12em;padding:13px 15px;border-radius:8px;background:var(--card);border:1px solid var(--line);color:var(--mut);cursor:pointer;transition:.25s}
+.chip:hover{border-color:rgba(255,255,255,.2);color:var(--txt)}
+.chip.on{background:rgba(255,92,28,.13);border-color:var(--orange);color:var(--orange2);box-shadow:0 6px 20px rgba(255,92,28,.18)}
+.note{font:500 9.5px/1.7 var(--mono);letter-spacing:.08em;color:var(--dim);margin-top:18px}
+.m-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.m-head h3{font:700 11.5px/1 var(--mono);letter-spacing:.2em;color:var(--txt)}
+.sys-on{font:700 8.5px var(--mono);letter-spacing:.16em;color:var(--green);background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.4);padding:7px 11px;border-radius:6px}
+.m-flow{display:flex;align-items:center;justify-content:center;gap:20px;margin:32px 0 8px;flex-wrap:wrap}
+.tok{text-align:center}
+.tok-circle{width:66px;height:66px;border-radius:50%;border:2px solid var(--orange);display:grid;place-items:center;font:700 17px var(--mono);color:var(--orange2);margin:auto;box-shadow:0 0 30px rgba(255,92,28,.28);background:rgba(255,92,28,.06)}
+.tok-box{min-width:82px;padding:21px 16px;border-radius:12px;background:#1b2330;border:1px solid var(--line);font:italic 600 16px var(--mono);color:var(--txt)}
+.tok-out{font:800 19px/1.2 var(--sans);color:var(--orange)}
+.tok small{display:block;font:500 9px/1.4 var(--mono);letter-spacing:.12em;color:var(--dim);margin-top:10px}
+.op{font:700 22px var(--mono);color:var(--dim)}
+.m-foot{font:400 12px/1.8 var(--sans);color:var(--mut);text-align:center;margin-top:18px;border-top:1px dashed var(--line);padding-top:16px}
+.m-foot strong{color:var(--orange2)}
+
+/* ============ SIGUIENTE PÁGINA (ENLACE NUEVO) ============ */
+.next{max-width:1200px;margin:66px auto 0;padding:0 24px}
+.next-card{display:block;text-decoration:none;border-radius:20px;padding:34px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,47,214,.12),rgba(0,229,255,.06) 55%,var(--panel));
+  border:1px solid rgba(255,47,214,.38);transition:.35s}
+.next-card:hover{transform:translateY(-5px);border-color:rgba(255,47,214,.75);box-shadow:0 24px 64px rgba(255,47,214,.22)}
+.next-card::after{content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,229,255,.16),transparent 70%)}
+.next-in{display:flex;gap:26px;align-items:center;flex-wrap:wrap;position:relative;z-index:2}
+.next-ico{width:74px;height:74px;flex:none;border-radius:20px;display:grid;place-items:center;font-size:32px;
+  background:rgba(255,47,214,.14);border:1px solid rgba(255,47,214,.5);box-shadow:0 0 30px rgba(255,47,214,.3)}
+.next-txt{flex:1;min-width:240px}
+.next-eyebrow{font:700 9px/1 var(--mono);letter-spacing:.22em;color:var(--cyan);margin-bottom:12px}
+.next-title{font:800 clamp(22px,3vw,30px)/1.15 var(--sans);color:#fff;margin-bottom:9px}
+.next-title em{font-style:normal;background:linear-gradient(90deg,var(--magenta),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.next-sub{font:400 13px/1.75 var(--sans);color:var(--mut);max-width:620px}
+.next-go{flex:none;font:700 11px var(--mono);letter-spacing:.16em;padding:16px 24px;border-radius:12px;color:#fff;
+  background:linear-gradient(135deg,var(--magenta),#b3128f);box-shadow:0 12px 34px rgba(255,47,214,.4);white-space:nowrap}
+.next-card:hover .next-go{transform:translateX(4px)}
+.next-go,.next-ico{transition:.35s}
+
+/* ============ FOOTER + PLAYER BAR ============ */
+footer.foot{max-width:1200px;margin:76px auto 0;padding:26px 24px 130px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--dim);font:500 10.5px/1.8 var(--mono);letter-spacing:.1em}
+footer.foot b{color:var(--mut)}
+footer.foot a{color:var(--magenta);text-decoration:none;border-bottom:1px dashed rgba(255,47,214,.5)}
+footer.foot a:hover{color:#fff}
+.player{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(9,11,15,.92);backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+.pl-in{max-width:1200px;margin:auto;display:flex;align-items:center;gap:18px;padding:11px 24px}
+.pbtn{width:38px;height:38px;flex:none;border-radius:10px;border:1px solid rgba(255,92,28,.55);background:rgba(255,92,28,.13);color:var(--orange2);display:grid;place-items:center;cursor:pointer;font:700 11px var(--mono);transition:.25s}
+.pbtn:hover{background:rgba(255,92,28,.25);transform:scale(1.05)}
+.pbtn.loading{animation:pulseLoad 1s infinite}
+@keyframes pulseLoad{0%,100%{opacity:1}50%{opacity:.35}}
+.ptrack{flex:1;display:flex;align-items:center;gap:12px;min-width:0}
+.ptime{font:600 10px var(--mono);color:var(--dim);white-space:nowrap}
+.pbar{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.08);position:relative;cursor:pointer;overflow:hidden}
+.pbar:hover{height:9px;transition:height .2s}
+.pfill{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:linear-gradient(90deg,var(--teal),#10b981);width:0%;box-shadow:0 0 12px rgba(47,230,169,.5)}
+.pbuf{position:absolute;left:0;top:0;bottom:0;background:rgba(255,255,255,.10);width:0%;border-radius:3px}
+.pstats{display:flex;gap:20px;align-items:center}
+.pstat{font:700 8.5px/1.5 var(--mono);letter-spacing:.16em;color:var(--dim);white-space:nowrap}
+.pstat b{color:var(--mut)}
+.ptitle{max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 9px/1.5 var(--mono);letter-spacing:.14em;color:var(--orange2)}
+.spd,.hd{font:700 8.5px var(--mono);letter-spacing:.14em;padding:9px 11px;border-radius:8px;background:rgba(255,255,255,.06);color:var(--txt);border:1px solid var(--line)}
+.spd{cursor:pointer;transition:.25s}
+.spd:hover{border-color:rgba(255,92,28,.5);color:var(--orange2)}
+.hd{color:var(--mut)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);z-index:80;background:rgba(244,88,106,.14);border:1px solid rgba(244,88,106,.5);color:#ffd9de;font:600 11px/1.5 var(--mono);letter-spacing:.1em;padding:12px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.35s;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .nav,.pstats,.ep-meta,.ptitle{display:none}
+  .hero,.studio,.mech{grid-template-columns:1fr}
+  .hero-meta{grid-template-columns:1fr}
+  .l-cols,.err-grid{grid-template-columns:1fr}
+  h1.big{font-size:44px}
+  .next-go{width:100%;text-align:center;justify-content:center}
+}
+@media (max-width:520px){
+  .hd{display:none}
+  .pl-in{gap:10px;padding:10px 14px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="logo">D</div>
+    <div>
+      <div class="brand-eyebrow">DISCOVERY MAX • NEUROEDUCATION</div>
+      <div class="brand-title">The <em>NFB Methodology</em> Series</div>
+    </div>
+    <nav class="nav">
+      <a href="#inicio">INICIO</a>
+      <a href="#episodio">EPISODIO</a>
+      <a href="#metodo">MÉTODO LEGO</a>
+      <a href="#mecanismo">MECANISMO</a>
+      <a class="ext" href="shocking-pronouns.html">⚡ SHOCKING PRONOUNS</a>
+    </nav>
+    <div class="top-right">
+      <div class="ep-meta">
+        <div class="e1">EPISODIO 042</div>
+        <div class="e2">The NFB Methodology: Linguistic PRO</div>
+      </div>
+      <div class="live"><i></i>LIVE NEURAL EXPERIENCE</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <div class="rv in">
+      <div class="eyebrow"><i></i>DISCOVERY MAX • NEUROEDUCATION</div>
+      <h1 class="big">El Choque de<span>Sistemas</span></h1>
+      <p class="lead">Una exploración profunda en la metodología <strong>NFB by Toño Vicas</strong>: el fin de la confusión y el nacimiento del ensamblaje cognitivo. Esta es la puerta de entrada a tu plataforma: aquí el inglés <strong>no se traduce, se crea</strong>.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary" id="btnPlayHero">▶&nbsp;&nbsp;REPRODUCIR AUDIO COMPLETO</button>
+        <button class="btn btn-ghost" id="btnElements">VER LOS 7 ELEMENTOS</button>
+        <a class="btn btn-mag" href="shocking-pronouns.html">⚡&nbsp;SHOCKING PRONOUNS</a>
+      </div>
+    </div>
+    <div class="os-stack rv in">
+      <div class="os-card">
+        <div class="os-eyebrow os-es">SISTEMA OPERATIVO: ESPAÑOL</div>
+        <div class="os-title">Navaja Suiza</div>
+        <div class="os-text"><code>"Caminamos"</code> — Acción, tiempo y persona en una sola unidad compuesta.</div>
+      </div>
+      <div class="os-card">
+        <div class="os-eyebrow os-en">SISTEMA OPERATIVO: INGLÉS</div>
+        <div class="os-title">Bloques Lego</div>
+        <div class="os-text">La acción no se conjuga: <strong>se ensambla pieza por pieza</strong> el orden es la clave.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-meta">
+    <div class="hm-card rv">
+      <div class="hm-eyebrow">EPISODIO 001 — EL DIÁLOGO QUE TE HACE HABLAR INGLÉS</div>
+      <div class="person"><div class="pav">TCH</div><div><div class="pname">TEACHER</div><div class="prole">NEURO-LINGÜÍSTICA</div></div></div>
+      <div class="person"><div class="pav">EST</div><div><div class="pname">STUDENT</div><div class="prole">CIENCIA COGNITIVA</div></div></div>
+    </div>
+    <div class="hm-card rv">
+      <div class="dur-row">
+        <div class="eq" id="eqHero"></div>
+        <div>
+          <div class="dur-label">DURACIÓN ACTUAL</div>
+          <div class="dur-time"><span id="timeHero">00:00</span> <span>/ <span id="durHero">--:--</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hm-card hm-focus rv">
+      <div class="hm-eyebrow">RESEARCHER FOCUS</div>
+      <div class="fname">Toño Vicas</div>
+      <div class="frole">NEUROSCIENCE OF LANGUAGE ACQUISITION</div>
+    </div>
+  </div>
+
+  <!-- ============ STUDIO ============ -->
+  <section class="studio" id="episodio">
+    <div class="st-main rv">
+      <div class="onair"><i></i>ON AIR: THE LINGUISTIC OS</div>
+      <div class="av-row">
+        <div class="sav-wrap"><div class="sav sav1">A1</div><div class="sav-label">ANALISTA 1</div></div>
+        <div class="sav-wrap"><div class="sav sav2">A2</div><div class="sav-label">ANALISTA 2</div></div>
+      </div>
+      <div class="quote">
+        <div class="q-text">"¿Y si el inglés no tuviera verbos?"</div>
+        <div class="q-by">TOÑO VICAS • NEUROCOGNITIVE RESEARCH</div>
+      </div>
+      <div class="wave" id="waveform" title="Clic para reproducir / pausar"></div>
+      <div class="tr">
+        <span class="who">A1:</span>
+        <p>…el cerebro angloparlante busca la pieza específica. El nombre funcional de la cosa. Mientras nosotros usamos la "navaja suiza" (el verbo), ellos ensamblan piezas de Lego.</p>
+      </div>
+      <div class="tr t2">
+        <span class="who">A2:</span>
+        <p>Exacto. Y para "Necesito agua para regar mis flores", dirían "I need water to water my flowers". No hay verbos naturales, hay nombres activados.</p>
+      </div>
+    </div>
+
+    <aside class="st-side rv">
+      <div class="side-title">7 ELEMENTOS DETERMINANTES (NFB)</div>
+      <div id="elList">
+        <button class="el-row" data-idx="0" data-orig="ACTIVE"><span class="el-num">01</span><span class="el-name">Pronombres Personales Directos</span><span class="bdg active">ACTIVE</span></button>
+        <button class="el-row" data-idx="1" data-orig="STATIC"><span class="el-num">02</span><span class="el-name">Sustantivos</span><span class="bdg static">STATIC</span></button>
+        <button class="el-row" data-idx="2" data-orig="STATIC"><span class="el-num">03</span><span class="el-name">Preposiciones</span><span class="bdg static">STATIC</span></button>
+        <button class="el-row" data-idx="3" data-orig="STATIC"><span class="el-num">04</span><span class="el-name">Adjetivos</span><span class="bdg static">STATIC</span></button>
+        <button class="el-row" data-idx="4" data-orig="STATIC"><span class="el-num">05</span><span class="el-name">Adverbios</span><span class="bdg static">STATIC</span></button>
+        <button class="el-row" data-idx="5" data-orig="LINK"><span class="el-num">06</span><span class="el-name">Palabras Auxiliares</span><span class="bdg link">LINK</span></button>
+        <button class="el-row" data-idx="6" data-orig="LINK"><span class="el-num">07</span><span class="el-name">Palabras Modales</span><span class="bdg link">LINK</span></button>
+      </div>
+      <div class="insight">
+        <h4>NEURO-INSIGHT:</h4>
+        <p>El sujeto o PPD no es para saber quién hace la acción, es el <strong>botón de PLAY</strong> que activa el sustantivo como acción, sin sujeto no hay acción verbal.</p>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ LEGO PRINCIPLE ============ -->
+  <section class="lego" id="metodo">
+    <div class="lego-card rv">
+      <div class="l-top">
+        <div>
+          <h2 class="sec">The "Lego" Principle</h2>
+          <div class="l-sub">Del procesamiento verbo-céntrico al noun-céntrico · Shifting from Verb-Centric to Noun-Centric Processing</div>
+        </div>
+        <div class="tags">
+          <span class="tag grey">SPANISH: MULTI-TOOL</span>
+          <span class="tag or">ENGLISH: ASSEMBLY</span>
+        </div>
+      </div>
+      <div class="l-cols">
+        <div class="l-col">
+          <div class="l-eyebrow">BOTÓN DE ACTIVACIÓN / ACTIVATION BUTTON</div>
+          <div class="l-big">I / YOU / SHE</div>
+          <div class="l-text">Marcadores morfológicos que "encienden" el sustantivo y lo ponen en acción.</div>
+        </div>
+        <div class="l-col">
+          <div class="l-eyebrow">SUSTANTIVO FUNCIONAL / FUNCTIONAL NOUN</div>
+          <div class="l-big">WALK / RUN / PICK</div>
+          <div class="l-text">Las acciones en inglés son bloques de construcción esencialmente funcionales.</div>
+        </div>
+        <div class="l-col">
+          <div class="l-eyebrow">EL RESULTADO / THE RESULT</div>
+          <div class="l-big serif">ASSEMBLY</div>
+          <div class="l-text">Sin conjugaciones internas: yuxtaposición puramente estructural.</div>
+        </div>
+      </div>
+      <div class="err-head">NEURO-COGNITIVE ERROR / ERROR NEUROCOGNITIVO</div>
+      <div class="err-grid">
+        <div class="err red">
+          <h4>THE AUXILIARY "DO" FALLACY</h4>
+          <p>Traducir "Do = Hacer" crea un cortocircuito cognitivo inmediato en el cerebro hispano cuando le dicen que es un auxiliar.</p>
+        </div>
+        <div class="err blue">
+          <h4>THE SURVIVAL MECHANISM</h4>
+          <p>Los sujetos obligatorios no son solo gramática: son el pulso eléctrico de la sentencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MECANISMO ============ -->
+  <section class="mech" id="mecanismo">
+    <div class="mech-card rv">
+      <div class="side-title">LOS 7 ELEMENTOS DETERMINANTES</div>
+      <div class="chips" id="chipList">
+        <button class="chip on" data-idx="0">1. PRONOMBRES</button>
+        <button class="chip" data-idx="1">2. SUSTANTIVOS</button>
+        <button class="chip" data-idx="2">3. PREPOSICIONES</button>
+        <button class="chip" data-idx="3">4. ADJETIVOS</button>
+        <button class="chip" data-idx="4">5. ADVERBIOS</button>
+        <button class="chip" data-idx="5">6. AUXILIARES</button>
+        <button class="chip" data-idx="6">7. MODALES</button>
+      </div>
+      <div class="note">* NOTA: LA CATEGORÍA "VERBOS" HA SIDO ELIMINADA POR OBSOLESCENCIA COGNITIVA.</div>
+    </div>
+    <div class="mech-card rv">
+      <div class="m-head">
+        <h3>MECANISMO DE ACTIVACIÓN</h3>
+        <span class="sys-on">SISTEMA ACTIVO</span>
+      </div>
+      <div class="m-flow">
+        <div class="tok"><div class="tok-circle">She</div><small>PRONOMBRE (TRIGGER)</small></div>
+        <div class="op">+</div>
+        <div class="tok"><div class="tok-box">walk</div><small>NOUN (FUNCIONAL)</small></div>
+        <div class="op">=</div>
+        <div class="tok"><div class="tok-out">Action Active</div><small>OUTPUT</small></div>
+      </div>
+      <div class="m-foot">El sujeto o PPD no es para saber quién hace la acción: funciona como el <strong>botón de PLAY</strong> que activa el sustantivo como acción, sin sujeto no hay acción verbal.</div>
+    </div>
+  </section>
+
+  <!-- ============ 🔗 ENLACE A LA OTRA PÁGINA ============ -->
+  <section class="next" id="siguiente">
+    <a class="next-card rv" href="shocking-pronouns.html">
+      <div class="next-in">
+        <div class="next-ico">⚡</div>
+        <div class="next-txt">
+          <div class="next-eyebrow">SIGUIENTE INVESTIGACIÓN · NEUROLINGÜÍSTICA APLICADA</div>
+          <div class="next-title">SHOCKING <em>PRONOUNS</em></div>
+          <div class="next-sub">El choque eléctrico que los pronombres del inglés generan en el cerebro hispano: pronombres de objeto, posesivos en español e inglés, las parejas que más errores producen y el neuro-decodificador interactivo con voz.</div>
+        </div>
+        <div class="next-go">ABRIR PÁGINA →</div>
+      </div>
+    </a>
+  </section>
+</main>
+
+<footer class="foot">
+  <div>© 2026 <b>DISCOVERY MAX NEUROEDUCATION</b> — THE NFB METHODOLOGY: LINGUISTIC PRO</div>
+  <div>ISK | VICAS | NBF BASADO EN NEUROCIENCIAS COGNITIVAS MIT• <b>EPISODIO 001</b> • <a href="shocking-pronouns.html">⚡ SHOCKING PRONOUNS</a></div>
+</footer>
+
+<!-- ============ BARRA DE REPRODUCCIÓN ============ -->
+<div class="player">
+  <div class="pl-in">
+    <button class="pbtn" id="btnPlay" aria-label="Reproducir / Pausar">▶</button>
+    <div class="ptrack">
+      <span class="ptime" id="timeCur">00:00</span>
+      <div class="pbar" id="pbar"><div class="pbuf" id="pbuf"></div><div class="pfill" id="pfill"></div></div>
+      <span class="ptime" id="timeDur">--:--</span>
+    </div>
+    <div class="ptitle" id="ptitle">TOÑO VICAS REVOLUTION · DECONSTRUCCIÓN DEL SUFIJO -ING</div>
+    <div class="pstats">
+      <span class="pstat">SYNAPTIC MAPPING</span>
+      <span class="pstat">COGNITIVE LOAD: <b id="cload">42%</b></span>
+    </div>
+    <button class="spd" id="btnSpeed" title="Velocidad de reproducción">1x SPEED</button>
+    <button class="pbtn" id="btnMute" aria-label="Silenciar" title="Silenciar / Activar sonido">🔊</button>
+    <span class="hd">HD AUDIO</span>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ============ AUDIO REAL ============ -->
+<audio id="audio"
+  src="https://www.maxneuroeducation.com/uploads/1/2/6/0/126057965/to%C3%B1o_vicas_revolution_deconstrucci%C3%B3n_del_sufijo_-ing_su_brutal_refutaci%C3%B3n_del_gerundio_verbal_-_discovery_max_neuroeducation__youtube_.mp3"
+  preload="metadata"></audio>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============ AUDIO REAL ============ */
+  var audio   = document.getElementById('audio');
+  var btnPlay = document.getElementById('btnPlay');
+  var btnMute = document.getElementById('btnMute');
+  var btnSpd  = document.getElementById('btnSpeed');
+  var pbar    = document.getElementById('pbar');
+  var pfill   = document.getElementById('pfill');
+  var pbuf    = document.getElementById('pbuf');
+  var tCur    = document.getElementById('timeCur');
+  var tDur    = document.getElementById('timeDur');
+  var tHero   = document.getElementById('timeHero');
+  var dHero   = document.getElementById('durHero');
+  var cload   = document.getElementById('cload');
+  var toast   = document.getElementById('toast');
+  var waveEl  = document.getElementById('waveform');
+
+  var speeds = [1, 1.25, 1.5, 2];
+  var spdIdx = 0;
+  var dragging = false;
+
+  function fmt(s){
+    if(!isFinite(s) || s < 0) return '--:--';
+    s = Math.floor(s);
+    var h = Math.floor(s/3600), m = Math.floor((s%3600)/60), ss = s%60;
+    var mm = (m<10?'0':'')+m, sss = (ss<10?'0':'')+ss;
+    return h > 0 ? (h+':'+mm+':'+sss) : (mm+':'+sss);
+  }
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ toast.classList.remove('show'); }, 4200);
+  }
+
+  /* ---- waveform bars ---- */
+  for (var i=0;i<56;i++){
+    var b = document.createElement('i');
+    b.className = 'wbar';
+    b.style.height = (14 + Math.random()*88) + 'px';
+    b.style.setProperty('--d', (0.7 + Math.random()*0.9).toFixed(2) + 's');
+    b.style.setProperty('--dl', (-Math.random()*1.5).toFixed(2) + 's');
+    waveEl.appendChild(b);
+  }
+  /* ---- hero equalizer bars ---- */
+  var eqEl = document.getElementById('eqHero');
+  for (var j=0;j<12;j++){
+    var e = document.createElement('i');
+    e.style.height = (8 + Math.random()*22) + 'px';
+    e.style.animationDuration = (0.6 + Math.random()*0.8).toFixed(2) + 's';
+    e.style.animationDelay = (-Math.random()).toFixed(2) + 's';
+    eqEl.appendChild(e);
+  }
+
+  /* ---- render ---- */
+  function render(){
+    var dur = isFinite(audio.duration) ? audio.duration : 0;
+    var cur = dragging ? (dragging._t || 0) : audio.currentTime;
+    var pct = dur > 0 ? Math.min(100, (cur/dur)*100) : 0;
+    pfill.style.width = pct + '%';
+    tCur.textContent  = fmt(cur);
+    tHero.textContent = fmt(cur);
+    try{
+      if(audio.buffered && audio.buffered.length && dur > 0){
+        pbuf.style.width = Math.min(100,(audio.buffered.end(audio.buffered.length-1)/dur)*100) + '%';
+      }
+    }catch(err){}
+  }
+
+  function renderDuration(){
+    var d = isFinite(audio.duration) ? audio.duration : 0;
+    var txt = d > 0 ? fmt(d) : '--:--';
+    tDur.textContent  = txt;
+    dHero.textContent = txt;
+  }
+
+  function setPlayingUI(v){
+    document.body.classList.toggle('playing', v);
+    btnPlay.textContent = v ? '❚❚' : '▶';
+    btnPlay.classList.remove('loading');
+  }
+
+  /* ---- play / pause ---- */
+  function play(){
+    btnPlay.classList.add('loading');
+    var p = audio.play();
+    if(p && p.catch){
+      p.catch(function(){
+        btnPlay.classList.remove('loading');
+        showToast('⚠ EL NAVEGADOR BLOQUEÓ LA REPRODUCCIÓN AUTOMÁTICA. PULSA ▶ DE NUEVO.');
+      });
+    }
+  }
+  function toggle(){
+    if(audio.paused){ play(); } else { audio.pause(); }
+  }
+
+  btnPlay.addEventListener('click', toggle);
+  waveEl.addEventListener('click', toggle);
+
+  document.getElementById('btnPlayHero').addEventListener('click', function(){
+    play();
+    document.getElementById('episodio').scrollIntoView({behavior:'smooth'});
+  });
+  document.getElementById('btnElements').addEventListener('click', function(){
+    document.getElementById('mecanismo').scrollIntoView({behavior:'smooth'});
+  });
+
+  /* ---- eventos del audio ---- */
+  audio.addEventListener('loadedmetadata', function(){ renderDuration(); render(); });
+  audio.addEventListener('durationchange', function(){ renderDuration(); render(); });
+  audio.addEventListener('timeupdate', render);
+  audio.addEventListener('progress', render);
+  audio.addEventListener('play',  function(){ setPlayingUI(true); });
+  audio.addEventListener('playing', function(){ setPlayingUI(true); });
+  audio.addEventListener('pause', function(){ setPlayingUI(false); });
+  audio.addEventListener('waiting', function(){ btnPlay.classList.add('loading'); });
+  audio.addEventListener('canplay', function(){ btnPlay.classList.remove('loading'); });
+  audio.addEventListener('ended', function(){ setPlayingUI(false); audio.currentTime = 0; render(); });
+  audio.addEventListener('error', function(){
+    setPlayingUI(false);
+    showToast('⚠ NO SE PUDO CARGAR EL AUDIO. REVISA TU CONEXIÓN O EL ENLACE DEL ARCHIVO.');
+  });
+
+  /* ---- seek (clic + arrastre) ---- */
+  function ratioFromEvent(ev){
+    var r = pbar.getBoundingClientRect();
+    var x = (ev.touches && ev.touches[0]) ? ev.touches[0].clientX : ev.clientX;
+    return Math.max(0, Math.min(1, (x - r.left) / r.width));
+  }
+  function seekTo(ratio){
+    if(isFinite(audio.duration) && audio.duration > 0){
+      audio.currentTime = ratio * audio.duration;
+    }
+    render();
+  }
+  pbar.addEventListener('mousedown', function(ev){
+    dragging = true; dragging._t = ratioFromEvent(ev) * (audio.duration||0);
+    seekTo(ratioFromEvent(ev));
+    ev.preventDefault();
+  });
+  document.addEventListener('mousemove', function(ev){
+    if(!dragging) return;
+    var r = ratioFromEvent(ev);
+    dragging._t = r * (audio.duration||0);
+    pfill.style.width = (r*100) + '%';
+    tCur.textContent = fmt(dragging._t);
+  });
+  document.addEventListener('mouseup', function(ev){
+    if(!dragging) return;
+    dragging = false;
+    seekTo(ratioFromEvent(ev));
+  });
+  pbar.addEventListener('touchstart', function(ev){
+    dragging = true; seekTo(ratioFromEvent(ev));
+  }, {passive:true});
+  pbar.addEventListener('touchmove', function(ev){
+    if(!dragging) return;
+    var r = ratioFromEvent(ev);
+    dragging._t = r * (audio.duration||0);
+    pfill.style.width = (r*100) + '%';
+    tCur.textContent = fmt(dragging._t);
+  }, {passive:true});
+  pbar.addEventListener('touchend', function(ev){
+    if(!dragging) return;
+    dragging = false;
+    if(isFinite(audio.duration) && audio.duration > 0 && ev.changedTouches && ev.changedTouches[0]){
+      var r = pbar.getBoundingClientRect();
+      var ratio = Math.max(0, Math.min(1,(ev.changedTouches[0].clientX - r.left)/r.width));
+      audio.currentTime = ratio * audio.duration;
+    }
+    render();
+  });
+
+  /* ---- velocidad ---- */
+  btnSpd.addEventListener('click', function(){
+    spdIdx = (spdIdx + 1) % speeds.length;
+    audio.playbackRate = speeds[spdIdx];
+    btnSpd.textContent = speeds[spdIdx] + 'x SPEED';
+  });
+
+  /* ---- silencio ---- */
+  btnMute.addEventListener('click', function(){
+    audio.muted = !audio.muted;
+    btnMute.textContent = audio.muted ? '🔇' : '🔊';
+    btnMute.style.opacity = audio.muted ? '.5' : '1';
+  });
+
+  /* ---- teclado ---- */
+  document.addEventListener('keydown', function(ev){
+    var tag = (ev.target.tagName || '').toLowerCase();
+    if(tag === 'input' || tag === 'textarea') return;
+    if(ev.code === 'Space'){
+      ev.preventDefault(); toggle();
+    } else if(ev.code === 'ArrowRight'){
+      ev.preventDefault();
+      if(isFinite(audio.duration)) audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
+      render();
+    } else if(ev.code === 'ArrowLeft'){
+      ev.preventDefault();
+      audio.currentTime = Math.max(0, audio.currentTime - 5);
+      render();
+    }
+  });
+
+  /* ---- cognitive load flicker ---- */
+  setInterval(function(){
+    if(!audio.paused) cload.textContent = (38 + Math.floor(Math.random()*10)) + '%';
+  }, 2000);
+
+  /* ---- 7 elements sync ---- */
+  var rows  = Array.prototype.slice.call(document.querySelectorAll('.el-row'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  function selectElement(idx){
+    rows.forEach(function(r){
+      var on = (+r.dataset.idx === idx);
+      r.classList.toggle('on', on);
+      var bdg = r.querySelector('.bdg');
+      var orig = r.dataset.orig;
+      if(on){ bdg.textContent='ACTIVE'; bdg.className='bdg active'; }
+      else if(orig==='LINK'){ bdg.textContent='LINK'; bdg.className='bdg link'; }
+      else { bdg.textContent='STATIC'; bdg.className='bdg static'; }
+    });
+    chips.forEach(function(c){ c.classList.toggle('on', +c.dataset.idx === idx); });
+  }
+  rows.forEach(function(r){ r.addEventListener('click', function(){ selectElement(+r.dataset.idx); }); });
+  chips.forEach(function(c){ c.addEventListener('click', function(){ selectElement(+c.dataset.idx); }); });
+  selectElement(0);
+
+  /* ---- reveal on scroll ---- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  /* ---- init ---- */
+  renderDuration();
+  render();
+})();
+</script>
+</body>
+</html>
+<!--
