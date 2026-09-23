@@ -744,10 +744,10 @@ footer.foot a:hover{color:#fff}
   render();
 })();
 </script>
-  <!-- ══════════ BOTÓN FLOTANTE: GUÍA PARA NUEVOS USUARIOS ══════════ -->
+  <!-- ══════════ BOTÓN FLOTANTE: GUÍA NUEVO USUARIO (v2: elevado sobre el reproductor) ══════════ -->
 <a href="onboarding.html" id="btnGuiaNFB" title="Guía de onboarding para nuevos usuarios">🧠 GUÍA NUEVO USUARIO</a>
 <style>
-#btnGuiaNFB{position:fixed;bottom:22px;right:22px;z-index:999;
+#btnGuiaNFB{position:fixed;bottom:115px;right:22px;z-index:999;
   font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;
   color:#00f2fe;background:rgba(10,14,26,.92);border:1px solid rgba(0,242,254,.55);
   border-radius:999px;padding:12px 20px;text-decoration:none;transition:.3s;
@@ -756,7 +756,11 @@ footer.foot a:hover{color:#fff}
   box-shadow:0 0 34px rgba(0,242,254,.75),inset 0 0 14px rgba(0,242,254,.25)}
 @keyframes pulsoGuia{0%,100%{box-shadow:0 0 12px rgba(0,242,254,.25)}
   50%{box-shadow:0 0 30px rgba(0,242,254,.6)}}
+@media(max-width:640px){
+  #btnGuiaNFB{bottom:105px;right:14px;font-size:.64rem;padding:10px 16px}
+}
 </style>
+
 </body>
 </html>
 <!--
