@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DISCOVERY MAX NEUROEDUCATION — Guía de Onboarding NFB</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5/index.css">
+<style>
+:root{
+  --bg:#0a0e1a;
+  --bg2:#0d1117;
+  --panel:#10162b;
+  --panel2:#131a33;
+  --cyan:#00f2fe;
+  --violet:#7928ca;
+  --violet2:#b06bff;
+  --amber:#f5a623;
+  --green:#2bffa7;
+  --red:#ff4d6a;
+  --txt:#e8ecff;
+  --muted:#98a2c3;
+  --line:rgba(0,242,254,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.65}
+::selection{background:var(--violet);color:#fff}
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%,transparent 40%,rgba(6,8,16,.78) 100%)}
+.wrap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ============ NAV ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);
+  background:rgba(10,14,26,.75);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.14em;
+  background:linear-gradient(90deg,var(--cyan),var(--violet2),var(--amber));
+  -webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.logo .zap{color:var(--amber);-webkit-text-fill-color:var(--amber);animation:zapflick 3s infinite}
+@keyframes zapflick{0%,90%,100%{opacity:1}92%{opacity:.2}94%{opacity:1}96%{opacity:.3}}
+.nav-links{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:8px;border:1px solid transparent;transition:.3s}
+.nav-links a:hover{color:var(--cyan);border-color:rgba(0,242,254,.35);
+  box-shadow:0 0 14px rgba(0,242,254,.25),inset 0 0 10px rgba(0,242,254,.08);text-shadow:0 0 8px var(--cyan)}
+.nav-links a.active{color:#fff;border-color:var(--violet2);
+  box-shadow:0 0 16px rgba(121,40,202,.5),inset 0 0 10px rgba(121,40,202,.2);text-shadow:0 0 8px var(--violet2)}
+
+/* ============ LEDS ============ */
+.leds{display:flex;gap:14px;justify-content:center;align-items:center;padding:6px 0}
+.led{width:7px;height:7px;border-radius:50%;background:#1a2040;animation:ledblink 2.4s infinite}
+.led.c{--lc:var(--cyan)} .led.v{--lc:var(--violet2)} .led.a{--lc:var(--amber)} .led.g{--lc:var(--green)}
+@keyframes ledblink{0%,100%{background:#1a2040;box-shadow:none}
+  12%{background:var(--lc);box-shadow:0 0 10px var(--lc),0 0 22px var(--lc)}30%{background:#1a2040;box-shadow:none}}
+
+/* ============ HERO (MÓDULO 1) ============ */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;position:relative;padding:140px 24px 70px}
+.nfb-badge{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--cyan);border:1px solid rgba(0,242,254,.4);background:rgba(0,242,254,.06);
+  padding:8px 18px;border-radius:999px;text-shadow:0 0 12px var(--cyan);margin-bottom:22px}
+.os-badge{display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:.78rem;
+  letter-spacing:.18em;color:var(--green);border:1px solid rgba(43,255,167,.5);background:rgba(43,255,167,.07);
+  padding:10px 22px;border-radius:12px;margin-bottom:26px;text-shadow:0 0 12px rgba(43,255,167,.7);
+  animation:osglow 2.6s infinite}
+@keyframes osglow{0%,100%{box-shadow:0 0 12px rgba(43,255,167,.15),inset 0 0 12px rgba(43,255,167,.05)}
+  50%{box-shadow:0 0 30px rgba(43,255,167,.4),inset 0 0 18px rgba(43,255,167,.12)}}
+h1.glitch{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.3rem,7vw,4.9rem);
+  letter-spacing:.03em;line-height:1.05;position:relative;
+  background:linear-gradient(92deg,#fff 5%,var(--cyan) 40%,var(--violet2) 70%,var(--amber) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+h1.glitch::before,h1.glitch::after{content:attr(data-text);position:absolute;inset:0;background:inherit;
+  -webkit-background-clip:text;background-clip:text;color:transparent;opacity:.7}
+h1.glitch::before{animation:gl1 5s infinite;clip-path:inset(18% 0 58% 0)}
+h1.glitch::after{animation:gl2 5s infinite;clip-path:inset(62% 0 10% 0)}
+@keyframes gl1{0%,93%,100%{transform:none}94%{transform:translate(-6px,2px)}96%{transform:translate(5px,-2px)}98%{transform:translate(-3px,1px)}}
+@keyframes gl2{0%,93%,100%{transform:none}95%{transform:translate(6px,-2px)}97%{transform:translate(-5px,2px)}}
+.hero h2.sub-line{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(1.1rem,3vw,1.7rem);
+  color:var(--amber);text-shadow:0 0 16px rgba(245,166,35,.45);margin-top:14px}
+.hero p.sub{max-width:760px;margin:20px auto 0;color:var(--muted);font-size:clamp(1rem,2vw,1.15rem)}
+.hero p.sub strong{color:var(--cyan);text-shadow:0 0 10px rgba(0,242,254,.5)}
+.cta-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.btn-neon{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  font-size:.82rem;padding:16px 32px;border-radius:12px;cursor:pointer;text-decoration:none;position:relative;
+  overflow:hidden;transition:.35s;border:1px solid var(--cyan);color:var(--cyan);background:rgba(0,242,254,.05)}
+.btn-neon::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transition:.6s}
+.btn-neon:hover::after{left:130%}
+.btn-neon:hover{color:#fff;background:rgba(0,242,254,.16);transform:translateY(-3px) scale(1.03);
+  box-shadow:0 0 24px rgba(0,242,254,.55),0 0 60px rgba(0,242,254,.22),inset 0 0 16px rgba(0,242,254,.2);
+  text-shadow:0 0 10px var(--cyan)}
+.btn-neon.vi{border-color:var(--violet2);color:var(--violet2);background:rgba(121,40,202,.08)}
+.btn-neon.vi:hover{background:rgba(121,40,202,.2);color:#fff;text-shadow:0 0 10px var(--violet2);
+  box-shadow:0 0 24px rgba(121,40,202,.6),0 0 60px rgba(121,40,202,.28),inset 0 0 16px rgba(121,40,202,.25)}
+.scroll-hint{margin-top:52px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.3em;animation:bob 2s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ============ SECCIONES ============ */
+section{padding:96px 0;position:relative}
+.sec-head{margin-bottom:44px}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.4em;color:var(--violet2);
+  text-shadow:0 0 12px var(--violet2);display:block;margin-bottom:10px}
+h2.big{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.7rem,4.4vw,2.7rem);line-height:1.15}
+h2.big .grad{background:linear-gradient(90deg,var(--cyan),var(--violet2));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2.big .grad-a{background:linear-gradient(90deg,var(--amber),var(--violet2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-head p{color:var(--muted);max-width:780px;margin-top:14px}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.divider{display:flex;align-items:center;gap:16px;margin:0 auto;max-width:900px;padding:10px 0}
+.divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+/* ============ MÓDULO 2: SIMULADOR ============ */
+.sim-shell{background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);
+  border-radius:22px;padding:34px;position:relative;overflow:visible;box-shadow:0 0 50px rgba(121,40,202,.1)}
+.insight{position:absolute;top:-24px;right:26px;max-width:340px;z-index:5;
+  background:linear-gradient(140deg,rgba(121,40,202,.25),rgba(13,17,23,.95));
+  border:1px solid rgba(176,107,255,.55);border-radius:14px;padding:14px 18px;
+  font-size:.82rem;color:var(--txt);box-shadow:0 0 26px rgba(121,40,202,.4);animation:floaty 4.5s ease-in-out infinite}
+.insight b{color:var(--violet2);text-shadow:0 0 10px rgba(176,107,255,.6)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.ex-chips{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 26px}
+.ex-chip{font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:700;padding:10px 18px;border-radius:10px;
+  border:1px solid rgba(0,242,254,.35);background:rgba(0,242,254,.05);color:var(--cyan);cursor:pointer;transition:.3s}
+.ex-chip:hover{box-shadow:0 0 16px rgba(0,242,254,.4);transform:translateY(-2px)}
+.ex-chip.sel{background:rgba(121,40,202,.2);border-color:var(--violet2);color:#fff;text-shadow:0 0 8px var(--violet2);
+  box-shadow:0 0 22px rgba(121,40,202,.55)}
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:860px){.sim-grid{grid-template-columns:1fr}.insight{position:static;margin:0 0 20px;max-width:none}}
+.side{border-radius:18px;padding:26px;position:relative;overflow:hidden;transition:.4s}
+.side.es{background:linear-gradient(160deg,rgba(255,77,106,.08),rgba(13,17,23,.7));border:1px solid rgba(255,77,106,.35)}
+.side.en{background:linear-gradient(160deg,rgba(0,242,254,.07),rgba(13,17,23,.7));border:1px solid rgba(0,242,254,.35)}
+.side:hover{transform:translateY(-4px)}
+.side.es:hover{box-shadow:0 14px 40px rgba(255,77,106,.16)}
+.side.en:hover{box-shadow:0 14px 40px rgba(0,242,254,.16)}
+.side-tag{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.25em;text-transform:uppercase}
+.side.es .side-tag{color:var(--red);text-shadow:0 0 10px rgba(255,77,106,.6)}
+.side.en .side-tag{color:var(--cyan);text-shadow:0 0 10px rgba(0,242,254,.6)}
+.side h3{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;margin:6px 0 4px;color:#fff}
+.side p.desc{color:var(--muted);font-size:.86rem;margin-bottom:20px}
+/* navaja suiza: bloque fusionado */
+.fuse{display:flex;flex-direction:column;align-items:center;gap:0;padding:10px 0 4px;cursor:pointer}
+.fuse-word{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:2rem;color:#ffd7de;
+  background:linear-gradient(160deg,rgba(255,77,106,.25),rgba(255,77,106,.08));
+  border:1px solid rgba(255,77,106,.6);border-radius:14px;padding:16px 34px;
+  text-shadow:0 0 16px rgba(255,77,106,.7);box-shadow:0 0 26px rgba(255,77,106,.25),inset 0 0 22px rgba(255,77,106,.12);
+  transition:.45s}
+.fuse:hover .fuse-word{transform:scale(1.04);box-shadow:0 0 40px rgba(255,77,106,.45),inset 0 0 26px rgba(255,77,106,.2)}
+.layers{display:flex;flex-direction:column;align-items:center;margin-top:-6px}
+.layer{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:7px 16px;border-radius:8px;margin-top:-4px;
+  background:rgba(255,77,106,.14);border:1px solid rgba(255,77,106,.4);color:#ffb3c0;transition:.45s cubic-bezier(.2,1.2,.4,1)}
+.fuse:hover .layer:nth-child(1){transform:translateY(10px) translateX(-14px)}
+.fuse:hover .layer:nth-child(2){transform:translateY(20px)}
+.fuse:hover .layer:nth-child(3){transform:translateY(30px) translateX(14px)}
+.fuse-hint{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);margin-top:34px;letter-spacing:.12em}
+/* lego: zona de ensamblaje */
+.build-zone{min-height:150px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;padding:12px 0}
+.blk{opacity:0;transform:translateY(30px) scale(.75);transition:.5s cubic-bezier(.2,1.4,.4,1);
+  border-radius:12px;padding:12px 16px;text-align:center;border:1px solid;position:relative}
+.build-zone.armed .blk{opacity:1;transform:none}
+.blk-type{display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.blk-word{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.25rem}
+.blk.pp{border-color:rgba(0,242,254,.6);background:rgba(0,242,254,.1);color:var(--cyan);text-shadow:0 0 12px rgba(0,242,254,.6)}
+.blk.sf{border-color:rgba(176,107,255,.6);background:rgba(121,40,202,.16);color:var(--violet2);text-shadow:0 0 12px rgba(176,107,255,.6)}
+.blk.cp{border-color:rgba(245,166,35,.6);background:rgba(245,166,35,.1);color:var(--amber);text-shadow:0 0 12px rgba(245,166,35,.6)}
+.build-zone.armed .blk.pp{animation:playpulse 1.6s infinite .6s}
+@keyframes playpulse{0%,100%{box-shadow:0 0 10px rgba(0,242,254,.25)}50%{box-shadow:0 0 30px rgba(0,242,254,.7),inset 0 0 16px rgba(0,242,254,.25)}}
+.plus{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--green);
+  text-shadow:0 0 12px rgba(43,255,167,.7);opacity:0;transition:.4s}
+.build-zone.armed .plus{opacity:1}
+.play-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px;flex-wrap:wrap}
+.play-btn{width:78px;height:78px;border-radius:50%;cursor:pointer;border:2px solid var(--green);
+  background:radial-gradient(circle at 35% 30%,rgba(43,255,167,.3),rgba(43,255,167,.06));
+  color:var(--green);font-size:1.7rem;display:flex;align-items:center;justify-content:center;
+  transition:.3s;box-shadow:0 0 18px rgba(43,255,167,.3);text-shadow:0 0 14px rgba(43,255,167,.8)}
+.play-btn:hover{transform:scale(1.1);box-shadow:0 0 40px rgba(43,255,167,.7),inset 0 0 22px rgba(43,255,167,.3)}
+.play-btn:active{transform:scale(.96)}
+.play-note{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);max-width:260px;line-height:1.5}
+.play-note b{color:var(--green)}
+.infinitivo-note{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--amber);
+  border:1px dashed rgba(245,166,35,.45);border-radius:10px;padding:10px 14px;background:rgba(245,166,35,.05)}
+
+/* ============ MÓDULO 3: 7 ELEMENTOS ============ */
+.bento{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.el-card{background:linear-gradient(160deg,var(--panel2),var(--bg2));border:1px solid var(--line);border-radius:18px;
+  padding:26px;position:relative;overflow:hidden;transition:.4s}
+.el-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--ec,var(--cyan)),transparent);opacity:.6;transition:.4s}
+.el-card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--ec,var(--cyan));
+  box-shadow:0 16px 44px color-mix(in srgb,var(--ec,var(--cyan)) 18%,transparent),0 0 24px color-mix(in srgb,var(--ec,var(--cyan)) 22%,transparent)}
+.el-card:hover::before{opacity:1}
+.el-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px}
+.el-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.6rem;color:var(--ec,var(--cyan));
+  text-shadow:0 0 16px var(--ec,var(--cyan))}
+.state-badge{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.2em;padding:5px 12px;border-radius:999px;
+  border:1px solid;display:inline-flex;align-items:center;gap:7px}
+.state-badge .sdot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:ledblink 1.6s infinite;--lc:currentColor}
+.state-badge.active{color:var(--green);border-color:rgba(43,255,167,.5);background:rgba(43,255,167,.07);text-shadow:0 0 8px rgba(43,255,167,.7)}
+.state-badge.static{color:var(--violet2);border-color:rgba(176,107,255,.5);background:rgba(121,40,202,.1);text-shadow:0 0 8px rgba(176,107,255,.7)}
+.state-badge.link{color:var(--amber);border-color:rgba(245,166,35,.5);background:rgba(245,166,35,.08);text-shadow:0 0 8px rgba(245,166,35,.7)}
+.el-card h4{font-family:'Space Grotesk',sans-serif;font-size:1.08rem;color:#fff;margin-bottom:8px}
+.el-card p{color:var(--muted);font-size:.86rem;margin-bottom:12px}
+.el-ex{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--ec,var(--cyan));
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:9px 12px;transition:.3s}
+.el-card:hover .el-ex{box-shadow:0 0 14px color-mix(in srgb,var(--ec,var(--cyan)) 30%,transparent);background:rgba(255,255,255,.06)}
+.callout{border-radius:16px;padding:24px 26px;margin:28px 0 0;border:1px solid;position:relative}
+.callout h4{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;margin-bottom:8px;color:#fff}
+.callout p{color:var(--muted);font-size:.94rem}
+.callout .ico{font-size:1.3rem;margin-right:10px}
+.callout.amber{border-color:rgba(245,166,35,.45);background:linear-gradient(140deg,rgba(245,166,35,.08),rgba(13,17,23,.7));
+  animation:amberglow 3.4s infinite}
+@keyframes amberglow{0%,100%{box-shadow:0 0 18px rgba(245,166,35,.1)}50%{box-shadow:0 0 40px rgba(245,166,35,.28)}}
+.callout.vi{border-color:rgba(176,107,255,.45);background:linear-gradient(140deg,rgba(121,40,202,.12),rgba(13,17,23,.7))}
+.plur-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:16px}
+.plur-chip{font-family:'JetBrains Mono',monospace;font-size:.85rem;padding:10px 16px;border-radius:10px;border:1px solid;transition:.3s;cursor:default}
+.plur-chip:hover{transform:translateY(-3px) scale(1.04)}
+.plur-chip.n{border-color:rgba(176,107,255,.5);color:var(--violet2);background:rgba(121,40,202,.12)}
+.plur-chip.n:hover{box-shadow:0 0 18px rgba(121,40,202,.5)}
+.plur-chip.w{border-color:rgba(0,242,254,.5);color:var(--cyan);background:rgba(0,242,254,.08)}
+.plur-chip.w:hover{box-shadow:0 0 18px rgba(0,242,254,.5)}
+.plur-eq{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--amber);text-shadow:0 0 12px var(--amber);animation:osglow 2s infinite;border-radius:8px;padding:4px 10px}
+
+/* ============ PROTOCOLO TERMINOLÓGICO ============ */
+.term-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.term-card{background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:22px;transition:.35s}
+.term-card:hover{transform:translateY(-5px);border-color:rgba(43,255,167,.45);box-shadow:0 14px 40px rgba(43,255,167,.12)}
+.no-line,.yes-line{font-family:'JetBrains Mono',monospace;font-size:.88rem;padding:9px 14px;border-radius:9px;margin:7px 0;display:block}
+.no-line{background:rgba(255,77,106,.09);border:1px solid rgba(255,77,106,.4);color:#ffb3c0;text-decoration:line-through}
+.yes-line{background:rgba(43,255,167,.08);border:1px solid rgba(43,255,167,.4);color:#a9ffd9}
+.term-card .why{font-size:.82rem;color:var(--muted);margin-top:10px}
+
+/* ============ MÓDULO 4: RUTAS ============ */
+.route-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.route-btn{display:block;text-decoration:none;border-radius:18px;padding:26px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,var(--panel2),var(--bg2));border:1px solid var(--rc,var(--line));transition:.35s}
+.route-btn::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);transition:.6s}
+.route-btn:hover::after{left:130%}
+.route-btn:hover{transform:translateY(-6px) scale(1.05);border-color:var(--rc);
+  box-shadow:0 18px 50px color-mix(in srgb,var(--rc) 20%,transparent),0 0 28px color-mix(in srgb,var(--rc) 30%,transparent)}
+.route-btn .r-ico{font-size:1.9rem;display:block;margin-bottom:12px;filter:drop-shadow(0 0 12px var(--rc))}
+.route-btn .r-mod{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.22em;color:var(--rc);text-shadow:0 0 10px var(--rc)}
+.route-btn .r-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;margin:6px 0}
+.route-btn:hover .r-title{color:var(--rc)}
+.route-btn .r-desc{color:var(--muted);font-size:.84rem}
+.route-btn .r-go{position:absolute;bottom:18px;right:20px;font-family:'JetBrains Mono',monospace;color:var(--rc);
+  opacity:.4;transition:.35s;font-size:.9rem}
+.route-btn:hover .r-go{opacity:1;transform:translateX(5px);text-shadow:0 0 12px var(--rc)}
+
+/* ============ TOAST ============ */
+.toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(120px);z-index:200;
+  background:linear-gradient(140deg,rgba(121,40,202,.3),rgba(13,17,23,.97));border:1px solid rgba(176,107,255,.6);
+  border-radius:14px;padding:16px 26px;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--txt);
+  box-shadow:0 0 34px rgba(121,40,202,.5);transition:.45s cubic-bezier(.2,1.3,.4,1);max-width:90vw;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding:52px 24px 40px;text-align:center;position:relative;z-index:2;
+  background:linear-gradient(180deg,transparent,rgba(13,17,23,.92))}
+footer .f-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.2em;font-size:1rem;
+  background:linear-gradient(90deg,var(--cyan),var(--violet2),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+footer p{color:var(--muted);font-size:.8rem;margin-top:12px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+@media(max-width:720px){.nav-links{display:none}section{padding:64px 0}.sim-shell{padding:22px}}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+<div class="vignette"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span class="zap">⚡</span> DISCOVERY MAX · NEUROEDUCATION</div>
+    <div class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#simulador">Choque de sistemas</a>
+      <a href="#elementos">7 Elementos</a>
+      <a href="#protocolo">Protocolo</a>
+      <a href="#rutas">Rutas</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ MÓDULO 1 · HERO BANNER NEUROCOGNITIVO ═══════════ -->
+<header class="hero" id="inicio">
+  <div class="nfb-badge">Metodología NFB · by Toño Vicas</div>
+  <div class="os-badge"><span class="led g"></span>[ SISTEMA OPERATIVO: ENSAMBLAJE LEGO ]<span class="led g" style="animation-delay:.7s"></span></div>
+  <h1 class="glitch" data-text="EL FIN DE LA CONFUSIÓN">EL FIN DE LA CONFUSIÓN</h1>
+  <h2 class="sub-line">Aquí el inglés no se traduce: se ensambla.</h2>
+  <p class="sub">Descubre por qué tu cerebro colapsaba al buscar <strong>verbos</strong> donde solo existen <strong>bloques de construcción</strong>. Bienvenido al onboarding oficial de Discovery Max Neuroeducation: la guía que reinicia tu sistema lingüístico.</p>
+  <div class="leds" style="margin-top:30px">
+    <span class="led c"></span><span class="led v" style="animation-delay:.2s"></span>
+    <span class="led a" style="animation-delay:.4s"></span><span class="led g" style="animation-delay:.6s"></span>
+    <span class="led c" style="animation-delay:.8s"></span><span class="led v" style="animation-delay:1s"></span>
+    <span class="led a" style="animation-delay:1.2s"></span><span class="led g" style="animation-delay:1.4s"></span>
+  </div>
+  <div class="cta-row">
+    <a href="#simulador" class="btn-neon">⚡ Iniciar el choque de sistemas</a>
+    <a href="#elementos" class="btn-neon vi">🛠️ Ver los 7 elementos</a>
+  </div>
+  <div class="scroll-hint">▼ SCROLL ▼</div>
+</header>
+
+<main class="wrap">
+
+<!-- ═══════════ MÓDULO 2 · CHOQUE DE SISTEMAS (SIMULADOR) ═══════════ -->
+<section id="simulador" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// MÓDULO 02 · SIMULADOR INTERACTIVO</span>
+    <h2 class="big">El choque de <span class="grad">sistemas cognitivos</span></h2>
+    <p>El español fusiona acción, sujeto y tiempo en una sola pieza (navaja suiza). El inglés ensambla bloques estáticos e independientes (Lego). Elige un ejemplo, presiona <strong style="color:var(--green)">PLAY</strong> y observa —y escucha— cómo se enciende la oración.</p>
+  </div>
+
+  <div class="sim-shell">
+    <div class="insight">🧠 <b>Neuro-Insight:</b> “El sujeto no es para saber quién hace la acción; es el <b>botón de PLAY</b> que la enciende.”</div>
+
+    <div class="ex-chips" id="exChips"></div>
+
+    <div class="sim-grid">
+      <!-- LADO A: ESPAÑOL -->
+      <div class="side es">
+        <span class="side-tag">Sistema español · Multi-Tool</span>
+        <h3>🧰 La Navaja Suiza</h3>
+        <p class="desc">Acción, sujeto y tiempo fusionados en una sola unidad indivisible. Pasa el cursor para desplegar las hojas ocultas.</p>
+        <div class="fuse">
+          <div class="fuse-word" id="fuseWord">Regamos</div>
+          <div class="layers" id="fuseLayers">
+            <span class="layer">acción: regar</span>
+            <span class="layer">sujeto oculto: nosotros</span>
+            <span class="layer">tiempo: presente</span>
+          </div>
+          <div class="fuse-hint">[ una sola pieza · tres funciones fundidas ]</div>
+        </div>
+      </div>
+      <!-- LADO B: INGLÉS -->
+      <div class="side en">
+        <span class="side-tag">Sistema inglés · Ensamblaje Lego</span>
+        <h3>🧱 Bloques Lego</h3>
+        <p class="desc">Palabras base estáticas que se unen en secuencia. El PPD es el activador sintáctico: sin él, nada se enciende.</p>
+        <div class="build-zone" id="buildZone"></div>
+        <div class="play-row">
+          <button class="play-btn" id="playBtn" title="Encender la oración">▶</button>
+          <div class="play-note"><b>PLAY = PPD.</b> Al presionar, el Pronombre Personal Directo activa la palabra base y la oración se pronuncia en inglés.</div>
+        </div>
+        <div class="infinitivo-note">🔗 Para conectar dos palabras base o expresar infinitivo estructural se usa la preposición <b>“to”</b>: <i>to water</i>, <i>to eat</i>. Nunca hay conjugación interna.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led c"></span><div class="line"></div><span class="led v" style="animation-delay:.5s"></span><div class="line"></div><span class="led a" style="animation-delay:1s"></span></div>
+
+<!-- ═══════════ MÓDULO 3 · LOS 7 ELEMENTOS DETERMINANTES ═══════════ -->
+<section id="elementos" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// MÓDULO 03 · LA COLUMNA VERTEBRAL</span>
+    <h2 class="big">Los <span class="grad-a">7 Elementos Determinantes</span></h2>
+    <p>En inglés <strong style="color:var(--red)">no existen verbos autónomos o naturales</strong>. Lo que llamabas “verbo” es en realidad un <strong style="color:var(--violet2)">Sustantivo Funcional</strong>: una palabra base en estado estático que espera ser activada. Esta es la arquitectura completa del idioma.</p>
+  </div>
+
+  <div class="bento">
+    <div class="el-card" style="--ec:var(--cyan)">
+      <div class="el-top"><span class="el-num">01</span><span class="state-badge active"><span class="sdot"></span>ACTIVE</span></div>
+      <h4>Pronombres Personales Directos (PPD)</h4>
+      <p>Activadores obligatorios de la acción. Son el <b>botón de PLAY</b>: sin PPD, la palabra base permanece apagada.</p>
+      <div class="el-ex">I · you · he · she · it · we · they → [I] + water = “I water”</div>
+    </div>
+    <div class="el-card" style="--ec:var(--violet2)">
+      <div class="el-top"><span class="el-num">02</span><span class="state-badge static"><span class="sdot"></span>STATIC</span></div>
+      <h4>Sustantivos</h4>
+      <p>La base del idioma y el <b>único elemento con regla de pluralización real</b>. Incluyen los Sustantivos Funcionales (palabras base de acción).</p>
+      <div class="el-ex">water · book · need → book / books · watch / watches</div>
+    </div>
+    <div class="el-card" style="--ec:var(--amber)">
+      <div class="el-top"><span class="el-num">03</span><span class="state-badge link"><span class="sdot"></span>LINK</span></div>
+      <h4>Preposiciones</h4>
+      <p>Contextualizan y transforman sustantivos en <b>infinitivos estructurales</b>. “to” es el conector entre palabras base.</p>
+      <div class="el-ex">to water · to eat · in the house · at night</div>
+    </div>
+    <div class="el-card" style="--ec:var(--violet2)">
+      <div class="el-top"><span class="el-num">04</span><span class="state-badge static"><span class="sdot"></span>STATIC</span></div>
+      <h4>Adjetivos</h4>
+      <p>Cualidades descriptivas. Bloques de calidad que se colocan junto al sustantivo sin fusionarse jamás.</p>
+      <div class="el-ex">a clear plan · a big house · a fast car</div>
+    </div>
+    <div class="el-card" style="--ec:var(--violet2)">
+      <div class="el-top"><span class="el-num">05</span><span class="state-badge static"><span class="sdot"></span>STATIC</span></div>
+      <h4>Adverbios</h4>
+      <p>Modificadores de <b>modo, tiempo y lugar</b>. Añaden contexto sin alterar la forma de ningún bloque.</p>
+      <div class="el-ex">now · here · quickly · always</div>
+    </div>
+    <div class="el-card" style="--ec:var(--amber)">
+      <div class="el-top"><span class="el-num">06</span><span class="state-badge link"><span class="sdot"></span>LINK</span></div>
+      <h4>Palabras Auxiliares (P.A.)</h4>
+      <p>Estructuras de <b>enlace y mantenimiento</b>. ⚠️ NUNCA llamarlas “verbos auxiliares”: son piezas de conexión del ensamblaje.</p>
+      <div class="el-ex">do · does · did · have · has · be → [do] + you + need…?</div>
+    </div>
+    <div class="el-card" style="--ec:var(--green)">
+      <div class="el-top"><span class="el-num">07</span><span class="state-badge active"><span class="sdot"></span>ACTIVE</span></div>
+      <h4>Palabras Modales</h4>
+      <p>Operadores gramaticales de <b>probabilidad o necesidad</b>. ⚠️ NUNCA llamarlas “verbos modales”: activan matices sobre la palabra base.</p>
+      <div class="el-ex">can · could · may · might · must · should · will · would → [can] + wait</div>
+    </div>
+  </div>
+
+  <div class="callout amber">
+    <h4><span class="ico">🔁</span>Regla de Pluralización Unificada</h4>
+    <p>La <em>-s / -es</em> que aparece en tercera persona del singular (<em>he watches</em>) <strong>no es una conjugación verbal</strong>: es exactamente la misma regla de pluralización que se aplica a los sustantivos. El idioma reutiliza una sola regla para todo el ensamblaje.</p>
+    <div class="plur-row">
+      <span class="plur-chip n">watch → watch<b>es</b> (relojes · sustantivo)</span>
+      <span class="plur-eq">= MISMA REGLA</span>
+      <span class="plur-chip w">he watch<b>es</b> (tercera persona · palabra base)</span>
+    </div>
+  </div>
+
+  <div class="callout vi">
+    <h4><span class="ico">🧠</span>Por qué tu cerebro colapsaba</h4>
+    <p>Tu mente hispana buscaba una <strong>pieza fusionada tipo navaja suiza</strong> (“caminamos”) dentro de un sistema que solo entrega <strong>bloques estáticos</strong>. Al no encontrar el “verbo”, entrabas en parálisis. Ahora sabes la verdad: el verbo nunca existió; existía un <strong>Sustantivo Funcional esperando su botón de PLAY</strong>.</p>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led a"></span><div class="line"></div><span class="led c" style="animation-delay:.5s"></span><div class="line"></div><span class="led v" style="animation-delay:1s"></span></div>
+
+<!-- ═══════════ PROTOCOLO DE PRECISIÓN TERMINOLÓGICA ═══════════ -->
+<section id="protocolo" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// PROTOCOLO NFB · PRECISIÓN TERMINOLÓGICA</span>
+    <h2 class="big">Reprograma tu <span class="grad">vocabulario interno</span></h2>
+    <p>La gramática tradicional genera <strong style="color:var(--red)">cortocircuitos cognitivos</strong> en el cerebro hispanohablante. Estos son los términos prohibidos y su reemplazo oficial dentro de la Metodología NFB.</p>
+  </div>
+  <div class="term-grid">
+    <div class="term-card">
+      <span class="no-line">❌ verbo / verbos</span>
+      <span class="yes-line">✅ Sustantivo Funcional · palabra base en estado estático</span>
+      <div class="why">En inglés no existen verbos autónomos o naturales como en español: <em>water, book, need</em> son bloques estáticos.</div>
+    </div>
+    <div class="term-card">
+      <span class="no-line">❌ verbos auxiliares</span>
+      <span class="yes-line">✅ Palabras Auxiliares (P.A.)</span>
+      <div class="why">Estructuras de enlace y mantenimiento: <em>do, does, did, have, has, be</em>.</div>
+    </div>
+    <div class="term-card">
+      <span class="no-line">❌ verbos modales</span>
+      <span class="yes-line">✅ Palabras Modales</span>
+      <div class="why">Operadores de probabilidad o necesidad: <em>can, could, may, might, must, should, will, would</em>.</div>
+    </div>
+    <div class="term-card">
+      <span class="no-line">❌ conjugación</span>
+      <span class="yes-line">✅ ensamblaje · activación por PPD · pluralización</span>
+      <div class="why">Nada se conjuga: los bloques se unen en secuencia y la -s/-es es la regla de pluralización unificada.</div>
+    </div>
+    <div class="term-card">
+      <span class="no-line">❌ “el sujeto indica quién hace la acción”</span>
+      <span class="yes-line">✅ el PPD es el botón de PLAY que enciende la palabra base</span>
+      <div class="why">El pronombre no informa: <b>activa</b>. Sin activador sintáctico, la oración no existe.</div>
+    </div>
+    <div class="term-card">
+      <span class="no-line">❌ infinitivo = forma verbal</span>
+      <span class="yes-line">✅ “to” + palabra base = infinitivo estructural</span>
+      <div class="why">La preposición <em>to</em> es el conector que une dos palabras base: <em>to water, to eat</em>.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led v"></span><div class="line"></div><span class="led a" style="animation-delay:.5s"></span><div class="line"></div><span class="led g" style="animation-delay:1s"></span></div>
+
+<!-- ═══════════ MÓDULO 4 · PANEL DE NAVEGACIÓN POR BOTONES ═══════════ -->
+<section id="rutas" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// MÓDULO 04 · RUTAS DEL USUARIO</span>
+    <h2 class="big">¿Qué deseas <span class="grad-a">desbloquear hoy</span>?</h2>
+    <p>Panel estratégico de navegación: elige tu ruta según tu necesidad de entrenamiento neurocognitivo.</p>
+  </div>
+
+  <!-- ══ PARA CONECTAR RUTAS REALES: cambia el href de cada botón por el nombre de tu archivo en el repositorio (ej. metodo-lego.html) ══ -->
+  <div class="route-grid">
+    <a class="route-btn" style="--rc:var(--cyan)" href="shocking-pronouns.html">
+      <span class="r-ico"></span>
+      <span class="r-mod">RUTA 01</span>
+      <div class="r-title">Desbloquear Pronombres (Shocking Pronouns)</div>
+      <div class="r-desc">Entiende el rol de los PPD y elimina la vergüenza al hablar.</div>
+      <span class="r-go">→</span>
+    </a>
+    <a class="route-btn" style="--rc:var(--violet2)" href="#simulador">
+      <span class="r-ico">🧩</span>
+      <span class="r-mod">RUTA 02</span>
+      <div class="r-title">Dominar el Método Lego</div>
+      <div class="r-desc">Aprende la construcción sintáctica paso a paso, sin conjugaciones internas.</div>
+      <span class="r-go">→</span>
+    </a>
+    <a class="route-btn" style="--rc:var(--amber)" href="#elementos">
+      <span class="r-ico">🛠️</span>
+      <span class="r-mod">RUTA 03</span>
+      <div class="r-title">Explorar los 7 Elementos</div>
+      <div class="r-desc">Revisa la columna vertebral del idioma y su arquitectura completa.</div>
+      <span class="r-go">→</span>
+    </a>
+    <a class="route-btn" style="--rc:var(--green)" href="#" id="routeMisiones">
+      <span class="r-ico">🎯</span>
+      <span class="r-mod">RUTA 04</span>
+      <div class="r-title">Iniciar Neuro-Misiones</div>
+      <div class="r-desc">Ejercicios prácticos de entrenamiento de memoria y pensamiento crítico.</div>
+      <span class="r-go">→</span>
+    </a>
+    <a class="route-btn" style="--rc:var(--red)" href="#" id="routeSynapsia">
+      <span class="r-ico">📺</span>
+      <span class="r-mod">RUTA 05</span>
+      <div class="r-title">Ver Sesión en Vivo / Synapsia</div>
+      <div class="r-desc">Agenda o ingresa a tu práctica en vivo con un Neuro-Coach.</div>
+      <span class="r-go">→</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="leds" style="margin-bottom:24px">
+    <span class="led c"></span><span class="led v" style="animation-delay:.3s"></span>
+    <span class="led a" style="animation-delay:.6s"></span><span class="led g" style="animation-delay:.9s"></span>
+  </div>
+  <div class="f-logo">⚡ DISCOVERY MAX NEUROEDUCATION</div>
+  <p>Metodología NFB · creada por Toño Vicas · Guía de onboarding para nuevos usuarios</p>
+  <p style="opacity:.55;margin-top:6px">El inglés no se traduce: se ensambla.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= PARTÍCULAS ================= */
+(function(){
+  const cv=document.getElementById('particles'),ctx=cv.getContext('2d');
+  let W,H,parts=[];
+  const COLORS=['rgba(0,242,254,','rgba(176,107,255,','rgba(245,166,35,','rgba(43,255,167,'];
+  function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+  resize();addEventListener('resize',resize);
+  for(let i=0;i<70;i++){
+    parts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+.5,
+      vy:-(Math.random()*.35+.08),vx:(Math.random()-.5)*.2,
+      c:COLORS[Math.floor(Math.random()*COLORS.length)],a:Math.random(),da:(Math.random()*.02+.005)});
+  }
+  (function tick(){
+    ctx.clearRect(0,0,W,H);
+    parts.forEach(p=>{
+      p.y+=p.vy;p.x+=p.vx;p.a+=p.da;
+      if(p.a>1||p.a<0)p.da*=-1;
+      if(p.y<-10){p.y=H+10;p.x=Math.random()*W}
+      if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.c+(Math.abs(p.a)*.7)+')';
+      ctx.shadowBlur=10;ctx.shadowColor=p.c+'.6)';
+      ctx.fill();ctx.shadowBlur=0;
+    });
+    requestAnimationFrame(tick);
+  })();
+})();
+
+/* ================= REVEAL + SCROLLSPY ================= */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const secs=[...document.querySelectorAll('section[id],header[id]')];
+const navLinks=[...document.querySelectorAll('.nav-links a')];
+addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-160)cur=s.id});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+/* ================= AUDIO (voz del navegador + SFX) ================= */
+let audioOn=true;
+const synth=('speechSynthesis' in window)?window.speechSynthesis:null;
+let enVoice=null;
+function pickVoice(){if(!synth)return;const vs=synth.getVoices();
+  enVoice=vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>v.lang.startsWith('en'))||null;}
+if(synth){pickVoice();synth.onvoiceschanged=pickVoice;}
+function speak(t){if(!synth||!t)return;synth.cancel();
+  const u=new SpeechSynthesisUtterance(t);u.lang='en-US';if(enVoice)u.voice=enVoice;u.rate=.92;synth.speak(u);}
+let actx=null;
+function ac(){if(!actx){try{actx=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+  if(actx&&actx.state==='suspended')actx.resume();return actx;}
+function zapSfx(){const c=ac();if(!c)return;
+  const o=c.createOscillator(),g=c.createGain();o.type='sawtooth';
+  o.frequency.setValueAtTime(900,c.currentTime);
+  o.frequency.exponentialRampToValueAtTime(140,c.currentTime+.18);
+  g.gain.setValueAtTime(.06,c.currentTime);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+.2);
+  o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.22);}
+function chimeSfx(){const c=ac();if(!c)return;
+  [523.25,783.99,1046.5].forEach((f,i)=>{
+    const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=f;
+    const t=c.currentTime+i*.07;
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.05,t+.02);
+    g.gain.exponentialRampToValueAtTime(.0001,t+.35);
+    o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.4);});}
+
+/* ================= SIMULADOR LEGO vs NAVAJA SUIZA ================= */
+const ejemplos=[
+  {es:"Regamos",capas:["acción: regar","sujeto oculto: nosotros","tiempo: presente"],
+   bloques:[["PPD","They","pp"],["Sustantivo Funcional","water","sf"],["Complemento","the garden","cp"]],
+   say:"They water the garden."},
+  {es:"Necesito agua",capas:["acción: necesitar","sujeto oculto: yo","tiempo: presente"],
+   bloques:[["PPD","I","pp"],["Sustantivo Funcional","need","sf"],["Complemento","water","cp"]],
+   say:"I need water."},
+  {es:"Reservan",capas:["acción: reservar","sujeto oculto: ellos","tiempo: presente"],
+   bloques:[["PPD","They","pp"],["Sustantivo Funcional","book","sf"],["Complemento","the hotel","cp"]],
+   say:"They book the hotel."}
+];
+const exChips=document.getElementById('exChips');
+const buildZone=document.getElementById('buildZone');
+const fuseWord=document.getElementById('fuseWord');
+const fuseLayers=document.getElementById('fuseLayers');
+const playBtn=document.getElementById('playBtn');
+let exIdx=0;
+
+function renderExample(i){
+  exIdx=i;
+  const ex=ejemplos[i];
+  document.querySelectorAll('.ex-chip').forEach((c,k)=>c.classList.toggle('sel',k===i));
+  fuseWord.textContent=ex.es;
+  fuseLayers.innerHTML=ex.capas.map(c=>`<span class="layer">${c}</span>`).join('');
+  buildZone.classList.remove('armed');
+  buildZone.innerHTML=ex.bloques.map((b,k)=>
+    (k>0?`<span class="plus" style="transition-delay:${k*.28+.1}s">+</span>`:'')+
+    `<div class="blk ${b[2]}" style="transition-delay:${k*.28}s"><span class="blk-type">${b[0]}</span><span class="blk-word">${b[1]}</span></div>`
+  ).join('');
+}
+ejemplos.forEach((ex,i)=>{
+  const c=document.createElement('button');
+  c.className='ex-chip';c.textContent='ES: '+ex.es;
+  c.onclick=()=>{zapSfx();renderExample(i);};
+  exChips.appendChild(c);
+});
+renderExample(0);
+
+playBtn.addEventListener('click',()=>{
+  zapSfx();
+  buildZone.classList.remove('armed');
+  void buildZone.offsetWidth;
+  buildZone.classList.add('armed');
+  setTimeout(()=>{chimeSfx();speak(ejemplos[exIdx].say);},650);
+});
+
+/* ================= TOAST + RUTAS ================= */
+const toast=document.getElementById('toast');
+let toastTimer=null;
+function showToast(msg){
+  toast.textContent=msg;toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove('show'),3800);
+}
+document.getElementById('routeMisiones').addEventListener('click',e=>{
+  e.preventDefault();zapSfx();
+  showToast('🎯 Neuro-Misiones: módulo de entrenamiento en construcción — conecta aquí tu página de ejercicios.');
+});
+document.getElementById('routeSynapsia').addEventListener('click',e=>{
+  e.preventDefault();zapSfx();
+  showToast('📺 Synapsia: conecta aquí el enlace de agenda o sala en vivo con tu Neuro-Coach.');
+});
+</script>
+</body>
+</html>
