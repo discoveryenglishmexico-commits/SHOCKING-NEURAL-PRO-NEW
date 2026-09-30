@@ -200,6 +200,34 @@ td.note{color:var(--muted);font-size:.85rem}
 .callout p{color:var(--muted);font-size:.94rem}
 .callout strong{color:var(--txt)}
 
+/* ============ PPD KEYBOARD (SECCIÓN 00) ============ */
+.ppd-keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;margin-bottom:8px}
+.ppd-key{font-family:'JetBrains Mono',monospace;cursor:pointer;border-radius:14px;padding:20px 10px 15px;text-align:center;
+  background:linear-gradient(180deg,var(--panel2),var(--bg2));border:1px solid var(--line);transition:.25s;position:relative;overflow:hidden}
+.ppd-key .k-led{position:absolute;top:9px;right:9px;width:6px;height:6px;border-radius:50%;background:#1a2040}
+.ppd-key .k-en{display:block;font-size:1.55rem;font-weight:700;color:var(--cyan);text-shadow:0 0 12px rgba(0,229,255,.55);transition:.25s}
+.ppd-key .k-es{display:block;font-size:.64rem;letter-spacing:.08em;color:var(--muted);margin-top:7px;text-transform:uppercase}
+.ppd-key:hover{transform:translateY(-4px);border-color:rgba(0,229,255,.5);
+  box-shadow:0 10px 30px rgba(0,229,255,.15),0 0 18px rgba(0,229,255,.25),inset 0 0 14px rgba(0,229,255,.08)}
+.ppd-key:active{transform:translateY(1px) scale(.97)}
+.ppd-key.sel{border-color:var(--magenta);background:linear-gradient(180deg,rgba(255,47,214,.16),rgba(14,19,48,.92));
+  box-shadow:0 0 26px rgba(255,47,214,.45),inset 0 0 18px rgba(255,47,214,.15)}
+.ppd-key.sel .k-en{color:#fff;text-shadow:0 0 14px var(--magenta)}
+.ppd-key.sel .k-led{background:var(--magenta);box-shadow:0 0 8px var(--magenta);animation:ledblink 1.4s infinite;--lc:var(--magenta)}
+.ppd-display{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;margin-top:28px;
+  background:linear-gradient(160deg,#0d1230,#070a1a);border:1px solid rgba(0,229,255,.3);border-radius:20px;
+  padding:30px 32px;box-shadow:0 0 40px rgba(0,229,255,.08);position:relative;overflow:hidden}
+.ppd-display.zap{animation:zapin .5s}
+.ppd-d-word{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.6rem,7vw,4.4rem);
+  color:var(--cyan);text-shadow:0 0 26px rgba(0,229,255,.6);line-height:1}
+.ppd-d-es{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--gold);margin-top:10px;
+  text-shadow:0 0 10px rgba(255,201,77,.4)}
+.ppd-d-note{color:var(--muted);font-size:.92rem}
+.ppd-d-note b{color:var(--txt)}
+.ppd-d-ex{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--green);margin-top:10px;
+  text-shadow:0 0 10px rgba(43,255,167,.4)}
+@media(max-width:720px){.ppd-display{grid-template-columns:1fr;gap:18px}}
+
 /* ============ PAIR CARDS (SHOCK) ============ */
 .pair-card{background:linear-gradient(160deg,var(--panel2),var(--bg2));border:1px solid var(--line);
   border-radius:16px;padding:22px;transition:.35s;position:relative;overflow:hidden;cursor:default}
@@ -335,6 +363,7 @@ footer a.back:hover{color:#fff;background:rgba(255,201,77,.18);box-shadow:0 0 24
     <div class="logo"><span class="zap">⚡</span> SHOCKING PRONOUNS</div>
     <div class="nav-links">
       <a class="home" href="index.html">← INICIO</a>
+      <a href="#ppd">PPD</a>
       <a href="#objeto">Objeto</a>
       <a href="#critico">Pensamiento crítico</a>
       <a href="#posesivos-es">Posesivos ES</a>
@@ -395,7 +424,7 @@ footer a.back:hover{color:#fff;background:rgba(255,201,77,.18);box-shadow:0 0 24
   </div>
 
   <div class="cta-row">
-    <a href="#objeto" class="btn-neon">Iniciar el recorrido</a>
+    <a href="#ppd" class="btn-neon">Iniciar el recorrido</a>
     <a href="#shock" class="btn-neon mg">⚡ Ir directo al shock</a>
     <a href="index.html" class="btn-neon gold">← Volver a Discovery Max</a>
   </div>
@@ -403,6 +432,56 @@ footer a.back:hover{color:#fff;background:rgba(255,201,77,.18);box-shadow:0 0 24
 </header>
 
 <main class="wrap">
+
+<!-- ================= 00 DIRECT PERSONAL PRONOUNS ================= -->
+<section id="ppd" class="reveal">
+  <div class="sec-head">
+    <span class="sec-num">// SECCIÓN 00 · EL ORIGEN DE TODO</span>
+    <h2>Direct <span class="grad">Personal Pronouns</span> · Los pronombres personales directos</h2>
+    <p>Los pronombres personales <strong style="color:var(--cyan)">se usan para sustituir el nombre</strong>. <strong style="color:var(--gold)">"I" o "he"</strong> son <em>subject pronouns</em> (directos): tienen función de sujeto y son <strong>los únicos pronombres personales con la facultad de convertir palabras en verbos</strong>. En cambio, <strong style="color:var(--magenta)">"me" o "him"</strong> son ejemplos de <em>object pronouns</em> (indirectos): <strong>no tienen esa facultad</strong>.</p>
+    <span class="audio-hint">🎧 Teclado interactivo: cada tecla emite un sonido suave y pronuncia el pronombre en inglés.</span>
+  </div>
+
+  <h3>Singular <span class="tag">1ª · 2ª · 3ª persona</span></h3>
+  <div class="ppd-keys" id="ppdSing"></div>
+
+  <h3>Plural <span class="tag">1ª · 2ª · 3ª persona</span></h3>
+  <div class="ppd-keys" id="ppdPlur"></div>
+
+  <div class="ppd-display" id="ppdDisplay">
+    <div>
+      <div class="ppd-d-word" id="ppdWord">🎹</div>
+      <div class="ppd-d-es" id="ppdEs">Presiona cualquier tecla…</div>
+    </div>
+    <div>
+      <div class="ppd-d-note" id="ppdNote">Cada tecla enciende un pronombre: escucha su sonido suave, mira su equivalente en español y descubre su persona y número.</div>
+      <div class="ppd-d-ex" id="ppdEx"></div>
+      <button class="replay-btn" id="ppdReplay">🔊 Escuchar ejemplo</button>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:28px">
+    <div class="panel">
+      <div class="num-badge">S</div>
+      <h4 style="font-family:'Space Grotesk';font-size:1.1rem;margin-bottom:10px">Subject pronouns (directos) · función de sujeto</h4>
+      <p style="font-family:'JetBrains Mono';color:var(--gold);font-size:.9rem;margin-bottom:8px">I · you · he · she · it · we · they</p>
+      <p style="color:var(--muted);font-size:.88rem">Son los <strong style="color:var(--cyan)">únicos</strong> pronombres personales que, al tener función de sujeto, tienen la facultad de <strong>convertir palabras en verbos</strong>.</p>
+    </div>
+    <div class="panel" style="border-color:rgba(255,47,214,.35)">
+      <div class="num-badge" style="border-color:var(--magenta);color:var(--magenta);background:rgba(255,47,214,.08);text-shadow:0 0 10px var(--magenta)">O</div>
+      <h4 style="font-family:'Space Grotesk';font-size:1.1rem;margin-bottom:10px">Object pronouns (indirectos) · sin función de sujeto</h4>
+      <p style="font-family:'JetBrains Mono';color:var(--gold);font-size:.9rem;margin-bottom:8px">me · him · her · us · them…</p>
+      <p style="color:var(--muted);font-size:.88rem">No tienen función de sujeto: <strong style="color:var(--magenta)">no poseen la facultad</strong> de convertir palabras en verbos.</p>
+    </div>
+  </div>
+
+  <div class="callout cy">
+    <h4><span class="ico">💡</span>Recuerda</h4>
+    <p>Los pronombres personales <strong>sustituyen al nombre</strong>. Por eso <em>I</em> o <em>he</em> encienden la oración como sujeto, mientras que <em>me</em> o <em>him</em> solo reciben la acción como objeto.</p>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="led v"></span><div class="line"></div><span class="led c" style="animation-delay:.5s"></span><div class="line"></div><span class="led m" style="animation-delay:1s"></span></div>
 
 <!-- ================= 01 PRONOMBRES DE OBJETO ================= -->
 <section id="objeto" class="reveal">
@@ -921,6 +1000,25 @@ function chimeSfx(){
     o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.4);
   });
 }
+/* Sonido SUAVE de tecla: nota musical senoidal con decaimiento gentil (una nota distinta por tecla) */
+function keySfx(i){
+  if(!audioOn)return;const c=ac();if(!c)return;
+  const scale=[261.63,293.66,329.63,349.23,392.00,440.00,493.88,523.25];
+  const f=scale[i%scale.length];
+  const t=c.currentTime;
+  const o=c.createOscillator(),g=c.createGain();
+  o.type='sine';o.frequency.value=f;
+  g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(.045,t+.015);
+  g.gain.exponentialRampToValueAtTime(.0001,t+.5);
+  const o2=c.createOscillator(),g2=c.createGain();
+  o2.type='sine';o2.frequency.value=f*2;
+  g2.gain.setValueAtTime(0,t);
+  g2.gain.linearRampToValueAtTime(.012,t+.01);
+  g2.gain.exponentialRampToValueAtTime(.0001,t+.3);
+  o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.55);
+  o2.connect(g2);g2.connect(c.destination);o2.start(t);o2.stop(t+.35);
+}
 const audioToggle=document.getElementById('audioToggle');
 audioToggle.addEventListener('click',()=>{
   audioOn=!audioOn;
@@ -928,6 +1026,55 @@ audioToggle.addEventListener('click',()=>{
   audioToggle.textContent=audioOn?'🔊 AUDIO ON':'🔇 AUDIO OFF';
   if(!audioOn&&synth)synth.cancel();
   if(audioOn)zapSfx();
+});
+
+/* ================= SECCIÓN 00 · TECLADO PPD ================= */
+const PPD_SING=[
+  {en:"I",es:"Yo",pers:"1ª persona del singular",note:"<b>Subject pronoun (directo):</b> tiene función de sujeto y la facultad de convertir palabras en verbos.",ex:"I need water."},
+  {en:"You",es:"Tú / Usted",pers:"2ª persona del singular",note:"<b>\"Usted\" no existe en inglés:</b> la misma forma <i>you</i> cubre el trato familiar y el trato formal.",ex:"You are my friend."},
+  {en:"He",es:"Él",pers:"3ª persona del singular",note:"<b>Subject pronoun (directo):</b> función de sujeto con facultad de activar palabras base.",ex:"He books the hotel."},
+  {en:"She",es:"Ella",pers:"3ª persona del singular",note:"<b>Subject pronoun (directo):</b> función de sujeto con facultad de activar palabras base.",ex:"She books the hotel."},
+  {en:"It",es:"Eso / Ello (neutro)",pers:"3ª persona del singular",note:"<b>En español no existe un equivalente exacto</b> para el pronombre personal en función del sujeto neutro.",ex:"It is cold."}
+];
+const PPD_PLUR=[
+  {en:"We",es:"Nosotros / Nosotras",pers:"1ª persona del plural",note:"<b>Subject pronoun (directo):</b> función de sujeto en plural.",ex:"We water the garden."},
+  {en:"You",es:"Ustedes",pers:"2ª persona del plural",note:"Misma forma que el singular: el número se deduce por el contexto.",ex:"You are ready."},
+  {en:"They",es:"Ellos / Ellas",pers:"3ª persona del plural",note:"<b>Subject pronoun (directo):</b> función de sujeto en plural, sin marca de género.",ex:"They water the garden."}
+];
+const ppdWord=document.getElementById('ppdWord');
+const ppdEs=document.getElementById('ppdEs');
+const ppdNote=document.getElementById('ppdNote');
+const ppdEx=document.getElementById('ppdEx');
+const ppdDisplay=document.getElementById('ppdDisplay');
+const ppdReplay=document.getElementById('ppdReplay');
+let ppdLastEx='';
+function buildKeys(list,mount,offset){
+  list.forEach((p,i)=>{
+    const idx=offset+i;
+    const b=document.createElement('button');
+    b.className='ppd-key';
+    b.innerHTML=`<span class="k-led"></span><span class="k-en">${p.en}</span><span class="k-es">${p.es}</span>`;
+    b.onclick=()=>{
+      document.querySelectorAll('.ppd-key').forEach(k=>k.classList.remove('sel'));
+      b.classList.add('sel');
+      keySfx(idx);
+      speak(p.en);
+      ppdWord.textContent=p.en;
+      ppdEs.textContent=`= ${p.es} · ${p.pers}`;
+      ppdNote.innerHTML=p.note;
+      ppdEx.textContent='Ejemplo: '+p.ex;
+      ppdLastEx=p.ex;
+      ppdDisplay.classList.remove('zap');void ppdDisplay.offsetWidth;ppdDisplay.classList.add('zap');
+    };
+    mount.appendChild(b);
+  });
+}
+buildKeys(PPD_SING,document.getElementById('ppdSing'),0);
+buildKeys(PPD_PLUR,document.getElementById('ppdPlur'),5);
+ppdReplay.addEventListener('click',()=>{
+  if(!ppdLastEx)return;
+  zapSfx();
+  speak(ppdLastEx);
 });
 
 /* ================= PAIR CARDS ================= */
