@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adverbios | SHOCKING-NEURAL</title>
+<title>Adverbios (Adverbs) | SHOCKING-NEURAL</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-/* Mismos estilos base, con acento en Emerald */
 :root {
   --bg: #0A0E27; --glass: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.12);
   --cyan: #00F3FF; --purple: #9D4EDD; --emerald: #00FF9D; --gold: #FFD700;
@@ -14,31 +13,66 @@
 }
 * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
 body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
-.container { max-width:900px; margin:0 auto; padding:0 20px; }
+.container { max-width:1000px; margin:0 auto; padding:0 20px; }
+
 .top-nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid var(--border); margin-bottom:40px; }
-.btn-small { padding:8px 16px; background:var(--glass); border:1px solid var(--border); border-radius:20px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:0.3s; }
+.btn-small { padding:8px 16px; background:var(--glass); border:1px solid var(--border); border-radius:20px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:0.3s; display:flex; align-items:center; gap:8px; }
 .btn-small:hover { border-color:var(--emerald); color:var(--emerald); }
+
 .module-header { text-align:center; margin-bottom:50px; }
 .module-header h1 { font-family:'Orbitron',sans-serif; font-size:2.2rem; color:var(--emerald); margin-bottom:10px; }
 .module-header p { color:var(--muted); font-size:1.1rem; }
-.content-block { background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--border); border-radius:16px; padding:30px; margin-bottom:30px; border-left:4px solid var(--emerald); }
+
+.content-block {
+  background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--border);
+  border-radius:16px; padding:30px; margin-bottom:30px; border-left:4px solid var(--emerald);
+}
 .content-block h2 { font-family:'Orbitron',sans-serif; color:var(--emerald); font-size:1.3rem; margin-bottom:15px; display:flex; align-items:center; gap:10px; }
+.content-block h3 { color:var(--gold); font-size:1.1rem; margin:20px 0 10px; }
 .content-block p, .content-block li { color:var(--text); margin-bottom:10px; font-size:1rem; }
-.content-block ul { padding-left:20px; }
+.content-block ul { padding-left:20px; margin-bottom:15px; }
+
 .highlight-box { background:rgba(0,255,157,0.1); border-left:3px solid var(--emerald); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; }
 .warning-box { background:rgba(255,68,68,0.1); border-left:3px solid var(--error); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; color: #ff8888; }
-.interactive-quiz { margin-top:20px; }
-.quiz-option { display:block; width:100%; padding:15px; margin-bottom:10px; background:rgba(0,0,0,0.3); border:1px solid var(--border); border-radius:8px; color:var(--text); text-align:left; cursor:pointer; transition:0.3s; font-size:1rem; }
+.example-box {
+  background:rgba(0,0,0,0.4); border:1px solid var(--border);
+  border-radius:8px; padding:15px; margin:10px 0;
+}
+.example-box .en { color:var(--emerald); font-weight:600; margin-bottom:5px; display:flex; align-items:center; }
+.example-box .es { color:var(--muted); font-size:0.95rem; }
+
+.audio-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:32px; height:32px; background:var(--emerald); border:none;
+  border-radius:50%; color:#000; cursor:pointer; margin-left:10px;
+  transition:0.3s; font-size:0.9rem; flex-shrink:0;
+}
+.audio-btn:hover { background:var(--cyan); transform:scale(1.1); }
+
+.quiz-option {
+  display:block; width:100%; padding:15px; margin-bottom:10px; background:rgba(0,0,0,0.3);
+  border:1px solid var(--border); border-radius:8px; color:var(--text); text-align:left;
+  cursor:pointer; transition:0.3s; font-size:1rem;
+}
 .quiz-option:hover { border-color:var(--emerald); background:rgba(0,255,157,0.05); }
 .quiz-option.correct { border-color:var(--emerald); background:rgba(0,255,157,0.2); color:var(--emerald); }
 .quiz-option.wrong { border-color:var(--error); background:rgba(255,68,68,0.2); color:var(--error); }
 .feedback { margin-top:10px; padding:10px; border-radius:8px; display:none; font-weight:600; }
+
 .bottom-nav { display:flex; justify-content:space-between; margin:60px 0 40px; }
-.btn-nav { padding:15px 30px; border-radius:30px; text-decoration:none; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.3s; }
+.btn-nav {
+  padding:15px 30px; border-radius:30px; text-decoration:none; font-weight:700;
+  display:flex; align-items:center; gap:10px; transition:0.3s;
+}
 .btn-prev { background:var(--glass); border:1px solid var(--border); color:var(--text); }
 .btn-prev:hover { border-color:var(--emerald); }
 .btn-next { background:linear-gradient(135deg, var(--emerald), var(--cyan)); color:#000; border:none; }
 .btn-next:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,255,157,0.3); }
+
+@media(max-width:768px) {
+  .top-nav { flex-direction:column; gap:10px; }
+  .bottom-nav { flex-direction:column; gap:15px; }
+}
 </style>
 </head>
 <body>
@@ -46,7 +80,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 <div class="container">
   <nav class="top-nav">
     <a href="elementos.html" class="btn-small">← Hub de Elementos</a>
-    <a href="https://discoveryenglishmexico-commits.github.io/SHOCKING-NEURAL-PRO-NEW/onboarding.html" class="btn-small">🏠 SHOCKING-NEURAL</a>
+    <a href="https://discoveryenglishmexico-commits.github.io/SHOCKING-NEURAL-PRO-NEW/onboarding.html" class="btn-small"> SHOCKING-NEURAL</a>
   </nav>
 
   <div class="module-header">
@@ -55,24 +89,117 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
   </div>
 
   <div class="content-block">
-    <h2>🧠 Formación y Reglas</h2>
-    <p>La regla general es añadir <strong>"-ly"</strong> al adjetivo (equivale a "-mente" en español).</p>
-    <ul>
-      <li><strong>Terminados en "-ic":</strong> Se cambia por "-ically". <em>(tragic → tragically)</em></li>
-      <li><strong>Terminados en "-le":</strong> Se cambia por "-ly". <em>(terrible → terribly, incredible → incredibly)</em></li>
-      <li><strong>Irregulares:</strong> No terminan en "-ly". <em>(hard, fast)</em></li>
-    </ul>
+    <h2>🧠 Concepto Neurocognitivo</h2>
+    <p>Un adverbio es una palabra que acompaña a palabras activadas como "verbo" para modificar su interpretación. También puede modificar a los adjetivos, a los nombres o a otros adverbios.</p>
+    <div class="example-box">
+      <div class="en">She speaks <strong>quickly</strong>. <button class="audio-btn" onclick="speak('She speaks quickly')">🔊</button></div>
+      <div class="es">Ella habla rápido. ("quickly" modifica al verbo "speak")</div>
+    </div>
   </div>
 
   <div class="content-block">
-    <h2>📐 Tipos y Posiciones Estratégicas</h2>
-    <ul>
-      <li><strong>Modo:</strong> Detrás del objeto directo o del verbo. <em>(You speak English perfectly).</em></li>
-      <li><strong>Frecuencia:</strong> Delante del verbo, pero <strong>detrás</strong> del verbo "to be". <em>(She is always late).</em></li>
-      <li><strong>Tiempo:</strong> Normalmente al principio o al final. <em>("Yet" siempre va al final).</em></li>
-    </ul>
+    <h2>📐 Reglas de Formación</h2>
+    
+    <h3>1. Regla General (-ly)</h3>
+    <p>Se añade la terminación <strong>"-ly"</strong> al adjetivo (equivale a "-mente" en español).</p>
+    <div class="example-box">
+      <div class="en">easy → easily <button class="audio-btn" onclick="speak('easily')">🔊</button></div>
+      <div class="es">fácil → fácilmente</div>
+    </div>
+    <div class="example-box">
+      <div class="en">happy → happily <button class="audio-btn" onclick="speak('happily')">🔊</button></div>
+      <div class="es">alegre → alegremente</div>
+    </div>
+
+    <h3>2. Terminados en "-ic"</h3>
+    <p>Se cambia la terminación "-ic" por <strong>"-ically"</strong>.</p>
+    <div class="example-box">
+      <div class="en">automatic → automatically <button class="audio-btn" onclick="speak('automatically')">🔊</button></div>
+      <div class="es">automático → automáticamente</div>
+    </div>
+    <div class="example-box">
+      <div class="en">tragic → tragically <button class="audio-btn" onclick="speak('tragically')"></button></div>
+      <div class="es">trágico → trágicamente</div>
+    </div>
+
+    <h3>3. Terminados en "-le"</h3>
+    <p>Se cambia la terminación "-le" por <strong>"-ly"</strong>.</p>
+    <div class="example-box">
+      <div class="en">terrible → terribly <button class="audio-btn" onclick="speak('terribly')"></button></div>
+      <div class="es">terrible → terriblemente</div>
+    </div>
+    <div class="example-box">
+      <div class="en">incredible → incredibly <button class="audio-btn" onclick="speak('incredibly')">🔊</button></div>
+      <div class="es">increíble → increíblemente</div>
+    </div>
+
+    <h3>4. Adverbios Irregulares</h3>
+    <p>Algunos adverbios no terminan en "-ly" y son iguales al adjetivo.</p>
+    <div class="example-box">
+      <div class="en">hard (duro/fuerte) <button class="audio-btn" onclick="speak('hard')">🔊</button></div>
+      <div class="es">He works hard. (Él trabaja duro)</div>
+    </div>
+    <div class="example-box">
+      <div class="en">fast (rápido) <button class="audio-btn" onclick="speak('fast')">🔊</button></div>
+      <div class="es">He runs fast. (Él corre rápido)</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h2> Tipos y Posiciones Estratégicas</h2>
+    <p>La posición en la oración dependerá del tipo de adverbio.</p>
+
+    <h3>1. Adverbios de Tiempo (¿Cuándo?)</h3>
+    <p><em>today, tomorrow, last week, next month, already, eventually, still, soon, yet, now, later...</em></p>
+    <p><strong>Posición:</strong> Normalmente van al principio o al final de la oración.</p>
+    <div class="example-box">
+      <div class="en">We went to Paris <strong>last year</strong>. <button class="audio-btn" onclick="speak('We went to Paris last year')">🔊</button></div>
+      <div class="es">Fuimos a París el año pasado.</div>
+    </div>
+    <div class="highlight-box">
+      <strong>⚠️ Reglas especiales:</strong><br>
+      • <strong>"Yet"</strong> siempre va al final: "I haven't finished yet."<br>
+      • <strong>"Still"</strong> va delante del verbo, excepto con "to be" (va detrás): "I am still waiting."
+    </div>
+
+    <h3>2. Adverbios de Lugar (¿Dónde?)</h3>
+    <p><em>here, there, everywhere, nowhere...</em></p>
+    <p><strong>Posición:</strong> En general, van después del objeto o del verbo.</p>
+    <div class="example-box">
+      <div class="en">Is she <strong>here</strong>? <button class="audio-btn" onclick="speak('Is she here')">🔊</button></div>
+      <div class="es">¿Está ella aquí?</div>
+    </div>
+
+    <h3>3. Adverbios de Grado (¿En qué medida?)</h3>
+    <p><em>very, really, almost, hardly, quite, barely...</em></p>
+    <p><strong>Posición:</strong> Van delante de la palabra que modifican.</p>
+    <div class="example-box">
+      <div class="en">He was <strong>almost</strong> late. <button class="audio-btn" onclick="speak('He was almost late')">🔊</button></div>
+      <div class="es">Casi llegó tarde.</div>
+    </div>
+
+    <h3>4. Adverbios de Modo (¿Cómo?)</h3>
+    <p><em>loudly, carefully, softly, beautifully, fast, hard...</em></p>
+    <p><strong>Posición:</strong> Van detrás del objeto directo. Si no hay objeto, van detrás del verbo.</p>
+    <div class="example-box">
+      <div class="en">You speak English <strong>perfectly</strong>. <button class="audio-btn" onclick="speak('You speak English perfectly')">🔊</button></div>
+      <div class="es">Hablas inglés perfectamente. (Después del objeto "English")</div>
+    </div>
+
+    <h3>5. Adverbios de Frecuencia (¿Con qué frecuencia?)</h3>
+    <p><em>often, frequently, usually, sometimes, rarely, seldom, never...</em></p>
+    <p><strong>Posición:</strong> Van delante del verbo, a excepción del verbo "to be" (van detrás).</p>
+    <div class="example-box">
+      <div class="en">She <strong>usually</strong> wears black. <button class="audio-btn" onclick="speak('She usually wears black')">🔊</button></div>
+      <div class="es">Normalmente lleva ropa negra.</div>
+    </div>
+    <div class="example-box">
+      <div class="en">They are <strong>frequently</strong> late. <button class="audio-btn" onclick="speak('They are frequently late')">🔊</button></div>
+      <div class="es">Frecuentemente llegan tarde. (Después de "are")</div>
+    </div>
+
     <div class="warning-box">
-      <strong>⚠️ WARNING NBF:</strong> Los adverbios <strong>nunca</strong> van entre el verbo y el objeto.<br>
+      <strong>🚨 WARNING NBF:</strong> Los adverbios <strong>NUNCA</strong> van entre el verbo y el objeto.<br>
       ❌ You speak perfectly English.<br>
       ✅ You speak English perfectly.
     </div>
@@ -80,13 +207,32 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 
   <div class="content-block">
     <h2>⚡ Práctica Interactiva</h2>
-    <p>¿Cuál de estas oraciones tiene la posición correcta del adverbio?</p>
-    <div class="interactive-quiz">
-      <button class="quiz-option" onclick="checkQuiz(this, false)">I speak perfectly English.</button>
-      <button class="quiz-option" onclick="checkQuiz(this, true)">I speak English perfectly.</button>
-      <button class="quiz-option" onclick="checkQuiz(this, false)">I perfectly speak English.</button>
+    
+    <h3>Ejercicio 1: Posición del adverbio de modo</h3>
+    <div class="practice-section">
+      <p>Selecciona la oración correcta:</p>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb1')">I speak perfectly English.</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true, 'fb1')">I speak English perfectly.</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb1')">I perfectly speak English.</button>
+      <div class="feedback" id="fb1"></div>
     </div>
-    <div class="feedback" id="quizFeedback"></div>
+
+    <h3>Ejercicio 2: Formación de adverbios</h3>
+    <div class="practice-section">
+      <p>¿Cuál es el adverbio correcto de "terrible"?</p>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb2')">Terriblely</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true, 'fb2')">Terribly</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb2')">Terriblically</button>
+      <div class="feedback" id="fb2"></div>
+    </div>
+
+    <h3>Ejercicio 3: Adverbios de frecuencia con "to be"</h3>
+    <div class="practice-section">
+      <p>¿Dónde va "always" en "She ___ late"?</p>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb3')">She always is late.</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true, 'fb3')">She is always late.</button>
+      <div class="feedback" id="fb3"></div>
+    </div>
   </div>
 
   <div class="bottom-nav">
@@ -96,18 +242,39 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 </div>
 
 <script>
-function checkQuiz(btn, isCorrect) {
-  const feedback = document.getElementById('quizFeedback');
+function speak(text) {
+  if('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    speechSynthesis.speak(utterance);
+  }
+}
+
+function checkQuiz(btn, isCorrect, feedbackId) {
+  const feedback = document.getElementById(feedbackId);
   const options = btn.parentElement.querySelectorAll('.quiz-option');
   options.forEach(opt => { opt.disabled = true; opt.style.cursor = 'default'; });
+  
   if(isCorrect) {
     btn.classList.add('correct');
-    feedback.textContent = '✅ ¡Correcto! El adverbio de modo va después del objeto directo.';
-    feedback.style.background = 'rgba(0,255,157,0.1)'; feedback.style.color = '#00FF9D';
+    feedback.innerHTML = '✅ ¡Correcto! <button class="audio-btn" onclick="speak(\'Correct!\')" style="margin-left:10px;">🔊</button>';
+    feedback.style.background = 'rgba(0,255,157,0.1)';
+    feedback.style.color = '#00FF9D';
+    speak('Correct!');
   } else {
     btn.classList.add('wrong');
-    feedback.textContent = '❌ Incorrecto. ¡WARNING! El adverbio nunca va entre el verbo y el objeto.';
-    feedback.style.background = 'rgba(255,68,68,0.1)'; feedback.style.color = '#FF4444';
+    feedback.textContent = '❌ Incorrecto. Intenta de nuevo.';
+    feedback.style.background = 'rgba(255,68,68,0.1)';
+    feedback.style.color = '#FF4444';
+    setTimeout(() => {
+      options.forEach(opt => { 
+        opt.disabled = false; 
+        opt.style.cursor = 'pointer';
+        opt.classList.remove('wrong');
+      });
+      feedback.style.display = 'none';
+    }, 2000);
   }
   feedback.style.display = 'block';
 }
