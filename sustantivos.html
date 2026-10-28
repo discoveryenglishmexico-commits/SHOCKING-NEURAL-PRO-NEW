@@ -13,14 +13,14 @@
 }
 * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
 body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
-.container { max-width:900px; margin:0 auto; padding:0 20px; }
+.container { max-width:1000px; margin:0 auto; padding:0 20px; }
 
 .top-nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid var(--border); margin-bottom:40px; }
-.btn-small { padding:8px 16px; background:var(--glass); border:1px solid var(--border); border-radius:20px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:0.3s; }
+.btn-small { padding:8px 16px; background:var(--glass); border:1px solid var(--border); border-radius:20px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:0.3s; display:flex; align-items:center; gap:8px; }
 .btn-small:hover { border-color:var(--cyan); color:var(--cyan); }
 
 .module-header { text-align:center; margin-bottom:50px; }
-.module-header h1 { font-family:'Orbitron',sans-serif; font-size:2.2rem; color:var(--gold); margin-bottom:10px; }
+.module-header h1 { font-family:'Orbitron',sans-serif; font-size:2.2rem; color:var(--cyan); margin-bottom:10px; }
 .module-header p { color:var(--muted); font-size:1.1rem; }
 
 .content-block {
@@ -28,11 +28,29 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
   border-radius:16px; padding:30px; margin-bottom:30px; border-left:4px solid var(--cyan);
 }
 .content-block h2 { font-family:'Orbitron',sans-serif; color:var(--cyan); font-size:1.3rem; margin-bottom:15px; display:flex; align-items:center; gap:10px; }
+.content-block h3 { color:var(--gold); font-size:1.1rem; margin:20px 0 10px; }
 .content-block p, .content-block li { color:var(--text); margin-bottom:10px; font-size:1rem; }
-.content-block ul { padding-left:20px; }
-.highlight-box { background:rgba(0,243,255,0.1); border-left:3px solid var(--cyan); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; }
+.content-block ul { padding-left:20px; margin-bottom:15px; }
 
-.interactive-quiz { margin-top:20px; }
+.highlight-box { background:rgba(0,243,255,0.1); border-left:3px solid var(--cyan); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; }
+.warning-box { background:rgba(255,68,68,0.1); border-left:3px solid var(--error); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; color:#ff8888; }
+
+.example-box {
+  background:rgba(0,0,0,0.4); border:1px solid var(--border);
+  border-radius:8px; padding:15px; margin:10px 0;
+}
+.example-box .en { color:var(--emerald); font-weight:600; margin-bottom:5px; }
+.example-box .es { color:var(--muted); font-size:0.95rem; }
+
+.audio-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; background:var(--cyan); border:none;
+  border-radius:50%; color:#000; cursor:pointer; margin-left:10px;
+  transition:0.3s; font-size:1.1rem;
+}
+.audio-btn:hover { background:var(--emerald); transform:scale(1.1); }
+
+.practice-section { margin-top:30px; }
 .quiz-option {
   display:block; width:100%; padding:15px; margin-bottom:10px; background:rgba(0,0,0,0.3);
   border:1px solid var(--border); border-radius:8px; color:var(--text); text-align:left;
@@ -52,6 +70,11 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 .btn-prev:hover { border-color:var(--cyan); }
 .btn-next { background:linear-gradient(135deg, var(--cyan), var(--emerald)); color:#000; border:none; }
 .btn-next:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,243,255,0.3); }
+
+@media(max-width:768px) {
+  .top-nav { flex-direction:column; gap:10px; }
+  .bottom-nav { flex-direction:column; gap:15px; }
+}
 </style>
 </head>
 <body>
@@ -63,36 +86,105 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
   </nav>
 
   <div class="module-header">
-    <h1>📦 Sustantivos (Nouns)</h1>
-    <p>La base de la lógica inglesa. El cerebro hispano persigue la acción; el inglés se ancla en la entidad.</p>
+    <h1> Sustantivos (Nouns)</h1>
+    <p>La base de la lógica inglesa. Entidades, objetos, lugares, eventos e ideas abstractas.</p>
   </div>
 
   <div class="content-block">
     <h2>🧠 Concepto Neurocognitivo</h2>
-    <p>Los sustantivos se usan para referirse a personas, animales, cosas, eventos, lugares o ideas abstractas.</p>
-    <div class="highlight-box">
-      <strong>Regla de Oro NBF:</strong> A diferencia del español, los sustantivos en inglés <strong>NO tienen género</strong> (no hay "el" o "la" inherente a la palabra).
-    </div>
-  </div>
-
-  <div class="content-block">
-    <h2>📐 Reglas de Pluralización</h2>
+    <p>Los sustantivos se usan para referirse a:</p>
     <ul>
-      <li><strong>Regla General:</strong> Se agrega "-s" o "-es" al final.</li>
-      <li><strong>Consonante + "y":</strong> La "y" cambia a "i" y se añade "es". <br><em>Ej: city → cities, baby → babies.</em></li>
-      <li><strong>Terminados en "f" o "fe":</strong> Cambian a "v" y se añade "es". <br><em>Ej: leaf → leaves, wife → wives.</em></li>
+      <li><strong>Personas:</strong> teacher, student, doctor</li>
+      <li><strong>Animales:</strong> dog, cat, elephant</li>
+      <li><strong>Cosas y objetos:</strong> table, computer, car</li>
+      <li><strong>Eventos:</strong> party, meeting, concert</li>
+      <li><strong>Lugares:</strong> city, park, restaurant</li>
+      <li><strong>Ideas abstractas:</strong> love, freedom, happiness</li>
     </ul>
+    
+    <div class="highlight-box">
+      <strong>🎯 Regla de Oro NBF:</strong> A diferencia del español, los sustantivos en inglés <strong>NO tienen género</strong>. No hay "el" o "la" inherente a la palabra.
+    </div>
   </div>
 
   <div class="content-block">
-    <h2>⚡ Práctica Interactiva</h2>
-    <p>¿Cuál es el plural correcto de "city"?</p>
-    <div class="interactive-quiz">
-      <button class="quiz-option" onclick="checkQuiz(this, false)">Citys</button>
-      <button class="quiz-option" onclick="checkQuiz(this, true)">Cities</button>
-      <button class="quiz-option" onclick="checkQuiz(this, false)">Cites</button>
+    <h2>📐 Plural Nouns (Sustantivos Plurales)</h2>
+    <p>A la mayoría de sustantivos se les agrega una <strong>"-s"</strong> o <strong>"-es"</strong> al final para formar el plural.</p>
+    
+    <h3>1. Regla General</h3>
+    <p>Simplemente agregamos <strong>"-s"</strong> al final:</p>
+    <div class="example-box">
+      <div class="en">book → books <button class="audio-btn" onclick="speak('books')">🔊</button></div>
+      <div class="es">libro → libros</div>
     </div>
-    <div class="feedback" id="quizFeedback"></div>
+    <div class="example-box">
+      <div class="en">car → cars <button class="audio-btn" onclick="speak('cars')">🔊</button></div>
+      <div class="es">coche → coches</div>
+    </div>
+    <div class="example-box">
+      <div class="en">house → houses <button class="audio-btn" onclick="speak('houses')"></button></div>
+      <div class="es">casa → casas</div>
+    </div>
+
+    <h3>2. Consonante + "y"</h3>
+    <p>La <strong>"y"</strong> cambia a <strong>"i"</strong> y añadimos <strong>"es"</strong>:</p>
+    <div class="example-box">
+      <div class="en">city → cities <button class="audio-btn" onclick="speak('cities')">🔊</button></div>
+      <div class="es">ciudad → ciudades</div>
+    </div>
+    <div class="example-box">
+      <div class="en">baby → babies <button class="audio-btn" onclick="speak('babies')">🔊</button></div>
+      <div class="es">bebé → bebés</div>
+    </div>
+    <div class="example-box">
+      <div class="en">lady → ladies <button class="audio-btn" onclick="speak('ladies')"></button></div>
+      <div class="es">dama → damas</div>
+    </div>
+
+    <h3>3. Terminados en "f" o "fe"</h3>
+    <p>Cambiamos la <strong>"f"</strong> o <strong>"fe"</strong> por <strong>"v"</strong> y añadimos <strong>"es"</strong>:</p>
+    <div class="example-box">
+      <div class="en">leaf → leaves <button class="audio-btn" onclick="speak('leaves')">🔊</button></div>
+      <div class="es">hoja → hojas</div>
+    </div>
+    <div class="example-box">
+      <div class="en">wife → wives <button class="audio-btn" onclick="speak('wives')"></button></div>
+      <div class="es">esposa → esposas</div>
+    </div>
+    <div class="example-box">
+      <div class="en">knife → knives <button class="audio-btn" onclick="speak('knives')">🔊</button></div>
+      <div class="es">cuchillo → cuchillos</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h2> Práctica Interactiva</h2>
+    
+    <h3>Ejercicio 1: ¿Cuál es el plural correcto?</h3>
+    <div class="practice-section">
+      <p>¿Plural de "city"?</p>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb1')">Citys</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true, 'fb1')">Cities</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb1')">Cites</button>
+      <div class="feedback" id="fb1"></div>
+    </div>
+
+    <h3>Ejercicio 2: ¿Plural de "leaf"?</h3>
+    <div class="practice-section">
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb2')">Leafs</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true, 'fb2')">Leaves</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb2')">Leafes</button>
+      <div class="feedback" id="fb2"></div>
+    </div>
+
+    <h3>Ejercicio 3: Identifica el sustantivo</h3>
+    <div class="practice-section">
+      <p>¿Cuál de estas palabras es un sustantivo que se refiere a un lugar?</p>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb3')">Beautiful</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true, 'fb3')">Restaurant</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb3')">Quickly</button>
+      <div class="feedback" id="fb3"></div>
+    </div>
   </div>
 
   <div class="bottom-nav">
@@ -102,21 +194,42 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 </div>
 
 <script>
-function checkQuiz(btn, isCorrect) {
-  const feedback = document.getElementById('quizFeedback');
+// Web Speech API para audio
+function speak(text) {
+  if('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    speechSynthesis.speak(utterance);
+  } else {
+    alert('Tu navegador no soporta la síntesis de voz');
+  }
+}
+
+function checkQuiz(btn, isCorrect, feedbackId) {
+  const feedback = document.getElementById(feedbackId);
   const options = btn.parentElement.querySelectorAll('.quiz-option');
   options.forEach(opt => { opt.disabled = true; opt.style.cursor = 'default'; });
   
   if(isCorrect) {
     btn.classList.add('correct');
-    feedback.textContent = '✅ ¡Correcto! Consonante + y = ies.';
+    feedback.innerHTML = '✅ ¡Correcto! <button class="audio-btn" onclick="speak(\'Correct!\')" style="margin-left:10px;">🔊</button>';
     feedback.style.background = 'rgba(0,255,157,0.1)';
     feedback.style.color = '#00FF9D';
+    speak('Correct!');
   } else {
     btn.classList.add('wrong');
-    feedback.textContent = '❌ Incorrecto. Recuerda: consonante + "y" cambia a "i" + "es".';
+    feedback.textContent = '❌ Incorrecto. Intenta de nuevo.';
     feedback.style.background = 'rgba(255,68,68,0.1)';
     feedback.style.color = '#FF4444';
+    setTimeout(() => {
+      options.forEach(opt => { 
+        opt.disabled = false; 
+        opt.style.cursor = 'pointer';
+        opt.classList.remove('wrong');
+      });
+      feedback.style.display = 'none';
+    }, 2000);
   }
   feedback.style.display = 'block';
 }
