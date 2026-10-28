@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adjetivos | SHOCKING-NEURAL</title>
+<title>Adjetivos (Adjectives) | SHOCKING-NEURAL</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-/* Mismos estilos base que sustantivos.html para consistencia */
 :root {
   --bg: #0A0E27; --glass: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.12);
   --cyan: #00F3FF; --purple: #9D4EDD; --emerald: #00FF9D; --gold: #FFD700;
@@ -14,30 +13,65 @@
 }
 * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
 body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
-.container { max-width:900px; margin:0 auto; padding:0 20px; }
+.container { max-width:1000px; margin:0 auto; padding:0 20px; }
+
 .top-nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid var(--border); margin-bottom:40px; }
-.btn-small { padding:8px 16px; background:var(--glass); border:1px solid var(--border); border-radius:20px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:0.3s; }
+.btn-small { padding:8px 16px; background:var(--glass); border:1px solid var(--border); border-radius:20px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:0.3s; display:flex; align-items:center; gap:8px; }
 .btn-small:hover { border-color:var(--purple); color:var(--purple); }
+
 .module-header { text-align:center; margin-bottom:50px; }
 .module-header h1 { font-family:'Orbitron',sans-serif; font-size:2.2rem; color:var(--purple); margin-bottom:10px; }
 .module-header p { color:var(--muted); font-size:1.1rem; }
-.content-block { background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--border); border-radius:16px; padding:30px; margin-bottom:30px; border-left:4px solid var(--purple); }
+
+.content-block {
+  background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--border);
+  border-radius:16px; padding:30px; margin-bottom:30px; border-left:4px solid var(--purple);
+}
 .content-block h2 { font-family:'Orbitron',sans-serif; color:var(--purple); font-size:1.3rem; margin-bottom:15px; display:flex; align-items:center; gap:10px; }
+.content-block h3 { color:var(--gold); font-size:1.1rem; margin:20px 0 10px; }
 .content-block p, .content-block li { color:var(--text); margin-bottom:10px; font-size:1rem; }
-.content-block ul { padding-left:20px; }
+.content-block ul { padding-left:20px; margin-bottom:15px; }
+
 .highlight-box { background:rgba(157,78,221,0.1); border-left:3px solid var(--purple); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; }
-.interactive-quiz { margin-top:20px; }
-.quiz-option { display:block; width:100%; padding:15px; margin-bottom:10px; background:rgba(0,0,0,0.3); border:1px solid var(--border); border-radius:8px; color:var(--text); text-align:left; cursor:pointer; transition:0.3s; font-size:1rem; }
+.example-box {
+  background:rgba(0,0,0,0.4); border:1px solid var(--border);
+  border-radius:8px; padding:15px; margin:10px 0;
+}
+.example-box .en { color:var(--emerald); font-weight:600; margin-bottom:5px; display:flex; align-items:center; }
+.example-box .es { color:var(--muted); font-size:0.95rem; }
+
+.audio-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:32px; height:32px; background:var(--purple); border:none;
+  border-radius:50%; color:#fff; cursor:pointer; margin-left:10px;
+  transition:0.3s; font-size:0.9rem; flex-shrink:0;
+}
+.audio-btn:hover { background:var(--emerald); transform:scale(1.1); }
+
+.quiz-option {
+  display:block; width:100%; padding:15px; margin-bottom:10px; background:rgba(0,0,0,0.3);
+  border:1px solid var(--border); border-radius:8px; color:var(--text); text-align:left;
+  cursor:pointer; transition:0.3s; font-size:1rem;
+}
 .quiz-option:hover { border-color:var(--emerald); background:rgba(0,255,157,0.05); }
 .quiz-option.correct { border-color:var(--emerald); background:rgba(0,255,157,0.2); color:var(--emerald); }
 .quiz-option.wrong { border-color:var(--error); background:rgba(255,68,68,0.2); color:var(--error); }
 .feedback { margin-top:10px; padding:10px; border-radius:8px; display:none; font-weight:600; }
+
 .bottom-nav { display:flex; justify-content:space-between; margin:60px 0 40px; }
-.btn-nav { padding:15px 30px; border-radius:30px; text-decoration:none; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.3s; }
+.btn-nav {
+  padding:15px 30px; border-radius:30px; text-decoration:none; font-weight:700;
+  display:flex; align-items:center; gap:10px; transition:0.3s;
+}
 .btn-prev { background:var(--glass); border:1px solid var(--border); color:var(--text); }
 .btn-prev:hover { border-color:var(--purple); }
 .btn-next { background:linear-gradient(135deg, var(--purple), var(--cyan)); color:#000; border:none; }
 .btn-next:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(157,78,221,0.3); }
+
+@media(max-width:768px) {
+  .top-nav { flex-direction:column; gap:10px; }
+  .bottom-nav { flex-direction:column; gap:15px; }
+}
 </style>
 </head>
 <body>
@@ -55,31 +89,76 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 
   <div class="content-block">
     <h2>🧠 Concepto Neurocognitivo</h2>
-    <p>El adjetivo acompaña y modifica al nombre, ampliando o cuantificando su tamaño o cualidad.</p>
-    <div class="highlight-box">
-      <strong>Diferencia Clave con el Español:</strong><br>
-      1. <strong>No tienen género:</strong> "The happy boy" / "The happy girl" (No cambia).<br>
-      2. <strong>No tienen forma plural:</strong> No llevan "-s" o "-es". "The red cars" (No "reds").
+    <p>Un adjetivo es una palabra que acompaña y modifica al nombre. Puede ampliar, complementar o cuantificar su tamaño. Son palabras que nombran o indican cualidades, rasgos y propiedades de los nombres o sustantivos a los que acompañan.</p>
+    <div class="example-box">
+      <div class="en">A beautiful house <button class="audio-btn" onclick="speak('A beautiful house')">🔊</button></div>
+      <div class="es">Una casa hermosa</div>
     </div>
   </div>
 
   <div class="content-block">
-    <h2>📐 Reglas de Oro</h2>
-    <ul>
-      <li>El adjetivo en inglés <strong>siempre va antes</strong> del sustantivo que modifica. <br><em>Ej: A <strong>beautiful</strong> house (No "house beautiful").</em></li>
-      <li>Podemos usar dos o más adjetivos juntos, siguiendo un orden específico de opinión, tamaño, edad, forma, color, origen, material y propósito.</li>
-    </ul>
+    <h2>📐 Reglas de Oro (Diferencias con el Español)</h2>
+    
+    <h3>1. No tienen género</h3>
+    <p>A diferencia del español, el adjetivo en inglés no cambia si es masculino o femenino.</p>
+    <div class="example-box">
+      <div class="en">The happy boy <button class="audio-btn" onclick="speak('The happy boy')"></button></div>
+      <div class="es">El niño feliz</div>
+    </div>
+    <div class="example-box">
+      <div class="en">The happy girl <button class="audio-btn" onclick="speak('The happy girl')">🔊</button></div>
+      <div class="es">La niña feliz (No cambia a "happy-a")</div>
+    </div>
+
+    <h3>2. No tienen forma plural</h3>
+    <p>En general, los adjetivos tampoco tienen una forma plural. No encontraremos distintivos con "-s" o "-es".</p>
+    <div class="example-box">
+      <div class="en">The red cars <button class="audio-btn" onclick="speak('The red cars')">🔊</button></div>
+      <div class="es">Los coches rojos (No "reds cars")</div>
+    </div>
+    <div class="highlight-box">
+      <strong>️ Excepción:</strong> Los adjetivos demostrativos (this/that/these/those) y cuantitativos (many/much) sí presentan formas diferentes para señalar el singular y el plural.
+    </div>
+
+    <h3>3. Posición Estratégica</h3>
+    <p>El adjetivo en inglés <strong>siempre va antes</strong> del sustantivo que modifica.</p>
+    <div class="example-box">
+      <div class="en">A <strong>beautiful</strong> house <button class="audio-btn" onclick="speak('A beautiful house')">🔊</button></div>
+      <div class="es">✅ Correcto</div>
+    </div>
+    <div class="example-box">
+      <div class="en">A house <strong>beautiful</strong></div>
+      <div class="es" style="color:var(--error);">❌ Incorrecto (Error de traducción literal)</div>
+    </div>
+
+    <h3>4. Múltiples Adjetivos</h3>
+    <p>Podemos usar dos o más adjetivos juntos para describir un sustantivo con mayor precisión.</p>
+    <div class="example-box">
+      <div class="en">A big, old, wooden table <button class="audio-btn" onclick="speak('A big, old, wooden table')">🔊</button></div>
+      <div class="es">Una mesa grande, vieja y de madera</div>
+    </div>
   </div>
 
   <div class="content-block">
     <h2>⚡ Práctica Interactiva</h2>
-    <p>Selecciona la oración con la estructura de adjetivo correcta:</p>
-    <div class="interactive-quiz">
-      <button class="quiz-option" onclick="checkQuiz(this, false)">The car red is fast.</button>
-      <button class="quiz-option" onclick="checkQuiz(this, true)">The red car is fast.</button>
-      <button class="quiz-option" onclick="checkQuiz(this, false)">The reds cars are fast.</button>
+    
+    <h3>Ejercicio 1: Posición del adjetivo</h3>
+    <div class="practice-section">
+      <p>Selecciona la oración correcta:</p>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb1')">The car red is fast.</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true, 'fb1')">The red car is fast.</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb1')">The reds cars are fast.</button>
+      <div class="feedback" id="fb1"></div>
     </div>
-    <div class="feedback" id="quizFeedback"></div>
+
+    <h3>Ejercicio 2: Género y Plural</h3>
+    <div class="practice-section">
+      <p>¿Cómo se dice "Las casas grandes"?</p>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb2')">The bigs houses</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true, 'fb2')">The big houses</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false, 'fb2')">The houses big</button>
+      <div class="feedback" id="fb2"></div>
+    </div>
   </div>
 
   <div class="bottom-nav">
@@ -89,18 +168,39 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 </div>
 
 <script>
-function checkQuiz(btn, isCorrect) {
-  const feedback = document.getElementById('quizFeedback');
+function speak(text) {
+  if('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    speechSynthesis.speak(utterance);
+  }
+}
+
+function checkQuiz(btn, isCorrect, feedbackId) {
+  const feedback = document.getElementById(feedbackId);
   const options = btn.parentElement.querySelectorAll('.quiz-option');
   options.forEach(opt => { opt.disabled = true; opt.style.cursor = 'default'; });
+  
   if(isCorrect) {
     btn.classList.add('correct');
-    feedback.textContent = '✅ ¡Correcto! El adjetivo va antes del sustantivo y no tiene plural.';
-    feedback.style.background = 'rgba(0,255,157,0.1)'; feedback.style.color = '#00FF9D';
+    feedback.innerHTML = '✅ ¡Correcto! <button class="audio-btn" onclick="speak(\'Correct!\')" style="margin-left:10px;">🔊</button>';
+    feedback.style.background = 'rgba(0,255,157,0.1)';
+    feedback.style.color = '#00FF9D';
+    speak('Correct!');
   } else {
     btn.classList.add('wrong');
-    feedback.textContent = '❌ Incorrecto. Recuerda: adjetivo antes del sustantivo y sin "s" de plural.';
-    feedback.style.background = 'rgba(255,68,68,0.1)'; feedback.style.color = '#FF4444';
+    feedback.textContent = '❌ Incorrecto. Intenta de nuevo.';
+    feedback.style.background = 'rgba(255,68,68,0.1)';
+    feedback.style.color = '#FF4444';
+    setTimeout(() => {
+      options.forEach(opt => { 
+        opt.disabled = false; 
+        opt.style.cursor = 'pointer';
+        opt.classList.remove('wrong');
+      });
+      feedback.style.display = 'none';
+    }, 2000);
   }
   feedback.style.display = 'block';
 }
