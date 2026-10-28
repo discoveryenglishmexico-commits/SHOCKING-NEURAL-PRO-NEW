@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustantivos (Nouns) | SHOCKING-NEURAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0E27; --glass: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.12);
+  --cyan: #00F3FF; --purple: #9D4EDD; --emerald: #00FF9D; --gold: #FFD700;
+  --text: #F5F2ED; --muted: #8A94A6; --error: #FF4444;
+}
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+.container { max-width:900px; margin:0 auto; padding:0 20px; }
+
+.top-nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid var(--border); margin-bottom:40px; }
+.btn-small { padding:8px 16px; background:var(--glass); border:1px solid var(--border); border-radius:20px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:0.3s; }
+.btn-small:hover { border-color:var(--cyan); color:var(--cyan); }
+
+.module-header { text-align:center; margin-bottom:50px; }
+.module-header h1 { font-family:'Orbitron',sans-serif; font-size:2.2rem; color:var(--gold); margin-bottom:10px; }
+.module-header p { color:var(--muted); font-size:1.1rem; }
+
+.content-block {
+  background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--border);
+  border-radius:16px; padding:30px; margin-bottom:30px; border-left:4px solid var(--cyan);
+}
+.content-block h2 { font-family:'Orbitron',sans-serif; color:var(--cyan); font-size:1.3rem; margin-bottom:15px; display:flex; align-items:center; gap:10px; }
+.content-block p, .content-block li { color:var(--text); margin-bottom:10px; font-size:1rem; }
+.content-block ul { padding-left:20px; }
+.highlight-box { background:rgba(0,243,255,0.1); border-left:3px solid var(--cyan); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; }
+
+.interactive-quiz { margin-top:20px; }
+.quiz-option {
+  display:block; width:100%; padding:15px; margin-bottom:10px; background:rgba(0,0,0,0.3);
+  border:1px solid var(--border); border-radius:8px; color:var(--text); text-align:left;
+  cursor:pointer; transition:0.3s; font-size:1rem;
+}
+.quiz-option:hover { border-color:var(--emerald); background:rgba(0,255,157,0.05); }
+.quiz-option.correct { border-color:var(--emerald); background:rgba(0,255,157,0.2); color:var(--emerald); }
+.quiz-option.wrong { border-color:var(--error); background:rgba(255,68,68,0.2); color:var(--error); }
+.feedback { margin-top:10px; padding:10px; border-radius:8px; display:none; font-weight:600; }
+
+.bottom-nav { display:flex; justify-content:space-between; margin:60px 0 40px; }
+.btn-nav {
+  padding:15px 30px; border-radius:30px; text-decoration:none; font-weight:700;
+  display:flex; align-items:center; gap:10px; transition:0.3s;
+}
+.btn-prev { background:var(--glass); border:1px solid var(--border); color:var(--text); }
+.btn-prev:hover { border-color:var(--cyan); }
+.btn-next { background:linear-gradient(135deg, var(--cyan), var(--emerald)); color:#000; border:none; }
+.btn-next:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,243,255,0.3); }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav class="top-nav">
+    <a href="elementos.html" class="btn-small">← Hub de Elementos</a>
+    <a href="https://discoveryenglishmexico-commits.github.io/SHOCKING-NEURAL-PRO-NEW/onboarding.html" class="btn-small">🏠 SHOCKING-NEURAL</a>
+  </nav>
+
+  <div class="module-header">
+    <h1>📦 Sustantivos (Nouns)</h1>
+    <p>La base de la lógica inglesa. El cerebro hispano persigue la acción; el inglés se ancla en la entidad.</p>
+  </div>
+
+  <div class="content-block">
+    <h2>🧠 Concepto Neurocognitivo</h2>
+    <p>Los sustantivos se usan para referirse a personas, animales, cosas, eventos, lugares o ideas abstractas.</p>
+    <div class="highlight-box">
+      <strong>Regla de Oro NBF:</strong> A diferencia del español, los sustantivos en inglés <strong>NO tienen género</strong> (no hay "el" o "la" inherente a la palabra).
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h2>📐 Reglas de Pluralización</h2>
+    <ul>
+      <li><strong>Regla General:</strong> Se agrega "-s" o "-es" al final.</li>
+      <li><strong>Consonante + "y":</strong> La "y" cambia a "i" y se añade "es". <br><em>Ej: city → cities, baby → babies.</em></li>
+      <li><strong>Terminados en "f" o "fe":</strong> Cambian a "v" y se añade "es". <br><em>Ej: leaf → leaves, wife → wives.</em></li>
+    </ul>
+  </div>
+
+  <div class="content-block">
+    <h2>⚡ Práctica Interactiva</h2>
+    <p>¿Cuál es el plural correcto de "city"?</p>
+    <div class="interactive-quiz">
+      <button class="quiz-option" onclick="checkQuiz(this, false)">Citys</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true)">Cities</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false)">Cites</button>
+    </div>
+    <div class="feedback" id="quizFeedback"></div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="elementos.html" class="btn-nav btn-prev">← Volver al Hub</a>
+    <a href="adjetivos.html" class="btn-nav btn-next">Siguiente: Adjetivos →</a>
+  </div>
+</div>
+
+<script>
+function checkQuiz(btn, isCorrect) {
+  const feedback = document.getElementById('quizFeedback');
+  const options = btn.parentElement.querySelectorAll('.quiz-option');
+  options.forEach(opt => { opt.disabled = true; opt.style.cursor = 'default'; });
+  
+  if(isCorrect) {
+    btn.classList.add('correct');
+    feedback.textContent = '✅ ¡Correcto! Consonante + y = ies.';
+    feedback.style.background = 'rgba(0,255,157,0.1)';
+    feedback.style.color = '#00FF9D';
+  } else {
+    btn.classList.add('wrong');
+    feedback.textContent = '❌ Incorrecto. Recuerda: consonante + "y" cambia a "i" + "es".';
+    feedback.style.background = 'rgba(255,68,68,0.1)';
+    feedback.style.color = '#FF4444';
+  }
+  feedback.style.display = 'block';
+}
+</script>
+</body>
+</html>
