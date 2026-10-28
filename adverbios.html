@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adverbios | SHOCKING-NEURAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* Mismos estilos base, con acento en Emerald */
+:root {
+  --bg: #0A0E27; --glass: rgba(255,255,255,0.05); --border: rgba(255,255,255,0.12);
+  --cyan: #00F3FF; --purple: #9D4EDD; --emerald: #00FF9D; --gold: #FFD700;
+  --text: #F5F2ED; --muted: #8A94A6; --error: #FF4444;
+}
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+.container { max-width:900px; margin:0 auto; padding:0 20px; }
+.top-nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid var(--border); margin-bottom:40px; }
+.btn-small { padding:8px 16px; background:var(--glass); border:1px solid var(--border); border-radius:20px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:0.3s; }
+.btn-small:hover { border-color:var(--emerald); color:var(--emerald); }
+.module-header { text-align:center; margin-bottom:50px; }
+.module-header h1 { font-family:'Orbitron',sans-serif; font-size:2.2rem; color:var(--emerald); margin-bottom:10px; }
+.module-header p { color:var(--muted); font-size:1.1rem; }
+.content-block { background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--border); border-radius:16px; padding:30px; margin-bottom:30px; border-left:4px solid var(--emerald); }
+.content-block h2 { font-family:'Orbitron',sans-serif; color:var(--emerald); font-size:1.3rem; margin-bottom:15px; display:flex; align-items:center; gap:10px; }
+.content-block p, .content-block li { color:var(--text); margin-bottom:10px; font-size:1rem; }
+.content-block ul { padding-left:20px; }
+.highlight-box { background:rgba(0,255,157,0.1); border-left:3px solid var(--emerald); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; }
+.warning-box { background:rgba(255,68,68,0.1); border-left:3px solid var(--error); padding:15px; margin:15px 0; border-radius:0 8px 8px 0; color: #ff8888; }
+.interactive-quiz { margin-top:20px; }
+.quiz-option { display:block; width:100%; padding:15px; margin-bottom:10px; background:rgba(0,0,0,0.3); border:1px solid var(--border); border-radius:8px; color:var(--text); text-align:left; cursor:pointer; transition:0.3s; font-size:1rem; }
+.quiz-option:hover { border-color:var(--emerald); background:rgba(0,255,157,0.05); }
+.quiz-option.correct { border-color:var(--emerald); background:rgba(0,255,157,0.2); color:var(--emerald); }
+.quiz-option.wrong { border-color:var(--error); background:rgba(255,68,68,0.2); color:var(--error); }
+.feedback { margin-top:10px; padding:10px; border-radius:8px; display:none; font-weight:600; }
+.bottom-nav { display:flex; justify-content:space-between; margin:60px 0 40px; }
+.btn-nav { padding:15px 30px; border-radius:30px; text-decoration:none; font-weight:700; display:flex; align-items:center; gap:10px; transition:0.3s; }
+.btn-prev { background:var(--glass); border:1px solid var(--border); color:var(--text); }
+.btn-prev:hover { border-color:var(--emerald); }
+.btn-next { background:linear-gradient(135deg, var(--emerald), var(--cyan)); color:#000; border:none; }
+.btn-next:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,255,157,0.3); }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav class="top-nav">
+    <a href="elementos.html" class="btn-small">← Hub de Elementos</a>
+    <a href="https://discoveryenglishmexico-commits.github.io/SHOCKING-NEURAL-PRO-NEW/onboarding.html" class="btn-small">🏠 SHOCKING-NEURAL</a>
+  </nav>
+
+  <div class="module-header">
+    <h1>⚡ Adverbios (Adverbs)</h1>
+    <p>Modifican la acción, el grado o la frecuencia. El "cómo", "dónde" y "cuándo" del idioma.</p>
+  </div>
+
+  <div class="content-block">
+    <h2>🧠 Formación y Reglas</h2>
+    <p>La regla general es añadir <strong>"-ly"</strong> al adjetivo (equivale a "-mente" en español).</p>
+    <ul>
+      <li><strong>Terminados en "-ic":</strong> Se cambia por "-ically". <em>(tragic → tragically)</em></li>
+      <li><strong>Terminados en "-le":</strong> Se cambia por "-ly". <em>(terrible → terribly, incredible → incredibly)</em></li>
+      <li><strong>Irregulares:</strong> No terminan en "-ly". <em>(hard, fast)</em></li>
+    </ul>
+  </div>
+
+  <div class="content-block">
+    <h2>📐 Tipos y Posiciones Estratégicas</h2>
+    <ul>
+      <li><strong>Modo:</strong> Detrás del objeto directo o del verbo. <em>(You speak English perfectly).</em></li>
+      <li><strong>Frecuencia:</strong> Delante del verbo, pero <strong>detrás</strong> del verbo "to be". <em>(She is always late).</em></li>
+      <li><strong>Tiempo:</strong> Normalmente al principio o al final. <em>("Yet" siempre va al final).</em></li>
+    </ul>
+    <div class="warning-box">
+      <strong>⚠️ WARNING NBF:</strong> Los adverbios <strong>nunca</strong> van entre el verbo y el objeto.<br>
+      ❌ You speak perfectly English.<br>
+      ✅ You speak English perfectly.
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h2>⚡ Práctica Interactiva</h2>
+    <p>¿Cuál de estas oraciones tiene la posición correcta del adverbio?</p>
+    <div class="interactive-quiz">
+      <button class="quiz-option" onclick="checkQuiz(this, false)">I speak perfectly English.</button>
+      <button class="quiz-option" onclick="checkQuiz(this, true)">I speak English perfectly.</button>
+      <button class="quiz-option" onclick="checkQuiz(this, false)">I perfectly speak English.</button>
+    </div>
+    <div class="feedback" id="quizFeedback"></div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="adjetivos.html" class="btn-nav btn-prev">← Anterior: Adjetivos</a>
+    <a href="elementos.html" class="btn-nav btn-next">Volver al Hub de Elementos →</a>
+  </div>
+</div>
+
+<script>
+function checkQuiz(btn, isCorrect) {
+  const feedback = document.getElementById('quizFeedback');
+  const options = btn.parentElement.querySelectorAll('.quiz-option');
+  options.forEach(opt => { opt.disabled = true; opt.style.cursor = 'default'; });
+  if(isCorrect) {
+    btn.classList.add('correct');
+    feedback.textContent = '✅ ¡Correcto! El adverbio de modo va después del objeto directo.';
+    feedback.style.background = 'rgba(0,255,157,0.1)'; feedback.style.color = '#00FF9D';
+  } else {
+    btn.classList.add('wrong');
+    feedback.textContent = '❌ Incorrecto. ¡WARNING! El adverbio nunca va entre el verbo y el objeto.';
+    feedback.style.background = 'rgba(255,68,68,0.1)'; feedback.style.color = '#FF4444';
+  }
+  feedback.style.display = 'block';
+}
+</script>
+</body>
+</html>
