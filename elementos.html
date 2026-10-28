@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los 7 Elementos Determinantes | SHOCKING-NEURAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0E27;
+  --glass: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.12);
+  --cyan: #00F3FF;
+  --purple: #9D4EDD;
+  --emerald: #00FF9D;
+  --gold: #FFD700;
+  --text: #F5F2ED;
+  --muted: #8A94A6;
+}
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden; }
+.container { max-width:1200px; margin:0 auto; padding:0 20px; }
+
+header { padding:40px 0; text-align:center; position:relative; }
+header::before {
+  content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:200px; height:2px; background:linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+h1 { font-family:'Orbitron',sans-serif; font-size:clamp(1.8rem, 4vw, 2.5rem); margin-bottom:15px; background:linear-gradient(90deg, var(--cyan), var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.subtitle { color:var(--muted); max-width:700px; margin:0 auto; font-size:1.1rem; }
+
+.hub-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:25px; margin:50px 0 80px;
+}
+.element-card {
+  background:var(--glass); backdrop-filter:blur(16px);
+  border:1px solid var(--border); border-radius:16px;
+  padding:30px; text-decoration:none; color:var(--text);
+  transition:all 0.4s ease; position:relative; overflow:hidden;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+.element-card:hover {
+  transform:translateY(-8px); border-color:var(--cyan);
+  box-shadow:0 15px 40px rgba(0,243,255,0.15);
+}
+.element-card::after {
+  content:''; position:absolute; top:0; left:0; width:100%; height:3px;
+  background:linear-gradient(90deg, var(--cyan), var(--purple));
+  opacity:0; transition:opacity 0.3s;
+}
+.element-card:hover::after { opacity:1; }
+.card-icon { font-size:2.5rem; margin-bottom:15px; }
+.card-title { font-family:'Orbitron',sans-serif; font-size:1.2rem; margin-bottom:10px; color:var(--gold); }
+.card-desc { font-size:0.9rem; color:var(--muted); }
+
+.footer-nav {
+  text-align:center; padding:40px 0; border-top:1px solid var(--border);
+  margin-top:40px;
+}
+.btn-back {
+  display:inline-flex; align-items:center; gap:10px; padding:12px 25px;
+  background:rgba(255,255,255,0.05); border:1px solid var(--border);
+  border-radius:30px; color:var(--text); text-decoration:none;
+  font-weight:600; transition:0.3s;
+}
+.btn-back:hover { background:rgba(255,255,255,0.1); border-color:var(--cyan); }
+
+@media(max-width:768px) {
+  .hub-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Los 7 Elementos Determinantes</h1>
+    <p class="subtitle">La arquitectura oculta del inglés. No memorices reglas, domina el sistema operativo del idioma haciendo clic en cada módulo.</p>
+  </header>
+
+  <div class="hub-grid">
+    <a href="sustantivos.html" class="element-card">
+      <div class="card-icon">📦</div>
+      <h3 class="card-title">1. Sustantivos (Nouns)</h3>
+      <p class="card-desc">La base de todo. Entidades, objetos e ideas. Aprende por qué el inglés piensa en sustantivos, no en verbos.</p>
+    </a>
+
+    <a href="adjetivos.html" class="element-card">
+      <div class="card-icon">🎨</div>
+      <h3 class="card-title">2. Adjetivos</h3>
+      <p class="card-desc">Cualidades y rasgos. Descubre por qué en inglés no tienen género ni plural, a diferencia del español.</p>
+    </a>
+
+    <a href="adverbios.html" class="element-card">
+      <div class="card-icon">⚡</div>
+      <h3 class="card-title">3. Adverbios</h3>
+      <p class="card-desc">El modificadores de acción, grado y frecuencia. Domina la terminación "-ly" y sus posiciones estratégicas.</p>
+    </a>
+
+    <a href="#" class="element-card" style="opacity:0.6; cursor:not-allowed;">
+      <div class="card-icon">👤</div>
+      <h3 class="card-title">4. Pronombres Personales</h3>
+      <p class="card-desc">Los activadores ineludibles de la acción. (Próximamente)</p>
+    </a>
+
+    <a href="#" class="element-card" style="opacity:0.6; cursor:not-allowed;">
+      <div class="card-icon">📍</div>
+      <h3 class="card-title">5. Preposiciones</h3>
+      <p class="card-desc">Relaciones espaciales y temporales. In, On, At y más. (Próximamente)</p>
+    </a>
+
+    <a href="#" class="element-card" style="opacity:0.6; cursor:not-allowed;">
+      <div class="card-icon">⚙️</div>
+      <h3 class="card-title">6. Palabras Auxiliares</h3>
+      <p class="card-desc">El soporte estructural de las oraciones. (Próximamente)</p>
+    </a>
+
+    <a href="#" class="element-card" style="opacity:0.6; cursor:not-allowed;">
+      <div class="card-icon">🛡️</div>
+      <h3 class="card-title">7. Palabras Modales</h3>
+      <p class="card-desc">Posibilidad, obligación y permiso. (Próximamente)</p>
+    </a>
+  </div>
+
+  <div class="footer-nav">
+    <a href="https://discoveryenglishmexico-commits.github.io/SHOCKING-NEURAL-PRO-NEW/onboarding.html" class="btn-back">
+      ← Volver a SHOCKING-NEURAL
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
